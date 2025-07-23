@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4">
+  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 py-0 my-0">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
@@ -50,53 +46,29 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+        {isMenuOpen && <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <a
-                href="#home"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={toggleMenu}
-              >
+              <a href="#home" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                 Home
               </a>
-              <a
-                href="#about"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={toggleMenu}
-              >
+              <a href="#about" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                 About
               </a>
-              <a
-                href="#services"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={toggleMenu}
-              >
+              <a href="#services" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                 Services
               </a>
-              <a
-                href="#technology"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={toggleMenu}
-              >
+              <a href="#technology" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                 Technology
               </a>
-              <a
-                href="#contact"
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={toggleMenu}
-              >
+              <a href="#contact" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                 Contact
               </a>
               <Button variant="default" className="bg-tech-gradient w-fit">
                 Get Started
               </Button>
             </div>
-          </div>
-        )}
+          </div>}
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default Navigation;

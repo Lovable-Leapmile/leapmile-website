@@ -13,7 +13,7 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight md:text-6xl my-0 py-0">
+          <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight md:text-6xl my-0 py-10">
             Advancing the Future with
             <span className="block bg-tech-gradient bg-clip-text text-transparent">
               Intelligent Robotics
