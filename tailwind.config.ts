@@ -70,7 +70,8 @@ export default {
 				'hero-gradient': 'var(--hero-gradient)'
 			},
 			boxShadow: {
-				'tech': 'var(--shadow-tech)'
+				'tech': 'var(--shadow-tech)',
+				'card-hover': 'var(--shadow-card-hover)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'
