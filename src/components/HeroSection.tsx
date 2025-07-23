@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-
 const HeroSection = () => {
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-hero-gradient relative overflow-hidden">
+  return <section id="home" className="min-h-screen flex items-center justify-center bg-hero-gradient relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
@@ -15,7 +13,7 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
+          <h1 className="text-5xl font-bold text-foreground mb-6 leading-tight md:text-6xl my-0 py-0">
             Advancing the Future with
             <span className="block bg-tech-gradient bg-clip-text text-transparent">
               Intelligent Robotics
@@ -30,18 +28,11 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-tech-gradient hover:shadow-tech text-lg px-8 py-4 h-auto group"
-            >
+            <Button size="lg" className="bg-tech-gradient hover:shadow-tech text-lg px-8 py-4 h-auto group">
               Explore Solutions
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8 py-4 h-auto group hover:bg-accent"
-            >
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent">
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>
@@ -72,8 +63,6 @@ const HeroSection = () => {
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary-glow/20 rounded-full blur-xl animate-pulse delay-700"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
