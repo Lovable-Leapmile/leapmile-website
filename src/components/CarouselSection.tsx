@@ -119,7 +119,7 @@ const CarouselSection = () => {
             }}
             plugins={[
               Autoplay({
-                delay: 100,
+                delay: 1000,
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
               }),
