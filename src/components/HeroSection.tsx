@@ -17,9 +17,6 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="text-left">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-8">
-              🚀 Next-Generation Robotics & AI Solutions
-            </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
