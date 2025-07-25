@@ -50,7 +50,7 @@ const HeroSection = () => {
 
           {/* Right Video */}
           <div className="relative">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative aspect-video rounded-lg overflow-hidden">
               <video
                 className="w-full h-full object-cover"
                 autoPlay
