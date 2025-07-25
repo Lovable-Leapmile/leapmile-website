@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 const HeroSection = () => {
-  return <section id="home" className="min-h-screen flex items-center justify-center bg-hero-gradient relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  return <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background GIF */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/homepage/Gif/homebackground.gif')`
+        }}
+      ></div>
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/60"></div>
       
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">

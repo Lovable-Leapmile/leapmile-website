@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoLight from "@/assets/logo-light.png";
+import logoDark from "@/assets/logo-dark.png";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -9,10 +11,16 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-tech-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">L</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">LeapMile</span>
+            <img 
+              src={logoLight} 
+              alt="LeapMile Logo" 
+              className="h-8 w-auto dark:hidden"
+            />
+            <img 
+              src={logoDark} 
+              alt="LeapMile Logo" 
+              className="h-8 w-auto hidden dark:block"
+            />
           </div>
 
           {/* Desktop Navigation */}

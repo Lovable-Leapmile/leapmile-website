@@ -10,6 +10,8 @@ import {
   Github,
   ArrowRight
 } from "lucide-react";
+import logoLight from "@/assets/logo-light.png";
+import logoDark from "@/assets/logo-dark.png";
 
 const Footer = () => {
   const footerLinks = {
@@ -48,10 +50,16 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-6">
-                <div className="w-8 h-8 bg-tech-gradient rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">L</span>
-                </div>
-                <span className="text-xl font-bold">LeapMile</span>
+                <img 
+                  src={logoLight} 
+                  alt="LeapMile Logo" 
+                  className="h-8 w-auto dark:hidden"
+                />
+                <img 
+                  src={logoDark} 
+                  alt="LeapMile Logo" 
+                  className="h-8 w-auto hidden dark:block"
+                />
               </div>
               <p className="text-muted mb-6 leading-relaxed">
                 Pioneering the future of autonomous technology through innovative 
