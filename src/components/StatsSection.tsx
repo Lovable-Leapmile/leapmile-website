@@ -1,9 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  Clock, 
-  Package, 
-  Maximize2, 
-  HandMetal,
   TrendingUp,
   Target,
   Settings,
@@ -15,30 +11,7 @@ import {
 } from "lucide-react";
 
 const StatsSection = () => {
-  const topStats = [
-    {
-      icon: Clock,
-      title: "Deployment Time",
-      value: "1–2 Weeks"
-    },
-    {
-      icon: Package,
-      title: "Storage Capacity", 
-      value: "6000 SKUs"
-    },
-    {
-      icon: Maximize2,
-      title: "Physical Footprint",
-      value: "3000 Sq. Ft"
-    },
-    {
-      icon: HandMetal,
-      title: "High Throughput",
-      value: "1250 Orders / Day"
-    }
-  ];
-
-  const gridStats = [
+  const performanceStats = [
     {
       title: "Increase in storage density & capacity",
       value: "200%",
@@ -84,33 +57,20 @@ const StatsSection = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        {/* Top Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {topStats.map((stat, index) => (
-            <Card key={index} className="text-center hover:shadow-tech transition-all duration-300 card-hover-effect">
-              <CardContent className="p-6">
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <stat.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                      {stat.title}
-                    </h3>
-                    <p className="text-2xl font-bold text-foreground">
-                      {stat.value}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+            A smarter way to automate warehouse operations
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Leapmile's Nano Warehousing platform helps improve fulfillment operations with measurable results—from higher storage capacity to reduced costs and increased throughput.
+          </p>
         </div>
 
-        {/* Grid Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {gridStats.map((stat, index) => (
-            <Card key={index} className="group hover:shadow-tech transition-all duration-300 card-hover-effect cursor-pointer">
+        {/* Performance Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {performanceStats.map((stat, index) => (
+            <Card key={index} className="group hover:shadow-tech transition-all duration-300 card-hover-effect cursor-pointer hover:-translate-y-1">
               <CardContent className="p-6 text-center">
                 <div className="flex flex-col items-center space-y-4">
                   <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
