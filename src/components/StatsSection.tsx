@@ -15,28 +15,6 @@ import {
 } from "lucide-react";
 
 const StatsSection = () => {
-  const topStats = [
-    {
-      icon: Clock,
-      title: "Deployment Time",
-      value: "1–2 Weeks"
-    },
-    {
-      icon: Package,
-      title: "Storage Capacity", 
-      value: "6000 SKUs"
-    },
-    {
-      icon: Maximize2,
-      title: "Physical Footprint",
-      value: "3000 Sq. Ft"
-    },
-    {
-      icon: HandMetal,
-      title: "High Throughput",
-      value: "1250 Orders / Day"
-    }
-  ];
 
   const gridStats = [
     {
@@ -84,31 +62,18 @@ const StatsSection = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        {/* Top Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {topStats.map((stat, index) => (
-            <Card key={index} className="text-center hover:shadow-tech transition-all duration-300 card-hover-effect">
-              <CardContent className="p-6">
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <stat.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                      {stat.title}
-                    </h3>
-                    <p className="text-2xl font-bold text-foreground">
-                      {stat.value}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            A smarter way to automate warehouse operations
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Leapmile's Nano Warehousing platform delivers measurable results through better accuracy, throughput, and lower costs. These performance metrics highlight how our system improves warehouse efficiency at every level.
+          </p>
         </div>
 
-        {/* Grid Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {gridStats.map((stat, index) => (
             <Card key={index} className="group hover:shadow-tech transition-all duration-300 card-hover-effect cursor-pointer">
               <CardContent className="p-6 text-center">

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Clock, Package, Maximize2, HandMetal } from "lucide-react";
 const HeroSection = () => {
   return <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background GIF */}
@@ -13,24 +13,24 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="text-left">
-            {/* Stylish Text Line */}
+            {/* Heading */}
             <div className="mb-6">
               <p className="text-lg md:text-xl text-muted-foreground font-thin tracking-wide">
-                Speed · Flexibility · Efficiency · Reliability · Affordable
+                Discover robotic warehousing done the Leapmile way!
               </p>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Modern
+              Nano Warehousing platform
               <span className="block bg-tech-gradient bg-clip-text text-transparent">
-                Commerce Demands
+                transforms fulfilment automation
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed">
-              Robotic systems enhance storage efficiency and expedite the process of item picking. This drives substantial cost savings and ensures error-free operations in item storage, order picking, packing, and dispatch across a diverse range of use cases, industries, and warehouse sizes.
+              The Leapmile Robotics platform revolutionizes warehouse fulfillment facility operations by automating traditionally manual, time-consuming tasks. This advanced system uses top-tier robotics technology for efficient storage and management of items within any warehouse facility. It excels in automating tasks like secure inventory storage, accurate retrieval, quick picking, regular auditing, and efficient dispatch.
             </p>
 
             {/* CTA Buttons */}
@@ -46,13 +46,43 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Video */}
-          <div className="relative">
-            <div className="relative aspect-video rounded-lg overflow-hidden">
-              <video className="w-full h-full object-cover" autoPlay loop muted playsInline controls={false}>
-                <source src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Homepage/Videos/Nanowarehouse_leapmilerobotics.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          {/* Right Metrics Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-card-hover transition-all duration-300">
+              <div className="flex flex-col items-center space-y-2">
+                <Clock className="h-6 w-6 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Deployment Time</p>
+                  <p className="text-lg font-semibold text-foreground">1–2 Weeks</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-card-hover transition-all duration-300">
+              <div className="flex flex-col items-center space-y-2">
+                <Package className="h-6 w-6 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Storage Capacity</p>
+                  <p className="text-lg font-semibold text-foreground">6000 SKUs</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-card-hover transition-all duration-300">
+              <div className="flex flex-col items-center space-y-2">
+                <Maximize2 className="h-6 w-6 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Physical Footprint</p>
+                  <p className="text-lg font-semibold text-foreground">3000 Sq. Ft</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-card-hover transition-all duration-300">
+              <div className="flex flex-col items-center space-y-2">
+                <HandMetal className="h-6 w-6 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">High Throughput</p>
+                  <p className="text-lg font-semibold text-foreground">1250 Orders/day</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
