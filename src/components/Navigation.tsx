@@ -174,7 +174,7 @@ const Navigation = () => {
                 onClick={() => handleToggleSwitch(false)}
                 className={`p-2 rounded-full transition-all duration-300 ${
                   !isQikpodMode 
-                    ? 'bg-primary shadow-md scale-110' 
+                    ? 'bg-white shadow-md scale-110' 
                     : 'hover:bg-muted/80'
                 }`}
               >
@@ -188,7 +188,7 @@ const Navigation = () => {
                 onClick={() => handleToggleSwitch(true)}
                 className={`p-2 rounded-full transition-all duration-300 ${
                   isQikpodMode 
-                    ? 'bg-primary shadow-md scale-110' 
+                    ? 'bg-white shadow-md scale-110' 
                     : 'hover:bg-muted/80'
                 }`}
               >
