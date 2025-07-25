@@ -10,7 +10,7 @@ const HeroSection = () => {
         }}
       ></div>
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-background/80"></div>
+      <div className="absolute inset-0 bg-background/100"></div>
       
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
