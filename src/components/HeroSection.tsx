@@ -23,16 +23,15 @@ const HeroSection = () => {
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Advancing the Future with
+              Modern
               <span className="block bg-tech-gradient bg-clip-text text-transparent">
-                Intelligent Robotics
+                Commerce Demands
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed">
-              LeapMile revolutionizes industries through cutting-edge robotics, AI automation, 
-              and intelligent logistics solutions that drive efficiency and innovation.
+              Robotic systems enhance storage efficiency and expedite the process of item picking. This drives substantial cost savings and ensures error-free operations in item storage, order picking, packing, and dispatch across a diverse range of use cases, industries, and warehouse sizes.
             </p>
 
             {/* CTA Buttons */}
