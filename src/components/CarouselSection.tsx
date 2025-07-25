@@ -100,13 +100,13 @@ const CarouselSection = () => {
 
   return (
     <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 lg:px-16 xl:px-24">
         {/* Image */}
         <div className="text-center mb-12">
           <img 
             src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Images/virtualrobot.png"
             alt="Virtual Robot"
-            className="mx-auto max-w-full h-auto rounded-lg shadow-lg"
+            className="mx-auto max-w-md h-auto rounded-lg"
           />
         </div>
 
@@ -119,7 +119,7 @@ const CarouselSection = () => {
             }}
             plugins={[
               Autoplay({
-                delay: 2000,
+                delay: 4000,
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
               }),

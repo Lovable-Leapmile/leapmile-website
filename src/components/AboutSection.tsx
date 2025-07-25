@@ -28,7 +28,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">

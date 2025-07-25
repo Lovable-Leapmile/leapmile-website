@@ -1,7 +1,7 @@
 const WhyLeapmileSection = () => {
   return (
     <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 lg:px-16 xl:px-24">
         <div className="text-center max-w-4xl mx-auto space-y-6">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
             Why Leapmile Robotics
