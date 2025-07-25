@@ -16,7 +16,12 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="text-left">
-            {/* Badge */}
+            {/* Stylish Text Line */}
+            <div className="mb-6">
+              <p className="text-lg md:text-xl text-muted-foreground font-thin tracking-wide">
+                Speed · Flexibility · Efficiency · Reliability · Affordable
+              </p>
+            </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">

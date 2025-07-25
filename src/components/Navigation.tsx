@@ -12,6 +12,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [technologyOpen, setTechnologyOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { theme, switchToQikpod, switchToLeapmile } = useTheme();
@@ -42,6 +43,12 @@ const Navigation = () => {
     "Nano Warehouse",
     "Smart Locker-Qikpod",
     "Virtual Tour"
+  ];
+
+  const companyItems = [
+    "About Us",
+    "Careers", 
+    "Contact Us"
   ];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-0 my-0">
@@ -131,9 +138,32 @@ const Navigation = () => {
                 )}
               </div>
 
-              <a href="#company" className="text-foreground hover:text-primary transition-colors">
-                Company
-              </a>
+              {/* Company Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setCompanyOpen(true)}
+                onMouseLeave={() => setCompanyOpen(false)}
+              >
+                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors">
+                  <span>Company</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {companyOpen && (
+                  <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-md shadow-lg z-50">
+                    <div className="py-2">
+                      {companyItems.map((item, index) => (
+                        <a
+                          key={index}
+                          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
@@ -291,9 +321,22 @@ const Navigation = () => {
                     </div>
                   </div>
                   
-                  <a href="#company" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
-                    Company
-                  </a>
+                  {/* Mobile Company */}
+                  <div className="space-y-2">
+                    <span className="text-foreground font-medium">Company</span>
+                    <div className="pl-4 space-y-2">
+                      {companyItems.map((item, index) => (
+                        <a
+                          key={index}
+                          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                          onClick={toggleMenu}
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </>
               )}
             </div>
