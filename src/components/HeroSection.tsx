@@ -34,12 +34,12 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-tech-gradient hover:shadow-tech text-lg px-8 py-4 h-auto group">
-                Explore Solutions
+                Explore Industries
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent">
                 <Play className="mr-2 h-5 w-5" />
-                Watch Demo
+                Virtual Tour
               </Button>
             </div>
           </div>

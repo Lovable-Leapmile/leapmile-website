@@ -38,7 +38,8 @@ const Navigation = () => {
 
   const technologyItems = [
     "Nano Warehouse",
-    "Smart Locker-Qikpod"
+    "Smart Locker-Qikpod",
+    "Virtual Tour"
   ];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-0 my-0">
@@ -59,21 +60,26 @@ const Navigation = () => {
 
           {/* Theme Toggle */}
           <div className="hidden md:flex items-center space-x-2">
-            <img 
-              src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/lm_button.png" 
-              alt="Leapmile" 
-              className="h-6 w-6"
-            />
-            <Switch 
-              checked={isQikpodMode}
-              onCheckedChange={handleToggleSwitch}
-              className="data-[state=checked]:bg-primary"
-            />
-            <img 
-              src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/q.png" 
-              alt="Qikpod" 
-              className="h-6 w-6"
-            />
+            <button 
+              onClick={() => handleToggleSwitch(false)}
+              className={`transition-opacity ${!isQikpodMode ? 'opacity-100' : 'opacity-50'}`}
+            >
+              <img 
+                src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/lm_button.png" 
+                alt="Leapmile" 
+                className="h-6 w-6"
+              />
+            </button>
+            <button 
+              onClick={() => handleToggleSwitch(true)}
+              className={`transition-opacity ${isQikpodMode ? 'opacity-100' : 'opacity-50'}`}
+            >
+              <img 
+                src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/q.png" 
+                alt="Qikpod" 
+                className="h-6 w-6"
+              />
+            </button>
           </div>
 
           {/* Desktop Navigation */}
@@ -157,21 +163,26 @@ const Navigation = () => {
             <div className="flex flex-col space-y-4">
               {/* Mobile Theme Toggle */}
               <div className="flex items-center justify-center space-x-2 py-2">
-                <img 
-                  src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/lm_button.png" 
-                  alt="Leapmile" 
-                  className="h-6 w-6"
-                />
-                <Switch 
-                  checked={isQikpodMode}
-                  onCheckedChange={handleToggleSwitch}
-                  className="data-[state=checked]:bg-primary"
-                />
-                <img 
-                  src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/q.png" 
-                  alt="Qikpod" 
-                  className="h-6 w-6"
-                />
+                <button 
+                  onClick={() => handleToggleSwitch(false)}
+                  className={`transition-opacity ${!isQikpodMode ? 'opacity-100' : 'opacity-50'}`}
+                >
+                  <img 
+                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/lm_button.png" 
+                    alt="Leapmile" 
+                    className="h-6 w-6"
+                  />
+                </button>
+                <button 
+                  onClick={() => handleToggleSwitch(true)}
+                  className={`transition-opacity ${isQikpodMode ? 'opacity-100' : 'opacity-50'}`}
+                >
+                  <img 
+                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Header&footer/q.png" 
+                    alt="Qikpod" 
+                    className="h-6 w-6"
+                  />
+                </button>
               </div>
               
               <a href="#home" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
