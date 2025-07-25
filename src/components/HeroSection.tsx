@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/homepage/Gif/homebackground.gif')`
+          backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Homepage/Gif/homebackground.gif')`
         }}
       ></div>
       {/* Dark overlay for better text readability */}
