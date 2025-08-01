@@ -1,38 +1,30 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Cog, Zap, Target } from "lucide-react";
-
 const AboutSection = () => {
-  const values = [
-    {
-      icon: Brain,
-      title: "AI-Powered Intelligence",
-      description: "Leveraging advanced machine learning and AI algorithms to create intelligent automation solutions."
-    },
-    {
-      icon: Cog,
-      title: "Precision Engineering",
-      description: "Building robust, reliable robotics systems with precision manufacturing and quality assurance."
-    },
-    {
-      icon: Zap,
-      title: "Rapid Innovation",
-      description: "Fast-tracking development cycles to bring cutting-edge solutions to market quickly."
-    },
-    {
-      icon: Target,
-      title: "Mission-Critical Focus",
-      description: "Delivering solutions that meet the most demanding operational requirements and safety standards."
-    }
-  ];
-
-  return (
-    <section id="about" className="py-20 bg-background">
+  const values = [{
+    icon: Brain,
+    title: "AI-Powered Intelligence",
+    description: "Leveraging advanced machine learning and AI algorithms to create intelligent automation solutions."
+  }, {
+    icon: Cog,
+    title: "Precision Engineering",
+    description: "Building robust, reliable robotics systems with precision manufacturing and quality assurance."
+  }, {
+    icon: Zap,
+    title: "Rapid Innovation",
+    description: "Fast-tracking development cycles to bring cutting-edge solutions to market quickly."
+  }, {
+    icon: Target,
+    title: "Mission-Critical Focus",
+    description: "Delivering solutions that meet the most demanding operational requirements and safety standards."
+  }];
+  return <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-8 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">About LeapMile</Badge>
+            <Badge variant="outline" className="mb-4">About Leapmile Robotics</Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Pioneering the Future of 
               <span className="block text-primary">Autonomous Technology</span>
@@ -96,8 +88,7 @@ const AboutSection = () => {
 
           {/* Values Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-tech transition-shadow duration-300">
+            {values.map((value, index) => <Card key={index} className="text-center hover:shadow-tech transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <value.icon className="h-6 w-6 text-primary" />
@@ -107,13 +98,10 @@ const AboutSection = () => {
                     {value.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
