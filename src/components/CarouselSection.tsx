@@ -83,7 +83,7 @@ const CarouselSection = () => {
         })]} className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
               {features.map((feature, index) => <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
-                  <Card className="h-full">
+                  <Card className="h-full hover:border-primary/50 transition-colors duration-200">
                     <CardContent className="p-4 text-center">
                       <div className="flex flex-col items-center space-y-3">
                         <div className="p-2 bg-primary/10 rounded-lg">

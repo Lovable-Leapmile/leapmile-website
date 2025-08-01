@@ -162,7 +162,7 @@ const ContactSection = () => {
               {/* Contact Details */}
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="p-4 hover:shadow-lg transition-shadow">
+                  <Card key={index} className="p-4">
                     <CardContent className="p-0">
                       <div className="flex items-start space-x-3">
                         <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">

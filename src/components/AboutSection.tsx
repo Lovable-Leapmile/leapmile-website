@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Cog, Zap, Target } from "lucide-react";
-import warehouseAutomationImage from "@/assets/warehouse-automation.jpg";
 const AboutSection = () => {
   const values = [{
     icon: Brain,
@@ -60,7 +59,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden">
                 <img 
-                  src={warehouseAutomationImage} 
+                  src="https://leapmile-website.blr1.digitaloceanspaces.com/Homepage/Gif/homebackground.gif" 
                   alt="Leapmile warehouse automation in action"
                   className="w-full h-full object-cover"
                 />
