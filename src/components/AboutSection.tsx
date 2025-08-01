@@ -26,14 +26,9 @@ const AboutSection = () => {
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">About Leapmile Robotics</Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Pioneering the Future of 
-              <span className="block text-primary">Autonomous Technology</span>
+              Innovative warehousing and last-mile products to 
+              <span className="block text-primary">accelerate digital commerce</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Founded with a vision to revolutionize industrial automation, LeapMile combines 
-              cutting-edge robotics with artificial intelligence to solve complex challenges 
-              across multiple industries.
-            </p>
           </div>
 
           {/* Main Content Grid */}
@@ -41,17 +36,10 @@ const AboutSection = () => {
             {/* Left Content */}
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">
-                Transforming Industries Through Innovation
+                Value-Engineered Warehouse Automation Solutions
               </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Our team of expert engineers, AI researchers, and robotics specialists work 
-                tirelessly to develop solutions that don't just meet today's needs, but 
-                anticipate tomorrow's challenges.
-              </p>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                From autonomous logistics systems to intelligent manufacturing automation, 
-                we're building the infrastructure that will power the next generation of 
-                smart industries.
+                Leapmile Robotics, an innovative provider in the emerging warehouse space, is committed to delivering value-engineered, flexible, intelligent warehouse automation solutions that combine smart robotics technology and intelligent software. The Leapmile Nano offers the world's most cost-efficient platform for the deployment of small nano warehouses. The robotics hardware enjoys fast implementation times and offers an API-first software and analytics system that can be easily integrated into existing workflows and back-end systems.
               </p>
               
               {/* Key Numbers */}
@@ -67,14 +55,14 @@ const AboutSection = () => {
               </div>
             </div>
 
-            {/* Right Content - Image Placeholder */}
+            {/* Right Content - GIF */}
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary-glow/20 rounded-2xl flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <Cog className="h-24 w-24 mx-auto mb-4 opacity-50" />
-                  <p>Advanced Robotics Lab</p>
-                  <p className="text-sm">Innovation in Action</p>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden">
+                <img 
+                  src="/src/assets/homebackground.gif" 
+                  alt="Leapmile warehouse automation in action"
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Floating Cards */}
