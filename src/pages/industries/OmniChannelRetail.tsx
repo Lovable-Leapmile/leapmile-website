@@ -3,31 +3,39 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { 
-  TrendingUp, 
-  Settings, 
-  Eye, 
-  ShieldCheck, 
-  Wrench, 
-  Heart, 
-  Clock, 
-  FileBarChart, 
-  TrendingDown, 
-  Archive 
-} from "lucide-react";
+import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 const OmniChannelRetail = () => {
-  const benefits = [
-    { name: "Increase Throughput", icon: TrendingUp },
-    { name: "Simplified Customization", icon: Settings },
-    { name: "Inventory Visibility", icon: Eye },
-    { name: "Eliminate Manual Errors", icon: ShieldCheck },
-    { name: "Easy Maintenance", icon: Wrench },
-    { name: "Enhance Shopper Experience", icon: Heart },
-    { name: "24 x 7 Operation", icon: Clock },
-    { name: "Daily Audit Reports", icon: FileBarChart },
-    { name: "Handle Seasonal Peaks", icon: TrendingDown },
-    { name: "Increase Storage Density", icon: Archive }
-  ];
+  const benefits = [{
+    name: "Increase Throughput",
+    icon: TrendingUp
+  }, {
+    name: "Simplified Customization",
+    icon: Settings
+  }, {
+    name: "Inventory Visibility",
+    icon: Eye
+  }, {
+    name: "Eliminate Manual Errors",
+    icon: ShieldCheck
+  }, {
+    name: "Easy Maintenance",
+    icon: Wrench
+  }, {
+    name: "Enhance Shopper Experience",
+    icon: Heart
+  }, {
+    name: "24 x 7 Operation",
+    icon: Clock
+  }, {
+    name: "Daily Audit Reports",
+    icon: FileBarChart
+  }, {
+    name: "Handle Seasonal Peaks",
+    icon: TrendingDown
+  }, {
+    name: "Increase Storage Density",
+    icon: Archive
+  }];
   const orderFlow = [{
     image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderplacement.png",
     header: "Order Placement",
@@ -122,36 +130,7 @@ const OmniChannelRetail = () => {
       </section>
 
       {/* Video Section */}
-      <section className="py-20 bg-background">
-        <div className="page-wrapper">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-              Watch the Robot in Action
-            </h2>
-            
-            <div className="relative rounded-2xl overflow-hidden">
-              <video className="w-full h-auto" autoPlay loop muted controls={false} style={{
-              borderRadius: '1rem'
-            }}>
-                <source src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Videos/quickcommerce.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Fullscreen Button */}
-              <button className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors" onClick={() => {
-              const video = document.querySelector('video');
-              if (video) {
-                video.requestFullscreen();
-              }
-            }}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Order Flow Section */}
       <section className="py-20 bg-muted/30">
