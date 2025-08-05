@@ -3,37 +3,22 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
 const ShowcaseRobot = () => {
-  const features = [
-    "Floating Glass Observation Bubbles",
-    "Transparent Lighted Panels for Additional Display",
-    "Touch Screen Self Service Interactivity",
-    "Automated Rotation of Display Across Collections",
-    "Body Panels Wrapped in Art Renderings",
-    "Secure & Simplified Management App"
-  ];
-
-  const orderFlow = [
-    {
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Inscreen.png",
-      header: "Selecting Item",
-      caption: "Customer browses and selects items through the interactive touchscreen interface"
-    },
-    {
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Intray.png", 
-      header: "Transferring from Rack",
-      caption: "The robotic system retrieves the selected item from secure storage racks"
-    },
-    {
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Inbubble.png",
-      header: "Displaying Item", 
-      caption: "Item is presented in the glass observation bubble for detailed inspection"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const features = ["Floating Glass Observation Bubbles", "Transparent Lighted Panels for Additional Display", "Touch Screen Self Service Interactivity", "Automated Rotation of Display Across Collections", "Body Panels Wrapped in Art Renderings", "Secure & Simplified Management App"];
+  const orderFlow = [{
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Inscreen.png",
+    header: "Selecting Item",
+    caption: "Customer browses and selects items through the interactive touchscreen interface"
+  }, {
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Intray.png",
+    header: "Transferring from Rack",
+    caption: "The robotic system retrieves the selected item from secure storage racks"
+  }, {
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Inbubble.png",
+    header: "Displaying Item",
+    caption: "Item is presented in the glass observation bubble for detailed inspection"
+  }];
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
@@ -70,11 +55,7 @@ const ShowcaseRobot = () => {
               {/* Right Image */}
               <div className="relative">
                 <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/industrishow.png" 
-                    alt="Showcase Robot display system"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/industrishow.png" alt="Showcase Robot display system" className="w-full h-full object-contain" />
                 </div>
               </div>
             </div>
@@ -85,12 +66,9 @@ const ShowcaseRobot = () => {
       {/* Features Section with Background */}
       <section className="py-20 relative">
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/features.png)'
-          }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center" style={{
+        backgroundImage: 'url(https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/features.png)'
+      }}>
           {/* Overlay */}
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
         </div>
@@ -108,16 +86,14 @@ const ShowcaseRobot = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, index) => (
-                <Card key={index} className="bg-card/90 backdrop-blur-sm border-primary/20">
+              {features.map((feature, index) => <Card key={index} className="bg-card/90 backdrop-blur-sm border-primary/20">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <div className="w-6 h-6 bg-primary rounded-full"></div>
                     </div>
                     <h4 className="font-semibold text-foreground text-sm leading-relaxed">{feature}</h4>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -132,28 +108,20 @@ const ShowcaseRobot = () => {
             </h2>
             
             <div className="relative rounded-2xl overflow-hidden">
-              <video 
-                className="w-full h-auto"
-                autoPlay
-                loop
-                muted
-                controls={false}
-                style={{ borderRadius: '1rem' }}
-              >
+              <video className="w-full h-auto" autoPlay loop muted controls={false} style={{
+              borderRadius: '1rem'
+            }}>
                 <source src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Videos/Showcase Robot Leapmile.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               
               {/* Fullscreen Button */}
-              <button 
-                className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors"
-                onClick={() => {
-                  const video = document.querySelector('video');
-                  if (video) {
-                    video.requestFullscreen();
-                  }
-                }}
-              >
+              <button className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors" onClick={() => {
+              const video = document.querySelector('video');
+              if (video) {
+                video.requestFullscreen();
+              }
+            }}>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
@@ -177,19 +145,13 @@ const ShowcaseRobot = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {orderFlow.map((flow, index) => (
-                <div key={index} className="text-center">
+              {orderFlow.map((flow, index) => <div key={index} className="text-center">
                   <div className="aspect-square rounded-2xl overflow-hidden mb-6">
-                    <img 
-                      src={flow.image} 
-                      alt={flow.header}
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={flow.image} alt={flow.header} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{flow.header}</h3>
                   <p className="text-muted-foreground leading-relaxed">{flow.caption}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -228,8 +190,6 @@ const ShowcaseRobot = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ShowcaseRobot;
