@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 const HeroSection = () => {
-  return <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+  return <section id="home" className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-20 pb-8">
       <div className="absolute inset-0 bg-background/100"></div>
       
-      <div className="container mx-auto px-8 lg:px-16 xl:px-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div className="text-left">
             {/* Stylish Text Line */}

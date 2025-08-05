@@ -55,14 +55,14 @@ const ServicesSection = () => {
 
   return (
     <section id="industries" className="py-20 bg-accent/30">
-      <div className="container mx-auto px-8 lg:px-16 xl:px-24">
+      <div className="container mx-auto px-6 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">Our Industries</Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Suitable for
-              <span className="block text-primary">Industries</span>
+              Smart Automation for
+              <span className="block text-primary">Modern Industries</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Revolutionary warehouse automation solutions designed to transform efficiency across diverse industrial sectors, 
