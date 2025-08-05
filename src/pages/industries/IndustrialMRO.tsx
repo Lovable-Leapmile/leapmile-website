@@ -3,41 +3,22 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
 const IndustrialMRO = () => {
-  const benefits = [
-    "Increase Throughput",
-    "Simplified Customization", 
-    "Inventory Visibility",
-    "Eliminate Manual Errors",
-    "Easy Maintenance",
-    "Enhance Shopper Experience",
-    "24 x 7 Operation", 
-    "Daily Audit Reports",
-    "Handle Seasonal Peaks",
-    "Increase Storage Density"
-  ];
-
-  const orderFlow = [
-    {
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow1.png",
-      header: "Order Submission",
-      caption: "Once the order is getting confirmed, the order is displayed on the led screen."
-    },
-    {
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow2.png", 
-      header: "Items Consolidated",
-      caption: "The bins containing the corresponding SKUs are transported to the pickup station."
-    },
-    {
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow3.png",
-      header: "Picking & Dispatch", 
-      caption: "The staff manually picks up the items based on the quantities specified in the order."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const benefits = ["Increase Throughput", "Simplified Customization", "Inventory Visibility", "Eliminate Manual Errors", "Easy Maintenance", "Enhance Shopper Experience", "24 x 7 Operation", "Daily Audit Reports", "Handle Seasonal Peaks", "Increase Storage Density"];
+  const orderFlow = [{
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow1.png",
+    header: "Order Submission",
+    caption: "Once the order is getting confirmed, the order is displayed on the led screen."
+  }, {
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow2.png",
+    header: "Items Consolidated",
+    caption: "The bins containing the corresponding SKUs are transported to the pickup station."
+  }, {
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow3.png",
+    header: "Picking & Dispatch",
+    caption: "The staff manually picks up the items based on the quantities specified in the order."
+  }];
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
@@ -83,11 +64,7 @@ const IndustrialMRO = () => {
               {/* Right Image */}
               <div className="relative">
                 <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/idustri.png" 
-                    alt="Industrial & MRO warehouse automation"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/idustri.png" alt="Industrial & MRO warehouse automation" className="w-full h-full object-contain" />
                 </div>
               </div>
             </div>
@@ -109,16 +86,14 @@ const IndustrialMRO = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {benefits.map((benefit, index) => (
-                <Card key={index} className="text-center p-4">
+              {benefits.map((benefit, index) => <Card key={index} className="text-center p-4">
                   <CardContent className="p-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                       <div className="w-6 h-6 bg-primary rounded-full"></div>
                     </div>
                     <h4 className="font-semibold text-sm text-foreground">{benefit}</h4>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -133,28 +108,20 @@ const IndustrialMRO = () => {
             </h2>
             
             <div className="relative rounded-2xl overflow-hidden">
-              <video 
-                className="w-full h-auto"
-                autoPlay
-                loop
-                muted
-                controls={false}
-                style={{ borderRadius: '1rem' }}
-              >
+              <video className="w-full h-auto" autoPlay loop muted controls={false} style={{
+              borderRadius: '1rem'
+            }}>
                 <source src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Videos/Elektronik Nanowarehouse.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               
               {/* Fullscreen Button */}
-              <button 
-                className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors"
-                onClick={() => {
-                  const video = document.querySelector('video');
-                  if (video) {
-                    video.requestFullscreen();
-                  }
-                }}
-              >
+              <button className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors" onClick={() => {
+              const video = document.querySelector('video');
+              if (video) {
+                video.requestFullscreen();
+              }
+            }}>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
@@ -178,19 +145,13 @@ const IndustrialMRO = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {orderFlow.map((flow, index) => (
-                <div key={index} className="text-center">
+              {orderFlow.map((flow, index) => <div key={index} className="text-center">
                   <div className="aspect-square rounded-2xl overflow-hidden mb-6">
-                    <img 
-                      src={flow.image} 
-                      alt={flow.header}
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={flow.image} alt={flow.header} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{flow.header}</h3>
                   <p className="text-muted-foreground leading-relaxed">{flow.caption}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -229,8 +190,6 @@ const IndustrialMRO = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default IndustrialMRO;
