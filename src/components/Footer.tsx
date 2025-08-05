@@ -43,7 +43,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-foreground text-background py-16">
-      <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+      <div className="page-wrapper">
         <div className="max-w-6xl mx-auto">
           {/* Main Footer Content */}
           <div className="grid lg:grid-cols-4 gap-8 mb-12">

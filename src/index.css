@@ -111,6 +111,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
   }
 }
 
@@ -121,5 +122,17 @@ All colors MUST be HSL.
   
   .card-hover-effect:hover {
     @apply border-primary/50;
+  }
+  
+  .page-wrapper {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  
+  @media (max-width: 768px) {
+    .page-wrapper {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 }

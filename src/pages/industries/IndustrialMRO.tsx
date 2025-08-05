@@ -3,8 +3,31 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { 
+  TrendingUp, 
+  Settings, 
+  Eye, 
+  ShieldCheck, 
+  Wrench, 
+  Heart, 
+  Clock, 
+  FileBarChart, 
+  TrendingDown, 
+  Archive 
+} from "lucide-react";
 const IndustrialMRO = () => {
-  const benefits = ["Increase Throughput", "Simplified Customization", "Inventory Visibility", "Eliminate Manual Errors", "Easy Maintenance", "Enhance Shopper Experience", "24 x 7 Operation", "Daily Audit Reports", "Handle Seasonal Peaks", "Increase Storage Density"];
+  const benefits = [
+    { name: "Increase Throughput", icon: TrendingUp },
+    { name: "Simplified Customization", icon: Settings },
+    { name: "Inventory Visibility", icon: Eye },
+    { name: "Eliminate Manual Errors", icon: ShieldCheck },
+    { name: "Easy Maintenance", icon: Wrench },
+    { name: "Enhance Shopper Experience", icon: Heart },
+    { name: "24 x 7 Operation", icon: Clock },
+    { name: "Daily Audit Reports", icon: FileBarChart },
+    { name: "Handle Seasonal Peaks", icon: TrendingDown },
+    { name: "Increase Storage Density", icon: Archive }
+  ];
   const orderFlow = [{
     image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow1.png",
     header: "Order Submission",
@@ -23,7 +46,7 @@ const IndustrialMRO = () => {
       
       {/* Hero Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
@@ -74,7 +97,7 @@ const IndustrialMRO = () => {
 
       {/* Benefits Section */}
       <section className="py-20 bg-accent/30">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -89,9 +112,9 @@ const IndustrialMRO = () => {
               {benefits.map((benefit, index) => <Card key={index} className="text-center p-4">
                   <CardContent className="p-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <div className="w-6 h-6 bg-primary rounded-full"></div>
+                      <benefit.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h4 className="font-semibold text-sm text-foreground">{benefit}</h4>
+                    <h4 className="font-semibold text-sm text-foreground">{benefit.name}</h4>
                   </CardContent>
                 </Card>)}
             </div>
@@ -101,7 +124,7 @@ const IndustrialMRO = () => {
 
       {/* Video Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
               Watch the Robot in Action
@@ -133,7 +156,7 @@ const IndustrialMRO = () => {
 
       {/* Order Flow Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -159,7 +182,7 @@ const IndustrialMRO = () => {
 
       {/* Final Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-8 bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
               <CardContent className="p-0">

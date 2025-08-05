@@ -3,8 +3,23 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { 
+  Eye, 
+  Monitor, 
+  TouchpadIcon as Touch, 
+  RotateCw, 
+  Palette, 
+  Smartphone 
+} from "lucide-react";
 const ShowcaseRobot = () => {
-  const features = ["Floating Glass Observation Bubbles", "Transparent Lighted Panels for Additional Display", "Touch Screen Self Service Interactivity", "Automated Rotation of Display Across Collections", "Body Panels Wrapped in Art Renderings", "Secure & Simplified Management App"];
+  const features = [
+    { name: "Floating Glass Observation Bubbles", icon: Eye },
+    { name: "Transparent Lighted Panels for Additional Display", icon: Monitor },
+    { name: "Touch Screen Self Service Interactivity", icon: Touch },
+    { name: "Automated Rotation of Display Across Collections", icon: RotateCw },
+    { name: "Body Panels Wrapped in Art Renderings", icon: Palette },
+    { name: "Secure & Simplified Management App", icon: Smartphone }
+  ];
   const orderFlow = [{
     image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Inscreen.png",
     header: "Selecting Item",
@@ -23,7 +38,7 @@ const ShowcaseRobot = () => {
       
       {/* Hero Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
@@ -74,7 +89,7 @@ const ShowcaseRobot = () => {
         </div>
         
         {/* Content */}
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8 relative z-10">
+        <div className="page-wrapper relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -89,9 +104,9 @@ const ShowcaseRobot = () => {
               {features.map((feature, index) => <Card key={index} className="bg-card/90 backdrop-blur-sm border-primary/20">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <div className="w-6 h-6 bg-primary rounded-full"></div>
+                      <feature.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h4 className="font-semibold text-foreground text-sm leading-relaxed">{feature}</h4>
+                    <h4 className="font-semibold text-foreground text-sm leading-relaxed">{feature.name}</h4>
                   </CardContent>
                 </Card>)}
             </div>
@@ -101,7 +116,7 @@ const ShowcaseRobot = () => {
 
       {/* Video Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
               Watch the Showcase Robot in Action
@@ -133,7 +148,7 @@ const ShowcaseRobot = () => {
 
       {/* Order Flow Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -159,7 +174,7 @@ const ShowcaseRobot = () => {
 
       {/* Final Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+        <div className="page-wrapper">
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-8 bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
               <CardContent className="p-0">

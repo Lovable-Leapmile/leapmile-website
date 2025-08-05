@@ -43,7 +43,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 bg-accent/30">
-      <div className="container mx-auto px-4 lg:px-6 xl:px-8">
+      <div className="page-wrapper">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
