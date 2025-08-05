@@ -15,8 +15,12 @@ const Navigation = () => {
   const [companyOpen, setCompanyOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { theme, switchToQikpod, switchToLeapmile } = useTheme();
-  
+  const {
+    theme,
+    switchToQikpod,
+    switchToLeapmile
+  } = useTheme();
+
   // Refs for managing hover timeouts
   const industriesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const technologyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -30,13 +34,11 @@ const Navigation = () => {
     }
     setIndustriesOpen(true);
   };
-
   const handleIndustriesLeave = () => {
     industriesTimeoutRef.current = setTimeout(() => {
       setIndustriesOpen(false);
     }, 150);
   };
-
   const handleTechnologyEnter = () => {
     if (technologyTimeoutRef.current) {
       clearTimeout(technologyTimeoutRef.current);
@@ -44,13 +46,11 @@ const Navigation = () => {
     }
     setTechnologyOpen(true);
   };
-
   const handleTechnologyLeave = () => {
     technologyTimeoutRef.current = setTimeout(() => {
       setTechnologyOpen(false);
     }, 150);
   };
-
   const handleCompanyEnter = () => {
     if (companyTimeoutRef.current) {
       clearTimeout(companyTimeoutRef.current);
@@ -58,17 +58,13 @@ const Navigation = () => {
     }
     setCompanyOpen(true);
   };
-
   const handleCompanyLeave = () => {
     companyTimeoutRef.current = setTimeout(() => {
       setCompanyOpen(false);
     }, 150);
   };
-  
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  
   const isQikpodMode = location.pathname.includes('qikpod');
-  
   const handleToggleSwitch = (checked: boolean) => {
     if (checked) {
       switchToQikpod();
@@ -78,278 +74,137 @@ const Navigation = () => {
       navigate('/');
     }
   };
-
-  const industriesItems = [
-    { name: "Quick Commerce", path: "/industries/quick-commerce" },
-    { name: "E-Commerce", path: "/industries/e-commerce" },
-    { name: "Omni Channel Retail", path: "/industries/omni-channel-retail" },
-    { name: "Industrial & MRO", path: "/industries/industrial-&-mro" },
-    { name: "Showcase Robot", path: "/industries/showcase-robot" }
-  ];
-
-  const technologyItems = [
-    "Nano Warehouse",
-    "Smart Locker-Qikpod",
-    "Virtual Tour"
-  ];
-
-  const companyItems = [
-    "About Us",
-    "Careers", 
-    "Contact Us"
-  ];
+  const industriesItems = [{
+    name: "Quick Commerce",
+    path: "/industries/quick-commerce"
+  }, {
+    name: "E-Commerce",
+    path: "/industries/e-commerce"
+  }, {
+    name: "Omni Channel Retail",
+    path: "/industries/omni-channel-retail"
+  }, {
+    name: "Industrial & MRO",
+    path: "/industries/industrial-&-mro"
+  }, {
+    name: "Showcase Robot",
+    path: "/industries/showcase-robot"
+  }];
+  const technologyItems = ["Nano Warehouse", "Smart Locker-Qikpod", "Virtual Tour"];
+  const companyItems = ["About Us", "Careers", "Contact Us"];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 lg:px-6 xl:px-8 py-0 my-0">
+      <div className="container mx-auto lg:px-6 xl:px-8 py-0 my-0 px-[48px]">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            {isQikpodMode ? (
-              <img 
-                src={qikpodLogo} 
-                alt="Qikpod Logo" 
-                className="h-8 w-auto"
-              />
-            ) : (
-              <>
-                <img 
-                  src={logoLight} 
-                  alt="LeapMile Logo" 
-                  className="h-8 w-auto dark:hidden"
-                />
-                <img 
-                  src={logoDark} 
-                  alt="LeapMile Logo" 
-                  className="h-8 w-auto hidden dark:block"
-                />
-              </>
-            )}
+            {isQikpodMode ? <img src={qikpodLogo} alt="Qikpod Logo" className="h-8 w-auto" /> : <>
+                <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
+                <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
+              </>}
           </div>
 
           {/* Desktop Navigation - Only show on Leapmile page */}
-          {!isQikpodMode && (
-            <div className="hidden md:flex items-center space-x-8">
+          {!isQikpodMode && <div className="hidden md:flex items-center space-x-8">
               <Link to="/" className="text-foreground hover:text-primary transition-colors">
                 Home
               </Link>
               
               {/* Industries Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={handleIndustriesEnter}
-                onMouseLeave={handleIndustriesLeave}
-              >
+              <div className="relative" onMouseEnter={handleIndustriesEnter} onMouseLeave={handleIndustriesLeave}>
                 <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors py-2">
                   <span>Industries</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
-                {industriesOpen && (
-                  <div 
-                    className="absolute top-full left-0 pt-2 w-56 z-50"
-                    onMouseEnter={handleIndustriesEnter}
-                    onMouseLeave={handleIndustriesLeave}
-                  >
+                {industriesOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleIndustriesEnter} onMouseLeave={handleIndustriesLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {industriesItems.map((item, index) => (
-                          <Link
-                            key={index}
-                            to={item.path}
-                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                            onClick={() => window.scrollTo(0, 0)}
-                          >
+                        {industriesItems.map((item, index) => <Link key={index} to={item.path} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
                             {item.name}
-                          </Link>
-                        ))}
+                          </Link>)}
                       </div>
                     </div>
-                  </div>
-                )}
+                  </div>}
               </div>
 
               {/* Technology Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={handleTechnologyEnter}
-                onMouseLeave={handleTechnologyLeave}
-              >
+              <div className="relative" onMouseEnter={handleTechnologyEnter} onMouseLeave={handleTechnologyLeave}>
                 <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors py-2">
                   <span>Technology</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
-                {technologyOpen && (
-                  <div 
-                    className="absolute top-full left-0 pt-2 w-56 z-50"
-                    onMouseEnter={handleTechnologyEnter}
-                    onMouseLeave={handleTechnologyLeave}
-                  >
+                {technologyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleTechnologyEnter} onMouseLeave={handleTechnologyLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {technologyItems.map((item, index) => (
-                          <a
-                            key={index}
-                            href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`}
-                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                          >
+                        {technologyItems.map((item, index) => <a key={index} href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                             {item}
-                          </a>
-                        ))}
+                          </a>)}
                       </div>
                     </div>
-                  </div>
-                )}
+                  </div>}
               </div>
 
               {/* Company Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={handleCompanyEnter}
-                onMouseLeave={handleCompanyLeave}
-              >
+              <div className="relative" onMouseEnter={handleCompanyEnter} onMouseLeave={handleCompanyLeave}>
                 <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors py-2">
                   <span>Company</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
-                {companyOpen && (
-                  <div 
-                    className="absolute top-full left-0 pt-2 w-56 z-50"
-                    onMouseEnter={handleCompanyEnter}
-                    onMouseLeave={handleCompanyLeave}
-                  >
+                {companyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleCompanyEnter} onMouseLeave={handleCompanyLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {companyItems.map((item, index) => (
-                          <a
-                            key={index}
-                            href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                          >
+                        {companyItems.map((item, index) => <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                             {item}
-                          </a>
-                        ))}
+                          </a>)}
                       </div>
                     </div>
-                  </div>
-                )}
+                  </div>}
               </div>
-            </div>
-          )}
+            </div>}
 
           {/* Toggle Switch - Always positioned where Get Started was */}
           <div className="hidden md:flex items-center">
             <div className="flex items-center bg-muted/50 rounded-full p-1 border border-border">
-              <button 
-                onClick={() => handleToggleSwitch(false)}
-                className={`p-2 rounded-full transition-all duration-300 ${
-                  !isQikpodMode 
-                    ? 'bg-white shadow-md scale-110' 
-                    : 'hover:bg-muted/80'
-                }`}
-              >
-                <img 
-                  src={leapmileIcon} 
-                  alt="Leapmile" 
-                  className="h-5 w-5"
-                />
+              <button onClick={() => handleToggleSwitch(false)} className={`p-2 rounded-full transition-all duration-300 ${!isQikpodMode ? 'bg-white shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                <img src={leapmileIcon} alt="Leapmile" className="h-5 w-5" />
               </button>
-              <button 
-                onClick={() => handleToggleSwitch(true)}
-                className={`p-2 rounded-full transition-all duration-300 ${
-                  isQikpodMode 
-                    ? 'bg-white shadow-md scale-110' 
-                    : 'hover:bg-muted/80'
-                }`}
-              >
-                <img 
-                  src={qikpodIcon} 
-                  alt="Qikpod" 
-                  className="h-5 w-5"
-                />
+              <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-white shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                <img src={qikpodIcon} alt="Qikpod" className="h-5 w-5" />
               </button>
             </div>
           </div>
 
           {/* Mobile Menu Button - Only show on Leapmile or when toggle is needed */}
           <div className="md:hidden">
-            {!isQikpodMode ? (
-              <Button variant="ghost" size="icon" onClick={toggleMenu}>
+            {!isQikpodMode ? <Button variant="ghost" size="icon" onClick={toggleMenu}>
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-            ) : (
-              <div className="flex items-center bg-muted/50 rounded-full p-1 border border-border">
-                <button 
-                  onClick={() => handleToggleSwitch(false)}
-                  className={`p-2 rounded-full transition-all duration-300 ${
-                    !isQikpodMode 
-                      ? 'bg-primary shadow-md scale-110' 
-                      : 'hover:bg-muted/80'
-                  }`}
-                >
-                  <img 
-                    src={leapmileIcon} 
-                    alt="Leapmile" 
-                    className="h-4 w-4"
-                  />
+              </Button> : <div className="flex items-center bg-muted/50 rounded-full p-1 border border-border">
+                <button onClick={() => handleToggleSwitch(false)} className={`p-2 rounded-full transition-all duration-300 ${!isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                  <img src={leapmileIcon} alt="Leapmile" className="h-4 w-4" />
                 </button>
-                <button 
-                  onClick={() => handleToggleSwitch(true)}
-                  className={`p-2 rounded-full transition-all duration-300 ${
-                    isQikpodMode 
-                      ? 'bg-primary shadow-md scale-110' 
-                      : 'hover:bg-muted/80'
-                  }`}
-                >
-                  <img 
-                    src={qikpodIcon} 
-                    alt="Qikpod" 
-                    className="h-4 w-4"
-                  />
+                <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                  <img src={qikpodIcon} alt="Qikpod" className="h-4 w-4" />
                 </button>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+        {isMenuOpen && <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
               {/* Mobile Toggle Switch */}
               <div className="flex items-center justify-center py-2">
                 <div className="flex items-center bg-muted/50 rounded-full p-1 border border-border">
-                  <button 
-                    onClick={() => handleToggleSwitch(false)}
-                    className={`p-2 rounded-full transition-all duration-300 ${
-                      !isQikpodMode 
-                        ? 'bg-primary shadow-md scale-110' 
-                        : 'hover:bg-muted/80'
-                    }`}
-                  >
-                    <img 
-                      src={leapmileIcon} 
-                      alt="Leapmile" 
-                      className="h-5 w-5"
-                    />
+                  <button onClick={() => handleToggleSwitch(false)} className={`p-2 rounded-full transition-all duration-300 ${!isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                    <img src={leapmileIcon} alt="Leapmile" className="h-5 w-5" />
                   </button>
-                  <button 
-                    onClick={() => handleToggleSwitch(true)}
-                    className={`p-2 rounded-full transition-all duration-300 ${
-                      isQikpodMode 
-                        ? 'bg-primary shadow-md scale-110' 
-                        : 'hover:bg-muted/80'
-                    }`}
-                  >
-                    <img 
-                      src={qikpodIcon} 
-                      alt="Qikpod" 
-                      className="h-5 w-5"
-                    />
+                  <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                    <img src={qikpodIcon} alt="Qikpod" className="h-5 w-5" />
                   </button>
                 </div>
               </div>
               
               {/* Mobile Navigation Links - Only show on Leapmile page */}
-              {!isQikpodMode && (
-                <>
+              {!isQikpodMode && <>
                   <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                     Home
                   </Link>
@@ -358,19 +213,12 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Industries</span>
                     <div className="pl-4 space-y-2">
-                      {industriesItems.map((item, index) => (
-                        <Link
-                          key={index}
-                          to={item.path}
-                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => {
-                            toggleMenu();
-                            window.scrollTo(0, 0);
-                          }}
-                        >
+                      {industriesItems.map((item, index) => <Link key={index} to={item.path} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => {
+                  toggleMenu();
+                  window.scrollTo(0, 0);
+                }}>
                           {item.name}
-                        </Link>
-                      ))}
+                        </Link>)}
                     </div>
                   </div>
                   
@@ -378,16 +226,9 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Technology</span>
                     <div className="pl-4 space-y-2">
-                      {technologyItems.map((item, index) => (
-                        <a
-                          key={index}
-                          href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={toggleMenu}
-                        >
+                      {technologyItems.map((item, index) => <a key={index} href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                           {item}
-                        </a>
-                      ))}
+                        </a>)}
                     </div>
                   </div>
                   
@@ -395,23 +236,14 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Company</span>
                     <div className="pl-4 space-y-2">
-                      {companyItems.map((item, index) => (
-                        <a
-                          key={index}
-                          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={toggleMenu}
-                        >
+                      {companyItems.map((item, index) => <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                           {item}
-                        </a>
-                      ))}
+                        </a>)}
                     </div>
                   </div>
-                </>
-              )}
+                </>}
             </div>
-          </div>
-        )}
+          </div>}
       </div>
     </nav>;
 };
