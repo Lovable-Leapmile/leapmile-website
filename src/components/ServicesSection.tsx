@@ -2,96 +2,97 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Bot, 
-  Truck, 
-  Factory, 
-  Smartphone, 
+  ShoppingCart, 
+  Package, 
+  Store, 
+  Wrench, 
+  Eye, 
   ArrowRight, 
   CheckCircle 
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
-  const services = [
+  const navigate = useNavigate();
+  
+  const industries = [
     {
-      icon: Bot,
-      title: "Autonomous Robotics",
-      description: "Custom robotic solutions for manufacturing, healthcare, and service industries.",
-      features: ["Custom Design", "AI Integration", "Safety Protocols", "24/7 Support"],
-      highlight: "Most Popular"
+      icon: ShoppingCart,
+      title: "Quick Commerce",
+      description: "In an era where convenience is paramount, the grocery industry is undergoing significant transformation.",
+      features: ["Innovate with purpose", "Revolutionize grocery logistics", "Optimize storage systems", "Lead industry transformation"],
+      link: "/industries/quick-commerce"
     },
     {
-      icon: Truck,
-      title: "Smart Logistics",
-      description: "Intelligent warehousing and distribution systems with real-time optimization.",
-      features: ["Route Optimization", "Inventory Management", "Predictive Analytics", "IoT Integration"],
-      highlight: null
+      icon: Package,
+      title: "E-Commerce",
+      description: "E-commerce companies are confronted with the challenge of meeting elevated expectations for user experiences and delivery services.",
+      features: ["Effortless item picking", "Seamless restocking operations", "Streamlined order dispatching", "End-to-end automation"],
+      link: "/industries/e-commerce"
     },
     {
-      icon: Factory,
-      title: "Industrial Automation",
-      description: "Complete factory automation solutions to maximize efficiency and reduce costs.",
-      features: ["Process Automation", "Quality Control", "Predictive Maintenance", "Data Analytics"],
-      highlight: null
+      icon: Store,
+      title: "Omni-Channel Retail",
+      description: "We revolutionize the shopping experience by seamlessly integrating online ordering with flexible pickup options.",
+      features: ["Shop from home", "Pick up in-store", "Convenient mall pickups", "Quick and easy curbside pickup"],
+      link: "/industries/omni-channel-retail"
     },
     {
-      icon: Smartphone,
-      title: "AI-Powered Software",
-      description: "Intelligent software solutions that learn and adapt to your business needs.",
-      features: ["Machine Learning", "Computer Vision", "Natural Language Processing", "Cloud Integration"],
-      highlight: "New"
+      icon: Wrench,
+      title: "Industrial & MRO",
+      description: "Revolutionizing industrial fulfillment and MRO in manufacturing. Our platform ensures precise and swift parts delivery, promoting lean manufacturing and efficiency.",
+      features: ["4× Picking Productivity", "System Payback in < 3 Years", "Efficient Storage for 1,000+ SKUs"],
+      link: "/industries/industrial-&-mro"
+    },
+    {
+      icon: Eye,
+      title: "Showcase Robot",
+      description: "Showcase Robot, a cutting-edge system designed to exhibit specialized items, bespoke products, luxury goods, jewelry, and art masterpieces within a compact, self-serve automated display.",
+      features: ["Interactive Experience", "Seamless User Control", "Enhanced Transparency"],
+      link: "/industries/showcase-robot"
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-accent/30">
+    <section id="industries" className="py-20 bg-accent/30">
       <div className="container mx-auto px-8 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Our Services</Badge>
+            <Badge variant="outline" className="mb-4">Our Industries</Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Comprehensive Solutions for
-              <span className="block text-primary">Every Industry</span>
+              Suitable for
+              <span className="block text-primary">Industries</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              From concept to deployment, we provide end-to-end robotics and AI solutions 
-              tailored to your specific business requirements.
+              Revolutionary warehouse automation solutions designed to transform efficiency across diverse industrial sectors, 
+              from quick commerce to specialized showcase environments.
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {services.map((service, index) => (
+          {/* Industries Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {industries.map((industry, index) => (
               <Card 
                 key={index} 
-                className="relative overflow-hidden hover:shadow-tech transition-all duration-300 group hover:-translate-y-1"
+                className="relative overflow-hidden transition-all duration-300 group cursor-pointer"
+                onClick={() => navigate(industry.link)}
               >
-                {service.highlight && (
-                  <div className="absolute top-4 right-4">
-                    <Badge 
-                      variant="default" 
-                      className="bg-tech-gradient text-white"
-                    >
-                      {service.highlight}
-                    </Badge>
-                  </div>
-                )}
-                
                 <CardHeader className="pb-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-6 w-6 text-primary" />
+                    <industry.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl text-foreground">{service.title}</CardTitle>
+                  <CardTitle className="text-xl text-foreground">{industry.title}</CardTitle>
                 </CardHeader>
                 
                 <CardContent>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {service.description}
+                    {industry.description}
                   </p>
                   
                   {/* Features List */}
                   <div className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
+                    {industry.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center text-sm">
                         <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                         <span className="text-muted-foreground">{feature}</span>
@@ -101,7 +102,7 @@ const ServicesSection = () => {
                   
                   <Button 
                     variant="outline" 
-                    className="group/btn hover:bg-primary hover:text-white transition-colors"
+                    className="group/btn hover:bg-primary hover:text-white transition-colors w-full"
                   >
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />

@@ -67,9 +67,9 @@ const AboutSection = () => {
               
               {/* Floating Cards */}
               <div className="absolute -top-4 -right-4 bg-card border rounded-lg p-4 shadow-lg">
-                <div className="text-sm font-semibold text-foreground">AI Processing</div>
-                <div className="text-2xl font-bold text-primary">99.7%</div>
-                <div className="text-xs text-muted-foreground">Accuracy Rate</div>
+                <div className="text-sm font-semibold text-foreground">Storage Capacity</div>
+                <div className="text-2xl font-bold text-primary">6000</div>
+                <div className="text-xs text-muted-foreground">SKUs in 3000 sq ft</div>
               </div>
             </div>
           </div>
