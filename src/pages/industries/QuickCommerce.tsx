@@ -46,7 +46,7 @@ const QuickCommerce = () => {
       
       {/* Hero Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-8 lg:px-16 xl:px-24">
+        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
@@ -96,7 +96,7 @@ const QuickCommerce = () => {
 
       {/* Benefits Section */}
       <section className="py-20 bg-accent/30">
-        <div className="container mx-auto px-8 lg:px-16 xl:px-24">
+        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -125,7 +125,7 @@ const QuickCommerce = () => {
 
       {/* Video Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-8 lg:px-16 xl:px-24">
+        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
               Watch the Robot in Action
@@ -165,7 +165,7 @@ const QuickCommerce = () => {
 
       {/* Order Flow Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-8 lg:px-16 xl:px-24">
+        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -197,7 +197,7 @@ const QuickCommerce = () => {
 
       {/* Final Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-8 lg:px-16 xl:px-24">
+        <div className="container mx-auto px-4 lg:px-6 xl:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <Card className="p-8 bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
               <CardContent className="p-0">
