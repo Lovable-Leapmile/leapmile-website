@@ -129,7 +129,7 @@ const ECommerce = () => {
               <video className="w-full h-auto" autoPlay loop muted controls={false} style={{
               borderRadius: '1rem'
             }}>
-                <source src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Videos/quickcommerce.mp4" type="video/mp4" />
+                <source src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Videos/Clothing-Nanowarehouse.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               
