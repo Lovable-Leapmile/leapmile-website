@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
@@ -16,6 +16,54 @@ const Navigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { theme, switchToQikpod, switchToLeapmile } = useTheme();
+  
+  // Refs for managing hover timeouts
+  const industriesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const technologyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const companyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Enhanced hover handlers with delays
+  const handleIndustriesEnter = () => {
+    if (industriesTimeoutRef.current) {
+      clearTimeout(industriesTimeoutRef.current);
+      industriesTimeoutRef.current = null;
+    }
+    setIndustriesOpen(true);
+  };
+
+  const handleIndustriesLeave = () => {
+    industriesTimeoutRef.current = setTimeout(() => {
+      setIndustriesOpen(false);
+    }, 150);
+  };
+
+  const handleTechnologyEnter = () => {
+    if (technologyTimeoutRef.current) {
+      clearTimeout(technologyTimeoutRef.current);
+      technologyTimeoutRef.current = null;
+    }
+    setTechnologyOpen(true);
+  };
+
+  const handleTechnologyLeave = () => {
+    technologyTimeoutRef.current = setTimeout(() => {
+      setTechnologyOpen(false);
+    }, 150);
+  };
+
+  const handleCompanyEnter = () => {
+    if (companyTimeoutRef.current) {
+      clearTimeout(companyTimeoutRef.current);
+      companyTimeoutRef.current = null;
+    }
+    setCompanyOpen(true);
+  };
+
+  const handleCompanyLeave = () => {
+    companyTimeoutRef.current = setTimeout(() => {
+      setCompanyOpen(false);
+    }, 150);
+  };
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   
@@ -87,26 +135,32 @@ const Navigation = () => {
               {/* Industries Dropdown */}
               <div 
                 className="relative"
-                onMouseEnter={() => setIndustriesOpen(true)}
-                onMouseLeave={() => setIndustriesOpen(false)}
+                onMouseEnter={handleIndustriesEnter}
+                onMouseLeave={handleIndustriesLeave}
               >
-                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors">
+                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors py-2">
                   <span>Industries</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {industriesOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-md shadow-lg z-50">
-                    <div className="py-2">
-                      {industriesItems.map((item, index) => (
-                        <Link
-                          key={index}
-                          to={item.path}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                          onClick={() => window.scrollTo(0, 0)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                  <div 
+                    className="absolute top-full left-0 pt-2 w-56 z-50"
+                    onMouseEnter={handleIndustriesEnter}
+                    onMouseLeave={handleIndustriesLeave}
+                  >
+                    <div className="bg-background border border-border rounded-md shadow-lg">
+                      <div className="py-2">
+                        {industriesItems.map((item, index) => (
+                          <Link
+                            key={index}
+                            to={item.path}
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                            onClick={() => window.scrollTo(0, 0)}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -115,25 +169,31 @@ const Navigation = () => {
               {/* Technology Dropdown */}
               <div 
                 className="relative"
-                onMouseEnter={() => setTechnologyOpen(true)}
-                onMouseLeave={() => setTechnologyOpen(false)}
+                onMouseEnter={handleTechnologyEnter}
+                onMouseLeave={handleTechnologyLeave}
               >
-                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors">
+                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors py-2">
                   <span>Technology</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {technologyOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-md shadow-lg z-50">
-                    <div className="py-2">
-                      {technologyItems.map((item, index) => (
-                        <a
-                          key={index}
-                          href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                          {item}
-                        </a>
-                      ))}
+                  <div 
+                    className="absolute top-full left-0 pt-2 w-56 z-50"
+                    onMouseEnter={handleTechnologyEnter}
+                    onMouseLeave={handleTechnologyLeave}
+                  >
+                    <div className="bg-background border border-border rounded-md shadow-lg">
+                      <div className="py-2">
+                        {technologyItems.map((item, index) => (
+                          <a
+                            key={index}
+                            href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`}
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                          >
+                            {item}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -142,25 +202,31 @@ const Navigation = () => {
               {/* Company Dropdown */}
               <div 
                 className="relative"
-                onMouseEnter={() => setCompanyOpen(true)}
-                onMouseLeave={() => setCompanyOpen(false)}
+                onMouseEnter={handleCompanyEnter}
+                onMouseLeave={handleCompanyLeave}
               >
-                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors">
+                <button className="flex items-center space-x-1 text-foreground hover:text-primary transition-colors py-2">
                   <span>Company</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {companyOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-md shadow-lg z-50">
-                    <div className="py-2">
-                      {companyItems.map((item, index) => (
-                        <a
-                          key={index}
-                          href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                        >
-                          {item}
-                        </a>
-                      ))}
+                  <div 
+                    className="absolute top-full left-0 pt-2 w-56 z-50"
+                    onMouseEnter={handleCompanyEnter}
+                    onMouseLeave={handleCompanyLeave}
+                  >
+                    <div className="bg-background border border-border rounded-md shadow-lg">
+                      <div className="py-2">
+                        {companyItems.map((item, index) => (
+                          <a
+                            key={index}
+                            href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                          >
+                            {item}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
