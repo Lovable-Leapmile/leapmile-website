@@ -92,18 +92,19 @@ const ContactSection = () => {
   const contactInfo = [{
     icon: Mail,
     title: "Email Us",
-    details: "hello@leapmile.com",
+    details: "support@leapmile.com",
     subtitle: "Get in touch for inquiries"
   }, {
     icon: Phone,
     title: "Call Us",
-    details: "+1 (555) 123-4567",
+    details: "(+91) 80470-95986",
     subtitle: "Monday to Friday, 9AM - 6PM"
   }, {
     icon: MapPin,
     title: "Visit Us",
-    details: "123 Innovation Drive, Tech Hub",
-    subtitle: "San Francisco, CA 94105"
+    details: "216/2, Plot No 8 SS Commercial Estate, Nagavarpalya
+C.V. Raman Nagar,",
+    subtitle: "Bangalore - 560093"
   }, {
     icon: Clock,
     title: "Business Hours",
@@ -245,7 +246,15 @@ const ContactSection = () => {
               </div>
 
               {/* Emergency Contact */}
-              
+              <Card className="p-4 bg-primary/5 border-primary/20">
+                <CardContent className="p-0">
+                  <h4 className="font-semibold text-primary mb-2">24/7 Emergency Support</h4>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    For critical system issues and urgent technical support
+                  </p>
+                  <p className="font-medium text-foreground">+1 (555) 911-TECH</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
