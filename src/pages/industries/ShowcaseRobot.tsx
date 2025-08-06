@@ -166,7 +166,7 @@ const ShowcaseRobot = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {orderFlow.map((flow, index) => <div key={index} className="text-center">
                   <div className="aspect-square rounded-2xl overflow-hidden mb-6">
-                    <img src={flow.image} alt={flow.header} className="w-full h-full object-cover" />
+                    <img src={flow.image} alt={flow.header} className="w-full h-full object-contain" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{flow.header}</h3>
                   <p className="text-muted-foreground leading-relaxed">{flow.caption}</p>
