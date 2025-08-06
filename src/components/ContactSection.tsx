@@ -92,18 +92,19 @@ const ContactSection = () => {
   const contactInfo = [{
     icon: Mail,
     title: "Email Us",
-    details: "support@leapmile.com",
+    details: "hello@leapmile.com",
     subtitle: "Get in touch for inquiries"
   }, {
     icon: Phone,
     title: "Call Us",
-    details: "+1 (555) 123-4567",
-    subtitle: "Monday to Friday, 9AM - 6PM"
+    details: "(+91) 80470-95986",
+    subtitle: "Monday to Saturday, 9AM - 6PM"
   }, {
     icon: MapPin,
     title: "Visit Us",
-    details: "123 Innovation Drive, Tech Hub",
-    subtitle: "San Francisco, CA 94105"
+    details: "216/2, Plot No 8 SS Commercial Estate, Nagavarpalya
+C.V. Raman Nagar",
+    subtitle: "Bangalore KA- 560093"
   }, {
     icon: Clock,
     title: "Business Hours",
