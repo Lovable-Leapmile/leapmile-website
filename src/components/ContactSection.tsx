@@ -245,15 +245,7 @@ const ContactSection = () => {
               </div>
 
               {/* Emergency Contact */}
-              <Card className="p-4 bg-primary/5 border-primary/20">
-                <CardContent className="p-0">
-                  <h4 className="font-semibold text-primary mb-2">24/7 Emergency Support</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    For critical system issues and urgent technical support
-                  </p>
-                  <p className="font-medium text-foreground">+1 (555) 911-TECH</p>
-                </CardContent>
-              </Card>
+              
             </div>
           </div>
         </div>
