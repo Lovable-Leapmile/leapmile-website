@@ -99,7 +99,7 @@ const ShowcaseRobot = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">
                 Advanced Features
               </h2>
-              <p className="text-xl text-purple-300">
+              <p className="text-xl text-purple-200">
                 Cutting-edge technology for premium display experiences
               </p>
             </div>
