@@ -65,8 +65,17 @@ const PartCard = ({ title, description, image, videoUrl, subheader, additionalCo
     <Card className="overflow-hidden group cursor-pointer">
       <CardContent className="p-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center relative">
-          {/* Content section - slides right and moves to lower layer on hover */}
-          <div className="space-y-4 transition-all duration-500 ease-out group-hover:translate-x-4 group-hover:scale-95 group-hover:z-0 relative z-10">
+          {/* Image section - slides right on hover */}
+          <div className="relative transition-all duration-500 ease-out group-hover:translate-x-4 group-hover:scale-105">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-4/5 h-auto rounded-lg object-cover transition-transform duration-500 group-hover:rotate-1"
+            />
+          </div>
+          
+          {/* Content section - slides left on hover */}
+          <div className="space-y-4 transition-all duration-500 ease-out group-hover:-translate-x-4 group-hover:scale-95">
             <h3 className="text-xl font-semibold text-foreground">{title}</h3>
             {subheader && (
               <h4 className="text-lg font-medium text-primary">{subheader}</h4>
@@ -81,18 +90,6 @@ const PartCard = ({ title, description, image, videoUrl, subheader, additionalCo
                 </Button>
               </VideoModal>
             )}
-          </div>
-          
-          {/* Image section - slides left, elevates, and gains background on hover */}
-          <div className="relative transition-all duration-500 ease-out group-hover:-translate-x-6 group-hover:scale-105 group-hover:z-20 group-hover:shadow-xl">
-            <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -m-4"></div>
-            <img 
-              src={image} 
-              alt={title}
-              className="w-full h-auto rounded-lg object-cover relative z-10 transition-transform duration-500 group-hover:rotate-1"
-            />
-            {/* 3D elevation effect */}
-            <div className="absolute inset-0 rounded-lg shadow-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500 transform translate-y-2 -z-10 bg-primary/10"></div>
           </div>
         </div>
       </CardContent>
