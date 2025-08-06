@@ -2,8 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import { useNavigate, useLocation } from "react-router-dom";
+import { navigateToContact } from "@/lib/navigation";
 import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 const OmniChannelRetail = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const benefits = [{
     name: "Increase Throughput",
     icon: TrendingUp
@@ -83,7 +87,7 @@ const OmniChannelRetail = () => {
                   </div>
                 </div>
                 
-                <Button size="lg" className="bg-tech-gradient hover:shadow-tech">
+                <Button size="lg" className="bg-tech-gradient hover:shadow-tech" onClick={() => navigateToContact(navigate, location.pathname)}>
                   Get Started Today
                 </Button>
               </div>
@@ -174,10 +178,10 @@ const OmniChannelRetail = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-tech-gradient hover:shadow-tech">
+                  <Button size="lg" className="bg-tech-gradient hover:shadow-tech" onClick={() => navigateToContact(navigate, location.pathname)}>
                     Get Started Now
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={() => navigateToContact(navigate, location.pathname)}>
                     Schedule Demo
                   </Button>
                 </div>

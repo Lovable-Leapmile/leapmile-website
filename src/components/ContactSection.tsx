@@ -54,14 +54,11 @@ const ContactSection = () => {
                 </CardHeader>
                 <CardContent className="p-0">
                   <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium text-foreground mb-2 block">
-                          First Name *
-                        </label>
-                        <Input placeholder="John" className="w-full" />
-                      </div>
-                      
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
+                        Name *
+                      </label>
+                      <Input placeholder="John Doe" className="w-full" />
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-4">
@@ -88,15 +85,14 @@ const ContactSection = () => {
 
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
-                        Project Type
+                        Select Service
                       </label>
                       <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
                         <option value="">Select a service</option>
-                        <option value="robotics">Autonomous Robotics</option>
-                        <option value="logistics">Smart Logistics</option>
-                        <option value="automation">Industrial Automation</option>
-                        <option value="software">AI-Powered Software</option>
+                        <option value="nano-warehouse">Nano Warehouse</option>
+                        <option value="qikpod-smart-locker">Qikpod Smart locker</option>
                         <option value="consultation">Consultation</option>
+                        <option value="schedule-demo">Schedule Demo</option>
                       </select>
                     </div>
 

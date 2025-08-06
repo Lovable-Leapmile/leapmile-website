@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Play, Package, Truck, FileText, ScanLine, Settings, Bot, Cpu, MapPin, Cloud } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import Footer from "@/components/Footer";
 
 // Import images
 import nanowarehouseView from "@/assets/nanowarehouse-view.png";
@@ -234,6 +235,8 @@ const NanoWarehouse = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>;
 };
 export default NanoWarehouse;

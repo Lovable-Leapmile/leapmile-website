@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { navigateToContact } from "@/lib/navigation";
 import logoLight from "@/assets/logo-light.png";
 import logoDark from "@/assets/logo-dark.png";
 import qikpodLogo from "@/assets/qikpod-logo.png";
@@ -173,9 +174,25 @@ const Navigation = () => {
                 {companyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleCompanyEnter} onMouseLeave={handleCompanyLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {companyItems.map((item, index) => <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                            {item}
-                          </a>)}
+                         {companyItems.map((item, index) => 
+                           item === "Contact Us" ? (
+                             <button 
+                               key={index} 
+                               onClick={() => navigateToContact(navigate, location.pathname)}
+                               className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                             >
+                               {item}
+                             </button>
+                           ) : (
+                             <a 
+                               key={index} 
+                               href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
+                               className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                             >
+                               {item}
+                             </a>
+                           )
+                         )}
                       </div>
                     </div>
                   </div>}
@@ -278,9 +295,29 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Company</span>
                     <div className="pl-4 space-y-2">
-                      {companyItems.map((item, index) => <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
-                          {item}
-                        </a>)}
+                      {companyItems.map((item, index) => 
+                        item === "Contact Us" ? (
+                          <button 
+                            key={index}
+                            onClick={() => {
+                              toggleMenu();
+                              navigateToContact(navigate, location.pathname);
+                            }}
+                            className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {item}
+                          </button>
+                        ) : (
+                          <a 
+                            key={index} 
+                            href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
+                            className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
+                            onClick={toggleMenu}
+                          >
+                            {item}
+                          </a>
+                        )
+                      )}
                     </div>
                   </div>
                 </>}
