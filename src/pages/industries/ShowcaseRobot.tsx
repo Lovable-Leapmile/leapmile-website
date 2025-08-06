@@ -105,7 +105,7 @@ const ShowcaseRobot = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, index) => <Card key={index} className="bg-card/90 backdrop-blur-sm border-primary/20">
+              {features.map((feature, index) => <Card key={index} className="backdrop-blur-sm border-primary/20 bg-black/[0.23]">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <feature.icon className="w-6 h-6 text-primary" />
