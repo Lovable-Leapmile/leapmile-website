@@ -18,13 +18,23 @@ interface ContactFormData {
   demoDate?: string;
   demoTime?: string;
 }
-
 const ContactSection = () => {
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting }, watch, setValue } = useForm<ContactFormData>();
-  const { toast } = useToast();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: {
+      errors,
+      isSubmitting
+    },
+    watch,
+    setValue
+  } = useForm<ContactFormData>();
+  const {
+    toast
+  } = useToast();
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string>("");
-  
   const watchedService = watch("service");
 
   // Clear date/time when service changes away from "Schedule Demo"
@@ -36,15 +46,12 @@ const ContactSection = () => {
       setValue("demoTime", "");
     }
   }, [watchedService, setValue]);
-
   const onSubmit = async (data: ContactFormData) => {
     try {
       let emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
-      
       if (data.service === "schedule-demo" && selectedDate && selectedTime) {
         emailMessage += `, Demo Date: ${selectedDate.toDateString()}, Demo Time: ${selectedTime}`;
       }
-      
       const params = new URLSearchParams({
         msg_type: 'regular',
         email_to_address: 'support@leapmile.com',
@@ -52,7 +59,6 @@ const ContactSection = () => {
         email_subject: 'Product Request',
         email_message: emailMessage
       });
-
       const response = await fetch(`https://newproduction.qikpod.com:8985/notifications/email/send/?${params}`, {
         method: 'POST',
         headers: {
@@ -60,7 +66,6 @@ const ContactSection = () => {
           'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
         }
       });
-
       if (response.ok) {
         toast({
           title: "Mail Sent Successfully!",
@@ -80,7 +85,7 @@ const ContactSection = () => {
         title: "Error",
         description: "Failed to send message. Please try again.",
         variant: "destructive",
-        duration: 5000,
+        duration: 5000
       });
     }
   };
@@ -137,11 +142,9 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Name *
                       </label>
-                      <Input 
-                        {...register("name", { required: "Name is required" })}
-                        placeholder="John Doe" 
-                        className="w-full" 
-                      />
+                      <Input {...register("name", {
+                      required: "Name is required"
+                    })} placeholder="John Doe" className="w-full" />
                       {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
                     </div>
                     
@@ -150,29 +153,20 @@ const ContactSection = () => {
                         <label className="text-sm font-medium text-foreground mb-2 block">
                           Email *
                         </label>
-                        <Input 
-                          {...register("email", { 
-                            required: "Email is required",
-                            pattern: {
-                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                              message: "Invalid email address"
-                            }
-                          })}
-                          type="email" 
-                          placeholder="john@company.com" 
-                          className="w-full" 
-                        />
+                        <Input {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Invalid email address"
+                        }
+                      })} type="email" placeholder="john@company.com" className="w-full" />
                         {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
                       </div>
                       <div>
                         <label className="text-sm font-medium text-foreground mb-2 block">
                           Phone
                         </label>
-                        <Input 
-                          {...register("phone")}
-                          placeholder="+1 (555) 123-4567" 
-                          className="w-full" 
-                        />
+                        <Input {...register("phone")} placeholder="+1 (555) 123-4567" className="w-full" />
                       </div>
                     </div>
 
@@ -180,21 +174,14 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Company
                       </label>
-                      <Input 
-                        {...register("company")}
-                        placeholder="Your Company Name" 
-                        className="w-full" 
-                      />
+                      <Input {...register("company")} placeholder="Your Company Name" className="w-full" />
                     </div>
 
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Select Service
                       </label>
-                      <select 
-                        {...register("service")}
-                        className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground"
-                      >
+                      <select {...register("service")} className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
                         <option value="">Select a service</option>
                         <option value="nano-warehouse">Nano Warehouse</option>
                         <option value="qikpod-smart-locker">Qikpod Smart locker</option>
@@ -204,42 +191,28 @@ const ContactSection = () => {
                     </div>
 
                     {/* Conditional Date/Time Picker */}
-                    {watchedService === "schedule-demo" && (
-                      <DateTimePicker
-                        selectedDate={selectedDate}
-                        selectedTime={selectedTime}
-                        onDateChange={(date) => {
-                          setSelectedDate(date);
-                          setValue("demoDate", date ? date.toISOString() : "");
-                        }}
-                        onTimeChange={(time) => {
-                          setSelectedTime(time);
-                          setValue("demoTime", time);
-                        }}
-                        onClear={() => {
-                          setSelectedDate(undefined);
-                          setSelectedTime("");
-                        }}
-                      />
-                    )}
+                    {watchedService === "schedule-demo" && <DateTimePicker selectedDate={selectedDate} selectedTime={selectedTime} onDateChange={date => {
+                    setSelectedDate(date);
+                    setValue("demoDate", date ? date.toISOString() : "");
+                  }} onTimeChange={time => {
+                    setSelectedTime(time);
+                    setValue("demoTime", time);
+                  }} onClear={() => {
+                    setSelectedDate(undefined);
+                    setSelectedTime("");
+                  }} />}
 
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Message *
                       </label>
-                      <Textarea 
-                        {...register("message", { required: "Message is required" })}
-                        placeholder="Tell us about your project requirements..." 
-                        className="w-full min-h-[120px]" 
-                      />
+                      <Textarea {...register("message", {
+                      required: "Message is required"
+                    })} placeholder="Tell us about your project requirements..." className="w-full min-h-[120px]" />
                       {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
                     </div>
 
-                    <Button 
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-tech-gradient hover:shadow-tech text-lg py-3"
-                    >
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-tech-gradient hover:shadow-tech text-lg py-3">
                       <Send className="mr-2 h-5 w-5" />
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
@@ -251,21 +224,7 @@ const ContactSection = () => {
             {/* Contact Information */}
             <div className="space-y-6">
               {/* Quick Actions */}
-              <Card className="p-6">
-                <CardHeader className="p-0 mb-4">
-                  <CardTitle className="text-lg text-foreground">Quick Actions</CardTitle>
-                </CardHeader>
-                <CardContent className="p-0 space-y-3">
-                  <Button variant="outline" className="w-full justify-start">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Schedule Demo
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start">
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    Live Chat
-                  </Button>
-                </CardContent>
-              </Card>
+              
 
               {/* Contact Details */}
               <div className="space-y-4">
