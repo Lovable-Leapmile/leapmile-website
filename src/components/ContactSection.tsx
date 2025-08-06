@@ -3,46 +3,30 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Send,
-  MessageSquare,
-  Calendar
-} from "lucide-react";
-
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Calendar } from "lucide-react";
 const ContactSection = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: "hello@leapmile.com",
-      subtitle: "Get in touch for inquiries"
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: "+1 (555) 123-4567",
-      subtitle: "Monday to Friday, 9AM - 6PM"
-    },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: "123 Innovation Drive, Tech Hub",
-      subtitle: "San Francisco, CA 94105"
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      details: "Mon - Fri: 9AM - 6PM",
-      subtitle: "Weekend support available"
-    }
-  ];
-
-  return (
-    <section id="contact" className="py-20 bg-accent/30">
+  const contactInfo = [{
+    icon: Mail,
+    title: "Email Us",
+    details: "hello@leapmile.com",
+    subtitle: "Get in touch for inquiries"
+  }, {
+    icon: Phone,
+    title: "Call Us",
+    details: "+1 (555) 123-4567",
+    subtitle: "Monday to Friday, 9AM - 6PM"
+  }, {
+    icon: MapPin,
+    title: "Visit Us",
+    details: "123 Innovation Drive, Tech Hub",
+    subtitle: "San Francisco, CA 94105"
+  }, {
+    icon: Clock,
+    title: "Business Hours",
+    details: "Mon - Fri: 9AM - 6PM",
+    subtitle: "Weekend support available"
+  }];
+  return <section id="contact" className="py-20 bg-accent/30">
       <div className="page-wrapper">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -77,12 +61,7 @@ const ContactSection = () => {
                         </label>
                         <Input placeholder="John" className="w-full" />
                       </div>
-                      <div>
-                        <label className="text-sm font-medium text-foreground mb-2 block">
-                          Last Name *
-                        </label>
-                        <Input placeholder="Doe" className="w-full" />
-                      </div>
+                      
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-4">
@@ -125,10 +104,7 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Message *
                       </label>
-                      <Textarea 
-                        placeholder="Tell us about your project requirements..." 
-                        className="w-full min-h-[120px]" 
-                      />
+                      <Textarea placeholder="Tell us about your project requirements..." className="w-full min-h-[120px]" />
                     </div>
 
                     <Button className="w-full bg-tech-gradient hover:shadow-tech text-lg py-3">
@@ -161,8 +137,7 @@ const ContactSection = () => {
 
               {/* Contact Details */}
               <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <Card key={index} className="p-4">
+                {contactInfo.map((info, index) => <Card key={index} className="p-4">
                     <CardContent className="p-0">
                       <div className="flex items-start space-x-3">
                         <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -175,8 +150,7 @@ const ContactSection = () => {
                         </div>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
 
               {/* Emergency Contact */}
@@ -193,8 +167,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
