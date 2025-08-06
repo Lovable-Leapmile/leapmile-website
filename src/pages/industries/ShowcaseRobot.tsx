@@ -89,7 +89,7 @@ const ShowcaseRobot = () => {
         backgroundImage: 'url(https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/features.png)'
       }}>
           {/* Overlay */}
-          <div className="absolute inset-0 bg-background/80"></div>
+          <div className="absolute inset-0 bg-[#060706]/[0.29]"></div>
         </div>
         
         {/* Content */}
