@@ -96,10 +96,10 @@ const ShowcaseRobot = () => {
         <div className="page-wrapper relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">
                 Advanced Features
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-purple-300">
                 Cutting-edge technology for premium display experiences
               </p>
             </div>
@@ -107,10 +107,10 @@ const ShowcaseRobot = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => <Card key={index} className="backdrop-blur-sm border-primary/20 bg-black/[0.23]">
                   <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 bg-[#f6effc]/[0.94]">
                       <feature.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h4 className="font-semibold text-foreground text-sm leading-relaxed">{feature.name}</h4>
+                    <h4 className="font-semibold text-sm leading-relaxed text-zinc-200">{feature.name}</h4>
                   </CardContent>
                 </Card>)}
             </div>
