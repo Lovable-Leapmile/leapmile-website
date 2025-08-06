@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Play, Package, Truck, FileText, ScanLine } from "lucide-react";
+import { Play, Package, Truck, FileText, ScanLine, Settings, Bot, Cpu, MapPin, Cloud } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 // Import images
@@ -62,10 +62,11 @@ interface PartCardProps {
 
 const PartCard = ({ title, description, image, videoUrl, subheader, additionalContent }: PartCardProps) => (
   <ScrollReveal>
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden group cursor-pointer">
       <CardContent className="p-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center relative">
+          {/* Content section - slides right and moves to lower layer on hover */}
+          <div className="space-y-4 transition-all duration-500 ease-out group-hover:translate-x-4 group-hover:scale-95 group-hover:z-0 relative z-10">
             <h3 className="text-xl font-semibold text-foreground">{title}</h3>
             {subheader && (
               <h4 className="text-lg font-medium text-primary">{subheader}</h4>
@@ -74,19 +75,24 @@ const PartCard = ({ title, description, image, videoUrl, subheader, additionalCo
             {additionalContent}
             {videoUrl && (
               <VideoModal videoUrl={videoUrl}>
-                <Button variant="outline" className="group">
+                <Button variant="outline" className="group/button">
                   <Play className="mr-2 h-4 w-4" />
                   View in Action
                 </Button>
               </VideoModal>
             )}
           </div>
-          <div className="relative">
+          
+          {/* Image section - slides left, elevates, and gains background on hover */}
+          <div className="relative transition-all duration-500 ease-out group-hover:-translate-x-6 group-hover:scale-105 group-hover:z-20 group-hover:shadow-xl">
+            <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -m-4"></div>
             <img 
               src={image} 
               alt={title}
-              className="w-full h-auto rounded-lg object-cover"
+              className="w-full h-auto rounded-lg object-cover relative z-10 transition-transform duration-500 group-hover:rotate-1"
             />
+            {/* 3D elevation effect */}
+            <div className="absolute inset-0 rounded-lg shadow-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500 transform translate-y-2 -z-10 bg-primary/10"></div>
           </div>
         </div>
       </CardContent>
@@ -94,13 +100,19 @@ const PartCard = ({ title, description, image, videoUrl, subheader, additionalCo
   </ScrollReveal>
 );
 
-const SectionHeader = ({ title, children }: { title: string; children?: React.ReactNode }) => (
+const SectionHeader = ({ title, icon: Icon, children }: { 
+  title: string; 
+  icon?: React.ComponentType<any>; 
+  children?: React.ReactNode;
+}) => (
   <ScrollReveal>
     <div className="text-center mb-12">
-      <div className="inline-flex items-center gap-2 mb-4">
-        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-          <div className="w-4 h-4 bg-primary rounded-sm"></div>
-        </div>
+      <div className="inline-flex items-center gap-3 mb-4">
+        {Icon && (
+          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center animate-fade-in">
+            <Icon className="w-5 h-5 text-primary" />
+          </div>
+        )}
         <h2 className="text-2xl font-bold text-foreground">{title}</h2>
       </div>
       {children}
@@ -150,7 +162,7 @@ const NanoWarehouse = () => {
       {/* Platform Section */}
       <section className="py-16 bg-accent/5">
         <div className="page-wrapper">
-          <SectionHeader title="Platform">
+          <SectionHeader title="Platform" icon={Settings}>
             <div className="max-w-4xl mx-auto space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Components across the platform embody LeapMile's proprietary technology, meticulously crafted in-house designs. This approach pioneers innovative, more refined, and value-engineered solutions where each component is engineered for simplicity and efficacy, reflecting our vision for the future of warehouse automation that is modular, high-performing, and dependable.
@@ -186,7 +198,7 @@ const NanoWarehouse = () => {
 
           {/* Robot Components */}
           <div className="space-y-8">
-            <SectionHeader title="Robot Components" />
+            <SectionHeader title="Robot Components" icon={Bot} />
             
             <PartCard
               title="Racks"
@@ -223,7 +235,7 @@ const NanoWarehouse = () => {
 
           {/* SCARA Robot */}
           <div className="space-y-8">
-            <SectionHeader title="SCARA Robot" />
+            <SectionHeader title="SCARA Robot" icon={Cpu} />
             
             <PartCard
               title="SCARA"
@@ -252,7 +264,7 @@ const NanoWarehouse = () => {
 
           {/* Pickup Stations */}
           <div className="space-y-8">
-            <SectionHeader title="Pickup Stations" />
+            <SectionHeader title="Pickup Stations" icon={MapPin} />
             
             <PartCard
               title="Flexible Pickup Station"
@@ -276,7 +288,7 @@ const NanoWarehouse = () => {
 
           {/* Software Components */}
           <div className="space-y-8">
-            <SectionHeader title="Software Components" />
+            <SectionHeader title="Software Components" icon={Cloud} />
             
             <PartCard
               title="Orchestration Software"
