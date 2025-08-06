@@ -3,8 +3,64 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Calendar } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Calendar, CheckCircle } from "lucide-react";
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  service: string;
+  message: string;
+}
+
 const ContactSection = () => {
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactFormData>();
+  const { toast } = useToast();
+
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
+      
+      const params = new URLSearchParams({
+        msg_type: 'regular',
+        email_to_address: 'support@leapmile.com',
+        email_from_address: 'support@leapmile.com',
+        email_subject: 'Product Request',
+        email_message: emailMessage
+      });
+
+      const response = await fetch(`https://newproduction.qikpod.com:8985/notifications/email/send/?${params}`, {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
+        }
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Mail Sent Successfully!",
+          description: "We'll get back to you soon.",
+          duration: 5000,
+          className: "bg-green-50 border-green-200",
+          action: <CheckCircle className="h-5 w-5 text-green-600" />
+        });
+        reset();
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    }
+  };
   const contactInfo = [{
     icon: Mail,
     title: "Email Us",
@@ -53,12 +109,17 @@ const ContactSection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Name *
                       </label>
-                      <Input placeholder="John Doe" className="w-full" />
+                      <Input 
+                        {...register("name", { required: "Name is required" })}
+                        placeholder="John Doe" 
+                        className="w-full" 
+                      />
+                      {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-4">
@@ -66,13 +127,29 @@ const ContactSection = () => {
                         <label className="text-sm font-medium text-foreground mb-2 block">
                           Email *
                         </label>
-                        <Input type="email" placeholder="john@company.com" className="w-full" />
+                        <Input 
+                          {...register("email", { 
+                            required: "Email is required",
+                            pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              message: "Invalid email address"
+                            }
+                          })}
+                          type="email" 
+                          placeholder="john@company.com" 
+                          className="w-full" 
+                        />
+                        {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
                       </div>
                       <div>
                         <label className="text-sm font-medium text-foreground mb-2 block">
                           Phone
                         </label>
-                        <Input placeholder="+1 (555) 123-4567" className="w-full" />
+                        <Input 
+                          {...register("phone")}
+                          placeholder="+1 (555) 123-4567" 
+                          className="w-full" 
+                        />
                       </div>
                     </div>
 
@@ -80,14 +157,21 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Company
                       </label>
-                      <Input placeholder="Your Company Name" className="w-full" />
+                      <Input 
+                        {...register("company")}
+                        placeholder="Your Company Name" 
+                        className="w-full" 
+                      />
                     </div>
 
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Select Service
                       </label>
-                      <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
+                      <select 
+                        {...register("service")}
+                        className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground"
+                      >
                         <option value="">Select a service</option>
                         <option value="nano-warehouse">Nano Warehouse</option>
                         <option value="qikpod-smart-locker">Qikpod Smart locker</option>
@@ -100,12 +184,21 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Message *
                       </label>
-                      <Textarea placeholder="Tell us about your project requirements..." className="w-full min-h-[120px]" />
+                      <Textarea 
+                        {...register("message", { required: "Message is required" })}
+                        placeholder="Tell us about your project requirements..." 
+                        className="w-full min-h-[120px]" 
+                      />
+                      {errors.message && <p className="text-sm text-destructive mt-1">{errors.message.message}</p>}
                     </div>
 
-                    <Button className="w-full bg-tech-gradient hover:shadow-tech text-lg py-3">
+                    <Button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-tech-gradient hover:shadow-tech text-lg py-3"
+                    >
                       <Send className="mr-2 h-5 w-5" />
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </CardContent>
