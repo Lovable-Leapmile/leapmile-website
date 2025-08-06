@@ -93,7 +93,7 @@ const Navigation = () => {
   const technologyItems = ["Nano Warehouse", "Smart Locker-Qikpod", "Virtual Tour"];
   const companyItems = ["About Us", "Careers", "Contact Us"];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto lg:px-6 xl:px-8 py-0 my-0 px-[48px]">
+      <div className="container mx-auto px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">

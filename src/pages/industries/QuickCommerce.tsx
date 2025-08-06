@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/hooks/useTheme";
 import { useEffect } from "react";
@@ -55,8 +54,6 @@ const QuickCommerce = () => {
     caption: "The staff manually picks up the items based on the quantities specified in the order."
   }];
   return <div className="min-h-screen bg-background">
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="page-wrapper">

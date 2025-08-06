@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Eye, Monitor, TouchpadIcon as Touch, RotateCw, Palette, Smartphone } from "lucide-react";
 const ShowcaseRobot = () => {
@@ -38,8 +37,6 @@ const ShowcaseRobot = () => {
     caption: "Item is presented in the glass observation bubble for detailed inspection"
   }];
   return <div className="min-h-screen bg-background">
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="page-wrapper">

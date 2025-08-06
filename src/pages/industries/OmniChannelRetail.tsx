@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 const OmniChannelRetail = () => {
@@ -54,8 +53,6 @@ const OmniChannelRetail = () => {
     caption: "Customer collects order through their preferred pickup method"
   }];
   return <div className="min-h-screen bg-background">
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="page-wrapper">
