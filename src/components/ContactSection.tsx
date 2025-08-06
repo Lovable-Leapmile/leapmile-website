@@ -92,7 +92,7 @@ const ContactSection = () => {
   const contactInfo = [{
     icon: Mail,
     title: "Email Us",
-    details: "hello@leapmile.com",
+    details: "support@leapmile.com",
     subtitle: "Get in touch for inquiries"
   }, {
     icon: Phone,
