@@ -90,7 +90,11 @@ const Navigation = () => {
     name: "Showcase Robot",
     path: "/industries/showcase-robot"
   }];
-  const technologyItems = ["Nano Warehouse", "Smart Locker-Qikpod", "Virtual Tour"];
+  const technologyItems = [
+    { name: "Nano Warehouse", path: "/technology/nano-warehouse" },
+    { name: "Smart Locker-Qikpod", path: "#technology-smart-locker-qikpod" },
+    { name: "Virtual Tour", path: "#technology-virtual-tour" }
+  ];
   const companyItems = ["About Us", "Careers", "Contact Us"];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-12">
@@ -135,9 +139,26 @@ const Navigation = () => {
                 {technologyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleTechnologyEnter} onMouseLeave={handleTechnologyLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {technologyItems.map((item, index) => <a key={index} href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                            {item}
-                          </a>)}
+                        {technologyItems.map((item, index) => (
+                          item.path.startsWith('/') ? (
+                            <Link 
+                              key={index} 
+                              to={item.path} 
+                              className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                              onClick={() => window.scrollTo(0, 0)}
+                            >
+                              {item.name}
+                            </Link>
+                          ) : (
+                            <a 
+                              key={index} 
+                              href={item.path} 
+                              className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                            >
+                              {item.name}
+                            </a>
+                          )
+                        ))}
                       </div>
                     </div>
                   </div>}
@@ -226,9 +247,30 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Technology</span>
                     <div className="pl-4 space-y-2">
-                      {technologyItems.map((item, index) => <a key={index} href={`#technology-${item.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
-                          {item}
-                        </a>)}
+                      {technologyItems.map((item, index) => (
+                        item.path.startsWith('/') ? (
+                          <Link 
+                            key={index} 
+                            to={item.path} 
+                            className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
+                            onClick={() => {
+                              toggleMenu();
+                              window.scrollTo(0, 0);
+                            }}
+                          >
+                            {item.name}
+                          </Link>
+                        ) : (
+                          <a 
+                            key={index} 
+                            href={item.path} 
+                            className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
+                            onClick={toggleMenu}
+                          >
+                            {item.name}
+                          </a>
+                        )
+                      ))}
                     </div>
                   </div>
                   
