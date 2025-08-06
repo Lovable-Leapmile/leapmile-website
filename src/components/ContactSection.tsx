@@ -4,9 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Calendar, CheckCircle } from "lucide-react";
+import DateTimePicker from "./DateTimePicker";
 interface ContactFormData {
   name: string;
   email: string;
@@ -14,15 +15,35 @@ interface ContactFormData {
   company: string;
   service: string;
   message: string;
+  demoDate?: string;
+  demoTime?: string;
 }
 
 const ContactSection = () => {
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactFormData>();
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting }, watch, setValue } = useForm<ContactFormData>();
   const { toast } = useToast();
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+  const [selectedTime, setSelectedTime] = useState<string>("");
+  
+  const watchedService = watch("service");
+
+  // Clear date/time when service changes away from "Schedule Demo"
+  useEffect(() => {
+    if (watchedService !== "schedule-demo") {
+      setSelectedDate(undefined);
+      setSelectedTime("");
+      setValue("demoDate", "");
+      setValue("demoTime", "");
+    }
+  }, [watchedService, setValue]);
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
+      let emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
+      
+      if (data.service === "schedule-demo" && selectedDate && selectedTime) {
+        emailMessage += `, Demo Date: ${selectedDate.toDateString()}, Demo Time: ${selectedTime}`;
+      }
       
       const params = new URLSearchParams({
         msg_type: 'regular',
@@ -49,6 +70,8 @@ const ContactSection = () => {
           action: <CheckCircle className="h-5 w-5 text-green-600" />
         });
         reset();
+        setSelectedDate(undefined);
+        setSelectedTime("");
       } else {
         throw new Error('Failed to send email');
       }
@@ -179,6 +202,26 @@ const ContactSection = () => {
                         <option value="schedule-demo">Schedule Demo</option>
                       </select>
                     </div>
+
+                    {/* Conditional Date/Time Picker */}
+                    {watchedService === "schedule-demo" && (
+                      <DateTimePicker
+                        selectedDate={selectedDate}
+                        selectedTime={selectedTime}
+                        onDateChange={(date) => {
+                          setSelectedDate(date);
+                          setValue("demoDate", date ? date.toISOString() : "");
+                        }}
+                        onTimeChange={(time) => {
+                          setSelectedTime(time);
+                          setValue("demoTime", time);
+                        }}
+                        onClear={() => {
+                          setSelectedDate(undefined);
+                          setSelectedTime("");
+                        }}
+                      />
+                    )}
 
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
