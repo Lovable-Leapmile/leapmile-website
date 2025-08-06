@@ -3,23 +3,27 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { 
-  Eye, 
-  Monitor, 
-  TouchpadIcon as Touch, 
-  RotateCw, 
-  Palette, 
-  Smartphone 
-} from "lucide-react";
+import { Eye, Monitor, TouchpadIcon as Touch, RotateCw, Palette, Smartphone } from "lucide-react";
 const ShowcaseRobot = () => {
-  const features = [
-    { name: "Floating Glass Observation Bubbles", icon: Eye },
-    { name: "Transparent Lighted Panels for Additional Display", icon: Monitor },
-    { name: "Touch Screen Self Service Interactivity", icon: Touch },
-    { name: "Automated Rotation of Display Across Collections", icon: RotateCw },
-    { name: "Body Panels Wrapped in Art Renderings", icon: Palette },
-    { name: "Secure & Simplified Management App", icon: Smartphone }
-  ];
+  const features = [{
+    name: "Floating Glass Observation Bubbles",
+    icon: Eye
+  }, {
+    name: "Transparent Lighted Panels for Additional Display",
+    icon: Monitor
+  }, {
+    name: "Touch Screen Self Service Interactivity",
+    icon: Touch
+  }, {
+    name: "Automated Rotation of Display Across Collections",
+    icon: RotateCw
+  }, {
+    name: "Body Panels Wrapped in Art Renderings",
+    icon: Palette
+  }, {
+    name: "Secure & Simplified Management App",
+    icon: Smartphone
+  }];
   const orderFlow = [{
     image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/Inscreen.png",
     header: "Selecting Item",
@@ -85,7 +89,7 @@ const ShowcaseRobot = () => {
         backgroundImage: 'url(https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/features.png)'
       }}>
           {/* Overlay */}
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+          <div className="absolute inset-0 bg-background/80"></div>
         </div>
         
         {/* Content */}
