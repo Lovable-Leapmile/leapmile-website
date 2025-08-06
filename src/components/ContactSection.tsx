@@ -102,9 +102,7 @@ const ContactSection = () => {
   }, {
     icon: MapPin,
     title: "Visit Us",
-    details: "216/2,
-      Plot No 8 SS Commercial Estate,
-    Nagavarpalya, C.V. Raman Nagar",
+    details: `216/2, Plot No 8 SS Commercial Estate, Nagavarpalya, C.V. Raman Nagar`,
     subtitle: "Bangalore - 560093"
   }, {
     icon: Clock,
