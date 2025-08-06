@@ -148,7 +148,7 @@ const OmniChannelRetail = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {orderFlow.map((flow, index) => <div key={index} className="text-center">
                   <div className="aspect-square rounded-2xl overflow-hidden mb-6">
-                    <img src={flow.image} alt={flow.header} className="w-full h-full object-cover" />
+                    <img src={flow.image} alt={flow.header} className="w-full h-full object-contain" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">{flow.header}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{flow.caption}</p>
