@@ -3,31 +3,39 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { 
-  TrendingUp, 
-  Settings, 
-  Eye, 
-  ShieldCheck, 
-  Wrench, 
-  Heart, 
-  Clock, 
-  FileBarChart, 
-  TrendingDown, 
-  Archive 
-} from "lucide-react";
+import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 const IndustrialMRO = () => {
-  const benefits = [
-    { name: "Increase Throughput", icon: TrendingUp },
-    { name: "Simplified Customization", icon: Settings },
-    { name: "Inventory Visibility", icon: Eye },
-    { name: "Eliminate Manual Errors", icon: ShieldCheck },
-    { name: "Easy Maintenance", icon: Wrench },
-    { name: "Enhance Shopper Experience", icon: Heart },
-    { name: "24 x 7 Operation", icon: Clock },
-    { name: "Daily Audit Reports", icon: FileBarChart },
-    { name: "Handle Seasonal Peaks", icon: TrendingDown },
-    { name: "Increase Storage Density", icon: Archive }
-  ];
+  const benefits = [{
+    name: "Increase Throughput",
+    icon: TrendingUp
+  }, {
+    name: "Simplified Customization",
+    icon: Settings
+  }, {
+    name: "Inventory Visibility",
+    icon: Eye
+  }, {
+    name: "Eliminate Manual Errors",
+    icon: ShieldCheck
+  }, {
+    name: "Easy Maintenance",
+    icon: Wrench
+  }, {
+    name: "Enhance Shopper Experience",
+    icon: Heart
+  }, {
+    name: "24 x 7 Operation",
+    icon: Clock
+  }, {
+    name: "Daily Audit Reports",
+    icon: FileBarChart
+  }, {
+    name: "Handle Seasonal Peaks",
+    icon: TrendingDown
+  }, {
+    name: "Increase Storage Density",
+    icon: Archive
+  }];
   const orderFlow = [{
     image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/orderflow1.png",
     header: "Order Submission",
@@ -170,7 +178,7 @@ const IndustrialMRO = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {orderFlow.map((flow, index) => <div key={index} className="text-center">
                   <div className="aspect-square rounded-2xl overflow-hidden mb-6">
-                    <img src={flow.image} alt={flow.header} className="w-full h-full object-cover" />
+                    <img src={flow.image} alt={flow.header} className="w-full h-full object-contain" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{flow.header}</h3>
                   <p className="text-muted-foreground leading-relaxed">{flow.caption}</p>
