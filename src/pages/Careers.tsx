@@ -97,8 +97,8 @@ const Careers = () => {
               {benefits.map((benefit, index) => <Card key={index} className="border-none shadow-lg">
                   <CardContent className="p-6 text-center">
                     <div className="mb-4 flex justify-center">
-                      <div className="p-4 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex">
-                        <benefit.icon className="h-8 w-8 text-purple " />
+                      <div className="p-4 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
+                        <benefit.icon className="h-8 w-8 text-white" />
                       </div>
                     </div>
                     <h4 className="text-lg font-semibold mb-2 text-foreground">{benefit.title}</h4>
