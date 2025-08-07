@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, Heart, Shield, Coffee, MapPin, Scale } from "lucide-react";
+import Footer from "@/components/Footer";
 const Careers = () => {
   const benefits = [{
     icon: Award,
@@ -112,14 +113,14 @@ const Careers = () => {
           <div className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Open Positions</h3>
             <div className="space-y-8">
-              {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden shadow-lg">
-                  <div className="md:flex">
-                    <div className="md:w-1/3">
-                      <img src={role.image} alt={role.title} className="w-full h-48 md:h-full object-contain" />
+              {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden border border-border">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="md:w-1/4 p-8 flex items-center justify-center">
+                      <img src={role.image} alt={role.title} className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-lg" />
                     </div>
-                    <div className="md:w-2/3 p-6">
-                      <h4 className="text-2xl font-bold mb-4 text-foreground">{role.title}</h4>
-                      <p className="text-muted-foreground leading-relaxed">{role.description}</p>
+                    <div className="md:w-3/4 p-8">
+                      <h4 className="text-2xl font-bold mb-6 text-foreground">{role.title}</h4>
+                      <p className="text-muted-foreground leading-relaxed text-lg">{role.description}</p>
                     </div>
                   </div>
                 </Card>)}
@@ -134,6 +135,7 @@ const Careers = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>;
 };
 export default Careers;
