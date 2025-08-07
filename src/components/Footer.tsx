@@ -70,10 +70,7 @@ const Footer = () => {
                 <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
                 <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
               </div>
-              <p className="text-muted mb-6 leading-relaxed">
-                Pioneering the future of autonomous technology through innovative 
-                robotics and AI solutions.
-              </p>
+              <p className="text-muted mb-6 leading-relaxed">Discover robotic nano warehousing done the Leapmile way!</p>
               
               {/* Contact Info */}
               <div className="space-y-3">
