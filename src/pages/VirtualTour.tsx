@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Maximize2, X } from "lucide-react";
+import Footer from "@/components/Footer";
 
 interface SystemContent {
   id: string;
@@ -90,37 +91,85 @@ const VirtualTour = () => {
   useEffect(() => {
     if (!svgContent) return;
 
-    const handleMouseEnter = (systemId: string) => {
-      setActiveSystem(systemId);
-    };
+    // Inject highlight styles if not already present
+    if (!document.getElementById('virtual-tour-svg-highlight-style')) {
+      const style = document.createElement('style');
+      style.id = 'virtual-tour-svg-highlight-style';
+      style.innerHTML = `
+        .svg-rect-highlight {
+          stroke: #351c75 !important;
+          stroke-width: 6px !important;
+          filter: drop-shadow(0 0 12px #351c75aa);
+        }
+        .svg-rect-indicator {
+          pointer-events: none;
+        }
+        @keyframes pulse-dot {
+          0% { r: 6; opacity: 1; }
+          50% { r: 10; opacity: 0.5; }
+          100% { r: 6; opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
 
-    // Add event listeners to the SVG container
+    // --- Mouse enter logic for rects ---
     const svgContainer = document.querySelector('#virtual-tour-svg');
     if (svgContainer) {
-      const listeners: Array<{ element: Element; handler: () => void }> = [];
-
-      // Set up event listeners for each system
+      const listeners: Array<{ element: Element; enter: () => void }> = [];
       Object.entries(systemsContent).forEach(([systemId, system]) => {
         const { x, y, width, height, fill } = system.coordinates;
         const selector = `rect[x="${x}"][y="${y}"][width="${width}"][height="${height}"][fill="${fill}"]`;
         const rectElement = svgContainer.querySelector(selector);
-        
         if (rectElement) {
-          const handler = () => handleMouseEnter(systemId);
-          rectElement.addEventListener('mouseenter', handler);
-          (rectElement as SVGElement).style.cursor = 'pointer';
-          
-          listeners.push({ element: rectElement, handler });
+          const enter = () => {
+            setActiveSystem(systemId);
+          };
+          rectElement.addEventListener('mouseenter', enter);
+          listeners.push({ element: rectElement, enter });
         }
       });
-
       return () => {
-        listeners.forEach(({ element, handler }) => {
-          element.removeEventListener('mouseenter', handler);
+        listeners.forEach(({ element, enter }) => {
+          element.removeEventListener('mouseenter', enter);
         });
       };
     }
   }, [svgContent]);
+
+  // Highlight logic: always highlight the activeSystem
+  useEffect(() => {
+    if (!svgContent) return;
+    // Remove all previous highlights and indicators
+    document.querySelectorAll('#virtual-tour-svg rect').forEach(el => {
+      el.classList.remove('svg-rect-highlight');
+    });
+    document.querySelectorAll('#virtual-tour-svg .svg-rect-indicator').forEach(el => el.remove());
+    // Highlight the active rect and add indicator
+    const system = systemsContent[activeSystem];
+    if (system) {
+      const { x, y, width, height } = system.coordinates;
+      const selector = `rect[x="${x}"][y="${y}"][width="${width}"][height="${height}"]`;
+      const rectElement = document.querySelector(`#virtual-tour-svg ${selector}`);
+      if (rectElement) {
+        rectElement.classList.add('svg-rect-highlight');
+        // Add a pulsing dot indicator at the center
+        const svg = (rectElement as SVGGraphicsElement).ownerSVGElement;
+        if (svg) {
+          const cx = parseFloat(x) + parseFloat(width) / 2;
+          const cy = parseFloat(y) + parseFloat(height) / 2;
+          const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          dot.setAttribute('cx', cx.toString());
+          dot.setAttribute('cy', cy.toString());
+          dot.setAttribute('r', '6');
+          dot.setAttribute('fill', '#351c75');
+          dot.setAttribute('class', 'svg-rect-indicator');
+          dot.setAttribute('style', 'animation: pulse-dot 1.2s infinite;');
+          svg.appendChild(dot);
+        }
+      }
+    }
+  }, [svgContent, activeSystem]);
 
   const handleFullscreenClick = () => {
     setIsVideoModalOpen(true);
@@ -129,18 +178,17 @@ const VirtualTour = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-24 pb-6 px-4">
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             Virtual Warehouse
           </h1>
           
-          <div className="max-w-4xl mx-auto mb-12">
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+          <div className="max-w-4xl mx-auto mb-6">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
               Experience the LeapMile Robotics Virtual Warehouse—an engaging online journey you can enjoy from the comfort of your desk. Dive into the cutting-edge innovations designed into our Nano Warehouse Automated Storage and Retrieval Solutions (ASRS). Embark on a virtual tour of our inbound and outbound processes and discover the extraordinary features of our products.
             </p>
-            
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
+            <h2 className="text-lg md:text-xl font-semibold text-foreground">
               Embark on a virtual journey through various inbound and outbound processes, where you'll uncover the remarkable features of our products.
             </h2>
           </div>
@@ -148,55 +196,52 @@ const VirtualTour = () => {
       </section>
 
       {/* Interactive SVG & GIF Section */}
-      <section className="py-16 px-4">
+      <section className="py-6 px-4">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
             {/* Left Column - SVG Display */}
-            <div className="relative">
+            <div className="flex-1 flex flex-col items-center justify-stretch">
               {isLoading ? (
-                <div className="flex items-center justify-center h-96 bg-muted rounded-lg">
+                <div className="flex items-center justify-center h-96 bg-muted rounded-lg w-full">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
                 </div>
               ) : (
                 <div 
                   id="virtual-tour-svg"
-                  className="w-full h-auto max-w-lg mx-auto"
+                  className="w-full h-full max-w-2xl mx-auto flex items-stretch"
+                  style={{ height: '100%', minHeight: '420px', maxHeight: '520px' }}
                   dangerouslySetInnerHTML={{ __html: svgContent }}
                 />
               )}
             </div>
 
             {/* Right Column - Always Visible GIF Panel */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-xl p-6 shadow-2xl">
-                {/* System Title */}
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-white">{currentSystem.title}</h3>
-                </div>
-
-                {/* GIF Container */}
-                <div className="relative mb-4">
+            <div className="flex-1 flex flex-col items-center justify-stretch">
+              <div className="w-full max-w-2xl flex flex-col h-full rounded-xl bg-white border border-slate-200" style={{ minHeight: '420px', maxHeight: '520px', boxShadow: '0 4px 24px 0 rgba(53,28,117,0.08)' }}>
+                <div className="relative flex-shrink-0 flex items-center justify-center pt-6 pb-2 px-6" style={{ background: 'none' }}>
                   <img
                     src={currentSystem.gifUrl}
                     alt={`${currentSystem.title} Animation`}
-                    className="w-full h-auto rounded-lg shadow-lg object-contain"
-                    style={{ aspectRatio: '16/9' }}
+                    className="w-[420px] max-w-full h-auto rounded-lg object-contain"
+                    style={{ marginTop: 0, boxShadow: 'none' }}
                   />
-                  
                   {/* Fullscreen Icon */}
                   <button
                     onClick={handleFullscreenClick}
-                    className="absolute bottom-3 left-3 bg-black/70 hover:bg-black/90 text-white p-2 rounded-lg transition-colors duration-200"
+                    className="absolute bottom-3 left-3 bg-black/70 hover:bg-black/90 text-white p-2 rounded-lg transition-colors duration-200 z-10"
                     aria-label="View fullscreen video"
                   >
                     <Maximize2 size={20} />
                   </button>
                 </div>
-
-                {/* Description */}
-                <p className="text-slate-300 leading-relaxed">
-                  {currentSystem.description}
-                </p>
+                <div className="flex-1 flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #351c75 0%, #5f3fae 100%)', borderBottomLeftRadius: '0.75rem', borderBottomRightRadius: '0.75rem' }}>
+                  <div className="px-6 pt-4 pb-2">
+                    <h3 className="text-xl font-bold text-white mb-2">{currentSystem.title}</h3>
+                    <div className="bg-white rounded-lg p-4" style={{ color: '#222', textAlign: 'left', fontSize: '1rem', fontWeight: 400 }}>
+                      {currentSystem.description}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -210,13 +255,13 @@ const VirtualTour = () => {
         </div>
       </section>
 
-      {/* Additional Information Section */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+      {/* Additional Information Section - moved below SVG & GIF */}
+      <section className="py-8 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-3xl text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
             Explore Our Interactive Features
           </h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             Hover over different regions of our virtual warehouse to see real-time demonstrations 
             of our automated storage and retrieval systems in action. Each area showcases unique 
             capabilities of our robotic solutions.
@@ -226,7 +271,9 @@ const VirtualTour = () => {
 
       {/* Video Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
-        <DialogContent className="max-w-4xl w-full bg-slate-900 border-slate-700">
+        <DialogContent className="max-w-4xl w-full border-slate-700"
+          style={{ background: 'linear-gradient(135deg, #351c75 0%, #5f3fae 100%)' }}
+        >
           <DialogHeader>
             <DialogTitle className="text-white text-xl font-bold">
               {currentSystem.title}
@@ -247,6 +294,7 @@ const VirtualTour = () => {
           </div>
         </DialogContent>
       </Dialog>
+      <Footer />
     </div>
   );
 };

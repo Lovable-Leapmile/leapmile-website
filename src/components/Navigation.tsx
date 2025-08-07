@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
@@ -97,6 +97,31 @@ const Navigation = () => {
     { name: "Virtual Tour", path: "/virtual-tour" }
   ];
   const companyItems = ["About Us", "Careers", "Contact Us"];
+
+  // Helper for About Us scroll
+  const handleAboutUsClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/#about");
+    }
+  };
+
+  // Handle scroll to about section after navigation
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash === "#about") {
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        setTimeout(() => {
+          aboutSection.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location.pathname, location.hash]);
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-12">
         <div className="flex items-center justify-between h-16">
@@ -110,7 +135,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation - Only show on Leapmile page */}
           {!isQikpodMode && <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={() => window.location.href = '/'}>
                 Home
               </Link>
               
@@ -183,6 +208,15 @@ const Navigation = () => {
                              >
                                {item}
                              </button>
+                           ) : item === "About Us" ? (
+                             <a
+                               key={index}
+                               href="#about"
+                               onClick={handleAboutUsClick}
+                               className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                             >
+                               {item}
+                             </a>
                            ) : (
                              <a 
                                key={index} 
@@ -243,7 +277,10 @@ const Navigation = () => {
               
               {/* Mobile Navigation Links - Only show on Leapmile page */}
               {!isQikpodMode && <>
-                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
+                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={() => {
+                    toggleMenu();
+                    window.location.href = '/';
+                  }}>
                     Home
                   </Link>
                   

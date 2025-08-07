@@ -1,6 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const handleExploreIndustries = () => {
+    const industriesSection = document.getElementById("industries");
+    if (industriesSection) {
+      industriesSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // fallback: navigate to industries page if not on homepage
+      navigate("/industries/quick-commerce");
+    }
+  };
+  const handleVirtualTour = () => {
+    navigate("/virtual-tour");
+  };
   return <section id="home" className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-20 pb-8">
       <div className="absolute inset-0 bg-background/100"></div>
       
@@ -30,11 +44,11 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-tech-gradient hover:shadow-tech text-lg px-8 py-4 h-auto group">
+              <Button size="lg" className="bg-tech-gradient hover:shadow-tech text-lg px-8 py-4 h-auto group" onClick={handleExploreIndustries}>
                 Explore Industries
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent" onClick={handleVirtualTour}>
                 <Play className="mr-2 h-5 w-5" />
                 Virtual Tour
               </Button>
