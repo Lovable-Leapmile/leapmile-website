@@ -77,7 +77,7 @@ const Careers = () => {
       </section>
 
       {/* Body Content */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-0">
         <div className="container mx-auto max-w-4xl">
           <div className="text-lg leading-relaxed text-[#351c75] mb-12">
             <p className="mb-6">
@@ -112,8 +112,7 @@ const Careers = () => {
               
               {/* Remaining 6 cards in 2 rows of 3 */}
               <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
-                {benefits.slice(1).map((benefit, index) => (
-                  <Card key={index + 1} className="border-none shadow-lg">
+                {benefits.slice(1).map((benefit, index) => <Card key={index + 1} className="border-none shadow-lg">
                     <CardContent className="p-4 text-center">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
@@ -123,8 +122,7 @@ const Careers = () => {
                       <h4 className="text-base font-semibold mb-2 text-foreground">{benefit.title}</h4>
                       <p className="text-xs text-muted-foreground">{benefit.description}</p>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
           </div>
