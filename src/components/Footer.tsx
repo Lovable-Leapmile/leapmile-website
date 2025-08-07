@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, ArrowRight } from "lucide-react";
-import logoLight from "@/assets/logo-light.png";
-import logoDark from "@/assets/logo-dark.png";
+import { Mail, Phone, MapPin, Linkedin, ArrowRight, Check } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import litepurpleLogo from "@/assets/litepurple-logo.png";
+import { Link } from "react-router-dom";
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
   const footerLinks = {
     company: [{
       name: "About Us",
@@ -13,51 +18,75 @@ const Footer = () => {
       name: "Careers",
       href: "#careers"
     }, {
-      name: "News",
-      href: "#news"
-    }, {
       name: "Contact",
       href: "#contact"
     }],
-    services: [{
-      name: "Autonomous Robotics",
-      href: "#services"
+    industries: [{
+      name: "Quick Commerce",
+      href: "/industries/quick-commerce"
     }, {
-      name: "Smart Logistics",
-      href: "#services"
+      name: "E-Commerce",
+      href: "/industries/e-commerce"
     }, {
-      name: "Industrial Automation",
-      href: "#services"
+      name: "Omni Channel Retail",
+      href: "/industries/omni-channel-retail"
     }, {
-      name: "AI Software",
-      href: "#services"
+      name: "Industrial & MRO",
+      href: "/industries/industrial-&-mro"
+    }, {
+      name: "Showcase Robot",
+      href: "/industries/showcase-robot"
     }],
-    resources: [{
-      name: "Documentation",
-      href: "#docs"
+    technology: [{
+      name: "Nano Warehouse",
+      href: "/technology/nano-warehouse"
     }, {
-      name: "Case Studies",
-      href: "#cases"
+      name: "Smart Locker - Qikpod",
+      href: "/qikpod"
     }, {
-      name: "Blog",
-      href: "#blog"
-    }, {
-      name: "Support",
-      href: "#support"
-    }],
-    legal: [{
-      name: "Privacy Policy",
-      href: "#privacy"
-    }, {
-      name: "Terms of Service",
-      href: "#terms"
-    }, {
-      name: "Security",
-      href: "#security"
-    }, {
-      name: "Compliance",
-      href: "#compliance"
+      name: "Virtual Tour",
+      href: "#virtual-tour"
     }]
+  };
+
+  const validateAndSubscribe = async () => {
+    // Validate email format
+    const emailRegex = /^[^\s@]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid Gmail address (@gmail.com)");
+      return;
+    }
+
+    setIsSubscribing(true);
+    
+    try {
+      const response = await fetch(
+        `https://newproduction.qikpod.com:8985/notifications/email/send/?msg_type=regular&email_to_address=support%40leapmile.com&email_from_address=support%40leapmile.com&email_subject=Leapmile%20Robotics%20Subscribed%20User&email_message=Subscribed%20User%20Email%20id%3A%20%22${encodeURIComponent(email)}%22`,
+        {
+          method: 'POST',
+          headers: {
+            'accept': 'application/json',
+            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
+          }
+        }
+      );
+
+      if (response.ok) {
+        toast.success(
+          <div className="flex items-center">
+            <Check className="h-4 w-4 text-green-500 mr-2" />
+            Subscribed Successfully!
+          </div>
+        );
+        setEmail("");
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (error) {
+      toast.error("Subscription failed. Please try again.");
+    } finally {
+      setIsSubscribing(false);
+    }
   };
   return <footer className="bg-foreground text-background py-16">
       <div className="page-wrapper">
@@ -67,8 +96,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-6">
-                <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
-                <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
+                <img src={litepurpleLogo} alt="LeapMile Logo" className="h-8 w-auto" />
               </div>
               <p className="text-muted mb-6 leading-relaxed">Discover robotic nano warehousing done the Leapmile way!</p>
               
@@ -103,26 +131,32 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Services Links */}
+              {/* Industries Links */}
               <div>
-                <h4 className="font-semibold mb-4">Services</h4>
+                <h4 className="font-semibold mb-4">Industries</h4>
                 <ul className="space-y-2">
-                  {footerLinks.services.map((link, index) => <li key={index}>
-                      <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                  {footerLinks.industries.map((link, index) => <li key={index}>
+                      <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
                         {link.name}
-                      </a>
+                      </Link>
                     </li>)}
                 </ul>
               </div>
 
-              {/* Resources Links */}
+              {/* Technology Links */}
               <div>
-                <h4 className="font-semibold mb-4">Resources</h4>
+                <h4 className="font-semibold mb-4">Technology</h4>
                 <ul className="space-y-2">
-                  {footerLinks.resources.map((link, index) => <li key={index}>
-                      <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
-                        {link.name}
-                      </a>
+                  {footerLinks.technology.map((link, index) => <li key={index}>
+                      {link.href.startsWith('/') ? (
+                        <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                          {link.name}
+                        </a>
+                      )}
                     </li>)}
                 </ul>
               </div>
@@ -137,9 +171,19 @@ const Footer = () => {
                 Get the latest news on robotics innovation and AI breakthroughs.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <Input type="email" placeholder="Enter your email" className="flex-1 bg-background text-foreground" />
-                <Button className="bg-tech-gradient hover:shadow-tech whitespace-nowrap">
-                  Subscribe
+                <Input 
+                  type="email" 
+                  placeholder="Enter your Gmail address" 
+                  className="flex-1 bg-background text-foreground" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Button 
+                  className="bg-tech-gradient hover:shadow-tech whitespace-nowrap"
+                  onClick={validateAndSubscribe}
+                  disabled={isSubscribing}
+                >
+                  {isSubscribing ? "Subscribing..." : "Subscribe"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -154,22 +198,24 @@ const Footer = () => {
             
             {/* Social Links */}
             <div className="flex space-x-4 mb-4 md:mb-0">
-              <Button variant="ghost" size="icon" className="text-muted hover:text-primary">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="text-muted hover:text-primary"
+                onClick={() => window.open('https://www.linkedin.com/company/leapmile/posts/?feedView=all', '_blank')}
+              >
                 <Linkedin className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-muted hover:text-primary">
-                <Twitter className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-muted hover:text-primary">
-                <Github className="h-4 w-4" />
               </Button>
             </div>
 
             {/* Legal Links */}
-            <div className="flex space-x-4 text-sm">
-              {footerLinks.legal.map((link, index) => <a key={index} href={link.href} className="text-muted hover:text-primary transition-colors">
-                  {link.name}
-                </a>)}
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm">
+              <Link to="/terms-and-privacy" className="text-muted hover:text-primary transition-colors">
+                Terms and Condition & Privacy Policy / Cookies Policy
+              </Link>
+              <Link to="/pricing-and-refunds" className="text-muted hover:text-primary transition-colors">
+                Pricing / Refunds / Cancellations Policy
+              </Link>
             </div>
           </div>
         </div>

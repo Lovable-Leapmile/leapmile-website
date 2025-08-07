@@ -15,6 +15,8 @@ import OmniChannelRetail from "./pages/industries/OmniChannelRetail";
 import IndustrialMRO from "./pages/industries/IndustrialMRO";
 import ShowcaseRobot from "./pages/industries/ShowcaseRobot";
 import NanoWarehouse from "./pages/technology/NanoWarehouse";
+import TermsAndPrivacy from "./pages/TermsAndPrivacy";
+import PricingAndRefunds from "./pages/PricingAndRefunds";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,8 @@ const App = () => (
             <Route path="/industries/industrial-&-mro" element={<IndustrialMRO />} />
             <Route path="/industries/showcase-robot" element={<ShowcaseRobot />} />
             <Route path="/technology/nano-warehouse" element={<NanoWarehouse />} />
+            <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
+            <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
