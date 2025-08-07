@@ -22,14 +22,20 @@ const VirtualTour = () => {
     loadSvg();
   }, []);
 
-  // Add event listeners to SVG regions after SVG is loaded
+  // Add event listeners to specific rect element after SVG is loaded
   useEffect(() => {
     if (!svgContent) return;
 
     const handleMouseEnter = (event: MouseEvent) => {
       const target = event.target as SVGElement;
-      if (target?.id?.startsWith('mouseregion')) {
-        setHoveredRegion(target.id);
+      // Check if this is our target rect element
+      if (target.tagName === 'rect' && 
+          target.getAttribute('x') === '191' && 
+          target.getAttribute('y') === '406' && 
+          target.getAttribute('width') === '67' && 
+          target.getAttribute('height') === '92' && 
+          target.getAttribute('fill') === 'url(#pattern1_1091_237)') {
+        setHoveredRegion('target-rect');
       }
     };
 
@@ -40,20 +46,18 @@ const VirtualTour = () => {
     // Add event listeners to the SVG container
     const svgContainer = document.querySelector('#virtual-tour-svg');
     if (svgContainer) {
-      const regions = svgContainer.querySelectorAll('[id^="mouseregion"]');
-      regions.forEach(region => {
-        region.addEventListener('mouseenter', handleMouseEnter);
-        region.addEventListener('mouseleave', handleMouseLeave);
-        // Make regions visually interactive
-        (region as SVGElement).style.cursor = 'pointer';
-      });
+      const targetRect = svgContainer.querySelector('rect[x="191"][y="406"][width="67"][height="92"][fill="url(#pattern1_1091_237)"]');
+      if (targetRect) {
+        targetRect.addEventListener('mouseenter', handleMouseEnter);
+        targetRect.addEventListener('mouseleave', handleMouseLeave);
+        // Make rect visually interactive
+        (targetRect as SVGElement).style.cursor = 'pointer';
 
-      return () => {
-        regions.forEach(region => {
-          region.removeEventListener('mouseenter', handleMouseEnter);
-          region.removeEventListener('mouseleave', handleMouseLeave);
-        });
-      };
+        return () => {
+          targetRect.removeEventListener('mouseenter', handleMouseEnter);
+          targetRect.removeEventListener('mouseleave', handleMouseLeave);
+        };
+      }
     }
   }, [svgContent]);
 
@@ -99,30 +103,23 @@ const VirtualTour = () => {
               )}
             </div>
 
-            {/* Right Column - Dynamic Video Display */}
+            {/* Right Column - Dynamic GIF Display */}
             <div className={`relative transition-all duration-500 ease-in-out ${
               hoveredRegion ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
             }`}>
               {hoveredRegion && (
-                <div className="relative w-full h-0 pb-[56.25%] bg-black rounded-lg overflow-hidden shadow-lg">
-                  <video
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source 
-                      src="https://www.w3schools.com/html/mov_bbb.mp4" 
-                      type="video/mp4" 
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                <div className="relative w-full flex items-center justify-center">
+                  <img
+                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Cuberobo.gif"
+                    alt="Cube Robot Animation"
+                    className="w-full h-auto max-w-md rounded-lg shadow-lg object-contain"
+                    style={{ aspectRatio: 'auto' }}
+                  />
                   
-                  {/* Video Overlay with Region Info */}
+                  {/* GIF Overlay with Info */}
                   <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-2 rounded">
                     <span className="text-sm font-medium">
-                      Region: {hoveredRegion?.replace('mouseregion', 'Area ')}
+                      Cube Robot Technology
                     </span>
                   </div>
                 </div>
@@ -133,7 +130,7 @@ const VirtualTour = () => {
           {/* Mobile Instructions */}
           <div className="lg:hidden mt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              Tap on different areas of the warehouse diagram to view interactive videos
+              Tap on the highlighted area in the warehouse diagram to view the cube robot animation
             </p>
           </div>
         </div>
