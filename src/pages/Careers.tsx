@@ -1,87 +1,65 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, Heart, Shield, Coffee, MapPin, Scale } from "lucide-react";
-
 const Careers = () => {
-  const benefits = [
-    {
-      icon: Award,
-      title: "Competitive Compensation",
-      description: "Market-competitive salary and performance-based incentives"
-    },
-    {
-      icon: Heart,
-      title: "Paid & Sick Leave",
-      description: "Comprehensive leave policy for work-life balance"
-    },
-    {
-      icon: Shield,
-      title: "Provident Fund & Gratuity",
-      description: "Secure your future with our retirement benefits"
-    },
-    {
-      icon: Shield,
-      title: "Medical Insurance",
-      description: "Coverage for you, spouse, and 2 children"
-    },
-    {
-      icon: Coffee,
-      title: "Office Lunch & Snacks",
-      description: "Daily company lunch and refreshments"
-    },
-    {
-      icon: MapPin,
-      title: "Central Location Metro Proximity",
-      description: "Well-connected office location"
-    },
-    {
-      icon: Scale,
-      title: "Work-Life Balance",
-      description: "Balanced and predictable work hours"
-    }
-  ];
-
-  const jobRoles = [
-    {
-      title: "Robotics Engineer",
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy1.jpg",
-      description: "Robotics Engineers are members of our product development team and help co-craft innovative automation systems and solutions. To excel in this role, you should have a good understanding of actuators, sensors, microcontroller & microprocessor boards, PLC, IPC & relay-logic-based systems, good logic development skills, and strong electrical foundation."
-    },
-    {
-      title: "Python Engineer",
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy5.jpg",
-      description: "Python Software Engineers are members of our product development team who build innovative automation systems and solutions. To excel in this role, you should be proficient in Python and have a working understanding of robotics and factory automation systems. You should be able to write programs from scratch and be able to test them in a real working system."
-    },
-    {
-      title: "Design Engineer",
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy3.jpg",
-      description: "Mechanical Design Engineers on our Robotics team have experience in the robotics and automation fields and are responsible for conceptualizing, designing, and developing new products, providing technical guidance, and executing cross-functional engineering projects. We expect them to exhibit technical expertise in individual project priorities, deadlines, and deliverables."
-    },
-    {
-      title: "Field Service Engineer",
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy2.jpg",
-      description: "Field Service Engineers support our deployed locker & robot network. For this job, you need to be familiar with the technical aspects of installing, servicing, and maintaining equipment at field locations. You should be an excellent problem-solver, be willing to travel throughout the day to field sites, and be able to manage customer-facing problem situations when they arise."
-    },
-    {
-      title: "Marketing Internship",
-      image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy4.jpg",
-      description: "Marketing and business development teams to support us with market research, business development, and lead gen, and to assist us with marketing tactics we execute during the launch of our new robotics products. Your role is to identify and develop a rich set of prospects and also help us expand our audience. You will learn about various marketing operations and support our marketing team to create and implement our marketing strategies, both online as well as offline."
-    }
-  ];
-
+  const benefits = [{
+    icon: Award,
+    title: "Competitive Compensation",
+    description: "Market-competitive salary and performance-based incentives"
+  }, {
+    icon: Heart,
+    title: "Paid & Sick Leave",
+    description: "Comprehensive leave policy for work-life balance"
+  }, {
+    icon: Shield,
+    title: "Provident Fund & Gratuity",
+    description: "Secure your future with our retirement benefits"
+  }, {
+    icon: Shield,
+    title: "Medical Insurance",
+    description: "Coverage for you, spouse, and 2 children"
+  }, {
+    icon: Coffee,
+    title: "Office Lunch & Snacks",
+    description: "Daily company lunch and refreshments"
+  }, {
+    icon: MapPin,
+    title: "Central Location Metro Proximity",
+    description: "Well-connected office location"
+  }, {
+    icon: Scale,
+    title: "Work-Life Balance",
+    description: "Balanced and predictable work hours"
+  }];
+  const jobRoles = [{
+    title: "Robotics Engineer",
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy1.jpg",
+    description: "Robotics Engineers are members of our product development team and help co-craft innovative automation systems and solutions. To excel in this role, you should have a good understanding of actuators, sensors, microcontroller & microprocessor boards, PLC, IPC & relay-logic-based systems, good logic development skills, and strong electrical foundation."
+  }, {
+    title: "Python Engineer",
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy5.jpg",
+    description: "Python Software Engineers are members of our product development team who build innovative automation systems and solutions. To excel in this role, you should be proficient in Python and have a working understanding of robotics and factory automation systems. You should be able to write programs from scratch and be able to test them in a real working system."
+  }, {
+    title: "Design Engineer",
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy3.jpg",
+    description: "Mechanical Design Engineers on our Robotics team have experience in the robotics and automation fields and are responsible for conceptualizing, designing, and developing new products, providing technical guidance, and executing cross-functional engineering projects. We expect them to exhibit technical expertise in individual project priorities, deadlines, and deliverables."
+  }, {
+    title: "Field Service Engineer",
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy2.jpg",
+    description: "Field Service Engineers support our deployed locker & robot network. For this job, you need to be familiar with the technical aspects of installing, servicing, and maintaining equipment at field locations. You should be an excellent problem-solver, be willing to travel throughout the day to field sites, and be able to manage customer-facing problem situations when they arise."
+  }, {
+    title: "Marketing Internship",
+    image: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Company/Images/vacancy4.jpg",
+    description: "Marketing and business development teams to support us with market research, business development, and lead gen, and to assist us with marketing tactics we execute during the launch of our new robotics products. Your role is to identify and develop a rich set of prospects and also help us expand our audience. You will learn about various marketing operations and support our marketing team to create and implement our marketing strategies, both online as well as offline."
+  }];
   const handleApplyNow = () => {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSd2d3ybFQFGy-KYIaX5ux3Miij_czWeSMB6-F1XBjO30jDP1g/viewform', '_blank');
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* Header Section with Background Image */}
-      <section 
-        className="relative h-96 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
-        }}
-      >
+      <section className="relative h-96 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+    }}>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -116,19 +94,17 @@ const Careers = () => {
           <div className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Key Benefits</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => (
-                <Card key={index} className="border-none shadow-lg">
+              {benefits.map((benefit, index) => <Card key={index} className="border-none shadow-lg">
                   <CardContent className="p-6 text-center">
                     <div className="mb-4 flex justify-center">
                       <div className="p-4 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex">
-                        <benefit.icon className="h-8 w-8 text-white" />
+                        <benefit.icon className="h-8 w-8 text-purple " />
                       </div>
                     </div>
                     <h4 className="text-lg font-semibold mb-2 text-foreground">{benefit.title}</h4>
                     <p className="text-sm text-muted-foreground">{benefit.description}</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
@@ -136,40 +112,28 @@ const Careers = () => {
           <div className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Open Positions</h3>
             <div className="space-y-8">
-              {jobRoles.map((role, index) => (
-                <Card key={index} className="overflow-hidden shadow-lg">
+              {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden shadow-lg">
                   <div className="md:flex">
                     <div className="md:w-1/3">
-                      <img 
-                        src={role.image} 
-                        alt={role.title}
-                        className="w-full h-48 md:h-full object-cover"
-                      />
+                      <img src={role.image} alt={role.title} className="w-full h-48 md:h-full object-cover" />
                     </div>
                     <div className="md:w-2/3 p-6">
                       <h4 className="text-2xl font-bold mb-4 text-foreground">{role.title}</h4>
                       <p className="text-muted-foreground leading-relaxed">{role.description}</p>
                     </div>
                   </div>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
           {/* Apply Now Button */}
           <div className="text-center">
-            <Button 
-              size="lg" 
-              onClick={handleApplyNow}
-              className="px-8 py-4 text-lg"
-            >
+            <Button size="lg" onClick={handleApplyNow} className="px-8 py-4 text-lg">
               Apply Now
             </Button>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Careers;
