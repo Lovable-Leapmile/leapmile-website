@@ -76,11 +76,7 @@ const CarouselSection = () => {
           <Carousel opts={{
           align: "start",
           loop: true
-        }} plugins={[Autoplay({
-          delay: 2000,
-          stopOnInteraction: false,
-          stopOnMouseEnter: true
-        })]} className="w-full">
+        }} className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
               {features.map((feature, index) => <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
                   <Card className="h-full hover:border-primary/50 transition-colors duration-200">

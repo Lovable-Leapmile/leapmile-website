@@ -217,15 +217,23 @@ const Navigation = () => {
                              >
                                {item}
                              </a>
-                           ) : (
-                             <a 
-                               key={index} 
-                               href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                               className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                             >
-                               {item}
-                             </a>
-                           )
+                            ) : item === "Careers" ? (
+                              <Link
+                                key={index}
+                                to="/careers"
+                                className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                              >
+                                {item}
+                              </Link>
+                            ) : (
+                              <a 
+                                key={index} 
+                                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
+                                className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                              >
+                                {item}
+                              </a>
+                            )
                          )}
                       </div>
                     </div>
@@ -344,16 +352,25 @@ const Navigation = () => {
                           >
                             {item}
                           </button>
-                        ) : (
-                          <a 
-                            key={index} 
-                            href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                            className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
-                            onClick={toggleMenu}
-                          >
-                            {item}
-                          </a>
-                        )
+                         ) : item === "Careers" ? (
+                           <Link
+                             key={index}
+                             to="/careers"
+                             className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                             onClick={toggleMenu}
+                           >
+                             {item}
+                           </Link>
+                         ) : (
+                           <a 
+                             key={index} 
+                             href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
+                             className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
+                             onClick={toggleMenu}
+                           >
+                             {item}
+                           </a>
+                         )
                       )}
                     </div>
                   </div>

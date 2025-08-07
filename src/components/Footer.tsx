@@ -16,7 +16,7 @@ const Footer = () => {
       href: "#about"
     }, {
       name: "Careers",
-      href: "#careers"
+      href: "/careers"
     }, {
       name: "Contact",
       href: "#contact"
@@ -124,9 +124,15 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2">
                   {footerLinks.company.map((link, index) => <li key={index}>
-                      <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
-                        {link.name}
-                      </a>
+                      {link.href.startsWith('/') ? (
+                        <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                          {link.name}
+                        </a>
+                      )}
                     </li>)}
                 </ul>
               </div>

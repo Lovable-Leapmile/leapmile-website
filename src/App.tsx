@@ -18,6 +18,7 @@ import NanoWarehouse from "./pages/technology/NanoWarehouse";
 import VirtualTour from "./pages/VirtualTour";
 import TermsAndPrivacy from "./pages/TermsAndPrivacy";
 import PricingAndRefunds from "./pages/PricingAndRefunds";
+import Careers from "./pages/Careers";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/virtual-tour" element={<VirtualTour />} />
             <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
             <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
+            <Route path="/careers" element={<Careers />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
