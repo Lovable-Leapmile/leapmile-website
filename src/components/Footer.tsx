@@ -137,7 +137,7 @@ const Footer = () => {
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
               <p className="text-muted mb-6">
-                Get the latest news on robotics innovation and AI breakthroughs.
+                Get the latest news on Leapmile Robotics innovations.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <Input type="email" placeholder="Enter your email" className="flex-1 bg-background text-foreground" />
