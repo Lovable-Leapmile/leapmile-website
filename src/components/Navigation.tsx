@@ -135,7 +135,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation - Only show on Leapmile page */}
           {!isQikpodMode && <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={() => window.location.href = '/'}>
+              <Link to="/" className="text-foreground hover:text-primary transition-colors">
                 Home
               </Link>
               
@@ -285,10 +285,7 @@ const Navigation = () => {
               
               {/* Mobile Navigation Links - Only show on Leapmile page */}
               {!isQikpodMode && <>
-                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={() => {
-                    toggleMenu();
-                    window.location.href = '/';
-                  }}>
+                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                     Home
                   </Link>
                   
