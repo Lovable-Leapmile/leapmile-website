@@ -17,55 +17,55 @@ interface SystemContent {
   };
 }
 
+// System content mapping - moved outside component to avoid recreation
+const systemsContent: Record<string, SystemContent> = {
+  cube: {
+    id: "cube",
+    title: "Cube",
+    gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Cuberobo.gif",
+    description: "The system is designed for the storage of a diverse range of items, from lightweight parcels to more substantial machinery spare parts, and is the most effective solution for automating in-store pickups.",
+    videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/VE%20-%20Cube%20-%20Pickup.mp4",
+    coordinates: { x: "191", y: "406", width: "67", height: "92", fill: "url(#pattern1_1091_237)" }
+  },
+  omniChannel: {
+    id: "omniChannel",
+    title: "Omni Channel",
+    gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Omnichannelaction.gif",
+    description: "The system can have different temperature zones, including ambient, fresh, chilled, and frozen storage sections. Each section is enclosed separately to maintain its unique temperature.",
+    videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/Omni%20Channel%20-%20Pickup.mp4",
+    coordinates: { x: "513", y: "398", width: "67", height: "92", fill: "url(#pattern2_1091_237)" }
+  },
+  towerRobot: {
+    id: "towerRobot",
+    title: "Tower Robot",
+    gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/towerrobotaction.gif",
+    description: "This system consists of three main elements: the racking system, the shuttle system, and load carriers. Each element plays a crucial role in ensuring efficient, accurate, and fast storage and retrieval of items.",
+    videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/Tower%20-%20Parcel%20Pickup%20Animation.mp4",
+    coordinates: { x: "805", y: "398", width: "67", height: "92", fill: "url(#pattern3_1091_237)" }
+  },
+  nanoWarehouse: {
+    id: "nanoWarehouse",
+    title: "Nano Warehouse",
+    gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Nanowarehouseaction.gif",
+    description: "This system consists of three main elements: the racking system, the shuttle system, and load carriers. Each element plays a crucial role in ensuring efficient, accurate, and fast storage and retrieval of items.",
+    videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/VE%20-%20Nanowarehouse.mp4",
+    coordinates: { x: "312", y: "238", width: "67", height: "92", fill: "url(#pattern4_1091_237)" }
+  },
+  mezzanineFloor: {
+    id: "mezzanineFloor",
+    title: "Mezzanine Floor",
+    gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Mezzanineaction.gif",
+    description: "The system can employ multi-level storage, allowing for a greater number of items to be stored in the same floor area, optimizing the overall storage capacity & enhancing operational efficiency.",
+    videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/Mezzanine%20Floor-%20Function.mp4",
+    coordinates: { x: "660", y: "146", width: "67", height: "92", fill: "url(#pattern5_1091_237)" }
+  }
+};
+
 const VirtualTour = () => {
   const [activeSystem, setActiveSystem] = useState<string>("cube");
   const [svgContent, setSvgContent] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
-  // System content mapping
-  const systemsContent: Record<string, SystemContent> = {
-    cube: {
-      id: "cube",
-      title: "Cube",
-      gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Cuberobo.gif",
-      description: "The system is designed for the storage of a diverse range of items, from lightweight parcels to more substantial machinery spare parts, and is the most effective solution for automating in-store pickups.",
-      videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/VE%20-%20Cube%20-%20Pickup.mp4",
-      coordinates: { x: "191", y: "406", width: "67", height: "92", fill: "url(#pattern1_1091_237)" }
-    },
-    omniChannel: {
-      id: "omniChannel",
-      title: "Omni Channel",
-      gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Omnichannelaction.gif",
-      description: "The system can have different temperature zones, including ambient, fresh, chilled, and frozen storage sections. Each section is enclosed separately to maintain its unique temperature.",
-      videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/Omni%20Channel%20-%20Pickup.mp4",
-      coordinates: { x: "513", y: "398", width: "67", height: "92", fill: "url(#pattern2_1091_237)" }
-    },
-    towerRobot: {
-      id: "towerRobot",
-      title: "Tower Robot",
-      gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/towerrobotaction.gif",
-      description: "This system consists of three main elements: the racking system, the shuttle system, and load carriers. Each element plays a crucial role in ensuring efficient, accurate, and fast storage and retrieval of items.",
-      videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/Tower%20-%20Parcel%20Pickup%20Animation.mp4",
-      coordinates: { x: "805", y: "398", width: "67", height: "92", fill: "url(#pattern3_1091_237)" }
-    },
-    nanoWarehouse: {
-      id: "nanoWarehouse",
-      title: "Nano Warehouse",
-      gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Nanowarehouseaction.gif",
-      description: "This system consists of three main elements: the racking system, the shuttle system, and load carriers. Each element plays a crucial role in ensuring efficient, accurate, and fast storage and retrieval of items.",
-      videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/VE%20-%20Nanowarehouse.mp4",
-      coordinates: { x: "312", y: "238", width: "67", height: "92", fill: "url(#pattern4_1091_237)" }
-    },
-    mezzanineFloor: {
-      id: "mezzanineFloor",
-      title: "Mezzanine Floor",
-      gifUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Gif/Mezzanineaction.gif",
-      description: "The system can employ multi-level storage, allowing for a greater number of items to be stored in the same floor area, optimizing the overall storage capacity & enhancing operational efficiency.",
-      videoUrl: "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Technology/Videos/Mezzanine%20Floor-%20Function.mp4",
-      coordinates: { x: "660", y: "146", width: "67", height: "92", fill: "url(#pattern5_1091_237)" }
-    }
-  };
 
   const currentSystem = systemsContent[activeSystem];
 
@@ -120,7 +120,7 @@ const VirtualTour = () => {
         });
       };
     }
-  }, [svgContent, systemsContent]);
+  }, [svgContent]);
 
   const handleFullscreenClick = () => {
     setIsVideoModalOpen(true);
