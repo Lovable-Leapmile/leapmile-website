@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
-
   const footerLinks = {
     company: [{
       name: "About Us",
@@ -48,7 +47,6 @@ const Footer = () => {
       href: "/virtual-tour"
     }]
   };
-
   const validateAndSubscribe = async () => {
     // Validate email format
     const emailRegex = /^[^\s@]+@gmail\.com$/;
@@ -56,28 +54,20 @@ const Footer = () => {
       toast.error("Please enter a valid Gmail address (@gmail.com)");
       return;
     }
-
     setIsSubscribing(true);
-    
     try {
-      const response = await fetch(
-        `https://newproduction.qikpod.com:8985/notifications/email/send/?msg_type=regular&email_to_address=support%40leapmile.com&email_from_address=support%40leapmile.com&email_subject=Leapmile%20Robotics%20Subscribed%20User&email_message=Subscribed%20User%20Email%20id%3A%20%22${encodeURIComponent(email)}%22`,
-        {
-          method: 'POST',
-          headers: {
-            'accept': 'application/json',
-            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
-          }
+      const response = await fetch(`https://newproduction.qikpod.com:8985/notifications/email/send/?msg_type=regular&email_to_address=support%40leapmile.com&email_from_address=support%40leapmile.com&email_subject=Leapmile%20Robotics%20Subscribed%20User&email_message=Subscribed%20User%20Email%20id%3A%20%22${encodeURIComponent(email)}%22`, {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
         }
-      );
-
+      });
       if (response.ok) {
-        toast.success(
-          <div className="flex items-center">
+        toast.success(<div className="flex items-center">
             <Check className="h-4 w-4 text-green-500 mr-2" />
             Subscribed Successfully!
-          </div>
-        );
+          </div>);
         setEmail("");
       } else {
         throw new Error('Subscription failed');
@@ -112,7 +102,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center text-sm">
                   <MapPin className="h-4 w-4 mr-2 text-primary" />
-                  <span>San Francisco, CA</span>
+                  <span>Bangalore, KA</span>
                 </div>
               </div>
             </div>
@@ -124,15 +114,11 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2">
                   {footerLinks.company.map((link, index) => <li key={index}>
-                      {link.href.startsWith('/') ? (
-                        <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                      {link.href.startsWith('/') ? <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
                           {link.name}
-                        </Link>
-                      ) : (
-                        <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                        </Link> : <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
                           {link.name}
-                        </a>
-                      )}
+                        </a>}
                     </li>)}
                 </ul>
               </div>
@@ -154,15 +140,11 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Technology</h4>
                 <ul className="space-y-2">
                   {footerLinks.technology.map((link, index) => <li key={index}>
-                      {link.href.startsWith('/') ? (
-                        <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                      {link.href.startsWith('/') ? <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
                           {link.name}
-                        </Link>
-                      ) : (
-                        <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                        </Link> : <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
                           {link.name}
-                        </a>
-                      )}
+                        </a>}
                     </li>)}
                 </ul>
               </div>
@@ -177,18 +159,8 @@ const Footer = () => {
                 Get the latest news on robotics innovation and AI breakthroughs.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your Gmail address" 
-                  className="flex-1 bg-background text-foreground" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Button 
-                  className="bg-tech-gradient hover:shadow-tech whitespace-nowrap"
-                  onClick={validateAndSubscribe}
-                  disabled={isSubscribing}
-                >
+                <Input type="email" placeholder="Enter your Gmail address" className="flex-1 bg-background text-foreground" value={email} onChange={e => setEmail(e.target.value)} />
+                <Button className="bg-tech-gradient hover:shadow-tech whitespace-nowrap" onClick={validateAndSubscribe} disabled={isSubscribing}>
                   {isSubscribing ? "Subscribing..." : "Subscribe"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -204,12 +176,7 @@ const Footer = () => {
             
             {/* Social Links */}
             <div className="flex space-x-4 mb-4 md:mb-0">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="text-muted hover:text-primary"
-                onClick={() => window.open('https://www.linkedin.com/company/leapmile/posts/?feedView=all', '_blank')}
-              >
+              <Button variant="ghost" size="icon" className="text-muted hover:text-primary" onClick={() => window.open('https://www.linkedin.com/company/leapmile/posts/?feedView=all', '_blank')}>
                 <Linkedin className="h-4 w-4" />
               </Button>
             </div>
