@@ -94,18 +94,38 @@ const Careers = () => {
           {/* Key Benefits Section */}
           <div className="mb-16">
             <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Key Benefits</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => <Card key={index} className="border-none shadow-lg">
-                  <CardContent className="p-6 text-center">
-                    <div className="mb-4 flex justify-center">
-                      <div className="p-4 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
-                        <benefit.icon className="h-8 w-8 text-white" />
+            <div className="space-y-6">
+              {/* First card centered */}
+              <div className="flex justify-center">
+                <Card className="border-none shadow-lg w-64">
+                  <CardContent className="p-4 text-center">
+                    <div className="mb-3 flex justify-center">
+                      <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
+                        <Award className="h-6 w-6 text-white" />
                       </div>
                     </div>
-                    <h4 className="text-lg font-semibold mb-2 text-foreground">{benefit.title}</h4>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                    <h4 className="text-base font-semibold mb-2 text-foreground">{benefits[0].title}</h4>
+                    <p className="text-xs text-muted-foreground">{benefits[0].description}</p>
                   </CardContent>
-                </Card>)}
+                </Card>
+              </div>
+              
+              {/* Remaining 6 cards in 2 rows of 3 */}
+              <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+                {benefits.slice(1).map((benefit, index) => (
+                  <Card key={index + 1} className="border-none shadow-lg">
+                    <CardContent className="p-4 text-center">
+                      <div className="mb-3 flex justify-center">
+                        <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
+                          <benefit.icon className="h-6 w-6 text-white" />
+                        </div>
+                      </div>
+                      <h4 className="text-base font-semibold mb-2 text-foreground">{benefit.title}</h4>
+                      <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
 
