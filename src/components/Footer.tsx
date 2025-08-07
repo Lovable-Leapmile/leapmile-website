@@ -45,7 +45,7 @@ const Footer = () => {
       href: "/qikpod"
     }, {
       name: "Virtual Tour",
-      href: "#virtual-tour"
+      href: "/virtual-tour"
     }]
   };
 

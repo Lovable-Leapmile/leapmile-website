@@ -94,7 +94,7 @@ const Navigation = () => {
   const technologyItems = [
     { name: "Nano Warehouse", path: "/technology/nano-warehouse" },
     { name: "Smart Locker-Qikpod", path: "#technology-smart-locker-qikpod" },
-    { name: "Virtual Tour", path: "#technology-virtual-tour" }
+    { name: "Virtual Tour", path: "/virtual-tour" }
   ];
   const companyItems = ["About Us", "Careers", "Contact Us"];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
