@@ -115,7 +115,7 @@ const Careers = () => {
               {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden shadow-lg">
                   <div className="md:flex">
                     <div className="md:w-1/3">
-                      <img src={role.image} alt={role.title} className="w-full h-48 md:h-full object-cover" />
+                      <img src={role.image} alt={role.title} className="w-full h-48 md:h-full object-contain" />
                     </div>
                     <div className="md:w-2/3 p-6">
                       <h4 className="text-2xl font-bold mb-4 text-foreground">{role.title}</h4>
