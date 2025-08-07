@@ -111,7 +111,7 @@ const Careers = () => {
 
           {/* Job Roles Section */}
           <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Open Positions</h3>
+            
             <div className="space-y-8">
               {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden border border-border">
                   <div className="flex flex-col md:flex-row">
