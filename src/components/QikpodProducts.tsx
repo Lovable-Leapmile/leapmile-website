@@ -3,7 +3,7 @@ import q35 from "@/assets/q35.png";
 import q47 from "@/assets/q47.png";
 import q48 from "@/assets/q48.png";
 const QikpodProducts = () => {
-  return <section className="py-16 bg-qikpod-grey-light">
+  return <section className="py-16 bg-qikpod-grey-light bg-zinc-100">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">
