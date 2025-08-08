@@ -3,9 +3,9 @@ import qikpodBg from "@/assets/qikpod-bg.png";
 import qikpodIcon from "@/assets/qikpod-icon.png";
 import qikpodMain from "@/assets/qikpod-main.png";
 const QikpodHero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{
+  return <section style={{
     backgroundImage: `url(${qikpodBg})`
-  }}>
+  }} className="relative min-h-screen flex items-center justify-center bg-contain bg-center bg-no-repeat">
       {/* Background overlay for better text readability */}
       <div className="absolute inset-0 bg-background/20"></div>
       
