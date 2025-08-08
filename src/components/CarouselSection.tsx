@@ -107,7 +107,7 @@ const CarouselSection = () => {
     <section className="bg-background py-[20px]">
       <div className="container mx-auto px-4">
         {/* Auto-Scrolling Carousel */}
-        <div className="w-full overflow-hidden relative h-44">
+        <div className="w-full overflow-hidden relative h-36">
           <div
             ref={scrollRef}
             className="overflow-hidden whitespace-nowrap relative w-full h-full"
@@ -120,16 +120,14 @@ const CarouselSection = () => {
               {features.map((feature, index) => (
                 <div key={index} className="flex-shrink-0 w-64 h-full">
                   <Card className="h-full hover:border-primary/50 transition-colors duration-200 max-w-64">
-                    <CardContent className="p-3 text-center h-full flex flex-col justify-between">
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                          <feature.icon className="h-4 w-4 text-primary" />
-                        </div>
-                        <h3 className="font-semibold text-xs text-foreground text-center w-full break-words leading-tight">
-                          {feature.title}
-                        </h3>
+                    <CardContent className="p-4 text-center h-full flex flex-col justify-center items-center space-y-3">
+                      <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                        <feature.icon className="h-6 w-6 text-primary" />
                       </div>
-                      <p className="text-xs text-muted-foreground leading-snug text-center w-full break-words line-clamp-3 mt-2">
+                      <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
+                        {feature.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words">
                         {feature.description}
                       </p>
                     </CardContent>
@@ -140,16 +138,14 @@ const CarouselSection = () => {
               {features.map((feature, index) => (
                 <div key={`duplicate-${index}`} className="flex-shrink-0 w-64 h-full">
                   <Card className="h-full hover:border-primary/50 transition-colors duration-200 max-w-64">
-                    <CardContent className="p-3 text-center h-full flex flex-col justify-between">
-                      <div className="flex flex-col items-center space-y-2">
-                        <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                          <feature.icon className="h-4 w-4 text-primary" />
-                        </div>
-                        <h3 className="font-semibold text-xs text-foreground text-center w-full break-words leading-tight">
-                          {feature.title}
-                        </h3>
+                    <CardContent className="p-4 text-center h-full flex flex-col justify-center items-center space-y-3">
+                      <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                        <feature.icon className="h-6 w-6 text-primary" />
                       </div>
-                      <p className="text-xs text-muted-foreground leading-snug text-center w-full break-words line-clamp-3 mt-2">
+                      <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
+                        {feature.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words">
                         {feature.description}
                       </p>
                     </CardContent>
