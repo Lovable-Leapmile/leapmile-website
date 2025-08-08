@@ -2,10 +2,8 @@ import { Button } from "@/components/ui/button";
 import q35 from "@/assets/q35.png";
 import q47 from "@/assets/q47.png";
 import q48 from "@/assets/q48.png";
-
 const QikpodProducts = () => {
-  return (
-    <section className="py-16 bg-qikpod-yellow-light">
+  return <section className="py-16 bg-qikpod-grey-light">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -28,11 +26,7 @@ const QikpodProducts = () => {
             
             {/* Main Image */}
             <div className="flex justify-center">
-              <img 
-                src={q35} 
-                alt="Smart Locker" 
-                className="w-full max-w-md object-contain"
-              />
+              <img src={q35} alt="Smart Locker" className="w-full max-w-md object-contain" />
             </div>
             
             {/* Description Box */}
@@ -53,24 +47,14 @@ const QikpodProducts = () => {
           {/* Right Column - Two Images */}
           <div className="space-y-8">
             <div className="flex justify-center">
-              <img 
-                src={q47} 
-                alt="Qikpod Solution" 
-                className="w-full max-w-md object-contain"
-              />
+              <img src={q47} alt="Qikpod Solution" className="w-80 max-w-md object-contain" />
             </div>
             <div className="flex justify-center">
-              <img 
-                src={q48} 
-                alt="Qikpod Technology" 
-                className="w-full max-w-md object-contain"
-              />
+              <img src={q48} alt="Qikpod Technology" className="w-80 max-w-md object-contain" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default QikpodProducts;
