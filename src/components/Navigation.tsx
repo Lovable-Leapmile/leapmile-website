@@ -91,11 +91,16 @@ const Navigation = () => {
     name: "Showcase Robot",
     path: "/industries/showcase-robot"
   }];
-  const technologyItems = [
-    { name: "Nano Warehouse", path: "/technology/nano-warehouse" },
-    { name: "Smart Locker-Qikpod", path: "#technology-smart-locker-qikpod" },
-    { name: "Virtual Tour", path: "/virtual-tour" }
-  ];
+  const technologyItems = [{
+    name: "Nano Warehouse",
+    path: "/technology/nano-warehouse"
+  }, {
+    name: "Smart Locker-Qikpod",
+    path: "#technology-smart-locker-qikpod"
+  }, {
+    name: "Virtual Tour",
+    path: "/virtual-tour"
+  }];
   const companyItems = ["About Us", "Careers", "Contact Us"];
 
   // Helper for About Us scroll
@@ -104,7 +109,9 @@ const Navigation = () => {
     if (location.pathname === "/") {
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
-        aboutSection.scrollIntoView({ behavior: "smooth" });
+        aboutSection.scrollIntoView({
+          behavior: "smooth"
+        });
       }
     } else {
       navigate("/#about");
@@ -117,7 +124,9 @@ const Navigation = () => {
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
         setTimeout(() => {
-          aboutSection.scrollIntoView({ behavior: "smooth" });
+          aboutSection.scrollIntoView({
+            behavior: "smooth"
+          });
         }, 100);
       }
     }
@@ -127,7 +136,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            {isQikpodMode ? <img src={qikpodLogo} alt="Qikpod Logo" className="h-8 w-auto" /> : <>
+            {isQikpodMode ? <img src={qikpodLogo} alt="Qikpod Logo" className="h-auto w-28" /> : <>
                 <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
                 <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
               </>}
@@ -165,26 +174,11 @@ const Navigation = () => {
                 {technologyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleTechnologyEnter} onMouseLeave={handleTechnologyLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {technologyItems.map((item, index) => (
-                          item.path.startsWith('/') ? (
-                            <Link 
-                              key={index} 
-                              to={item.path} 
-                              className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                              onClick={() => window.scrollTo(0, 0)}
-                            >
+                        {technologyItems.map((item, index) => item.path.startsWith('/') ? <Link key={index} to={item.path} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
                               {item.name}
-                            </Link>
-                          ) : (
-                            <a 
-                              key={index} 
-                              href={item.path} 
-                              className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                            >
+                            </Link> : <a key={index} href={item.path} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                               {item.name}
-                            </a>
-                          )
-                        ))}
+                            </a>)}
                       </div>
                     </div>
                   </div>}
@@ -199,42 +193,15 @@ const Navigation = () => {
                 {companyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleCompanyEnter} onMouseLeave={handleCompanyLeave}>
                     <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                         {companyItems.map((item, index) => 
-                           item === "Contact Us" ? (
-                             <button 
-                               key={index} 
-                               onClick={() => navigateToContact(navigate, location.pathname)}
-                               className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                             >
+                         {companyItems.map((item, index) => item === "Contact Us" ? <button key={index} onClick={() => navigateToContact(navigate, location.pathname)} className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                {item}
-                             </button>
-                           ) : item === "About Us" ? (
-                             <a
-                               key={index}
-                               href="#about"
-                               onClick={handleAboutUsClick}
-                               className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                             >
+                             </button> : item === "About Us" ? <a key={index} href="#about" onClick={handleAboutUsClick} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                {item}
-                             </a>
-                            ) : item === "Careers" ? (
-                              <Link
-                                key={index}
-                                to="/careers"
-                                className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                              >
+                             </a> : item === "Careers" ? <Link key={index} to="/careers" className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                 {item}
-                              </Link>
-                            ) : (
-                              <a 
-                                key={index} 
-                                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                                className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                              >
+                              </Link> : <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                 {item}
-                              </a>
-                            )
-                         )}
+                              </a>)}
                       </div>
                     </div>
                   </div>}
@@ -306,30 +273,14 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Technology</span>
                     <div className="pl-4 space-y-2">
-                      {technologyItems.map((item, index) => (
-                        item.path.startsWith('/') ? (
-                          <Link 
-                            key={index} 
-                            to={item.path} 
-                            className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
-                            onClick={() => {
-                              toggleMenu();
-                              window.scrollTo(0, 0);
-                            }}
-                          >
+                      {technologyItems.map((item, index) => item.path.startsWith('/') ? <Link key={index} to={item.path} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => {
+                  toggleMenu();
+                  window.scrollTo(0, 0);
+                }}>
                             {item.name}
-                          </Link>
-                        ) : (
-                          <a 
-                            key={index} 
-                            href={item.path} 
-                            className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
-                            onClick={toggleMenu}
-                          >
+                          </Link> : <a key={index} href={item.path} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                             {item.name}
-                          </a>
-                        )
-                      ))}
+                          </a>)}
                     </div>
                   </div>
                   
@@ -337,38 +288,16 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Company</span>
                     <div className="pl-4 space-y-2">
-                      {companyItems.map((item, index) => 
-                        item === "Contact Us" ? (
-                          <button 
-                            key={index}
-                            onClick={() => {
-                              toggleMenu();
-                              navigateToContact(navigate, location.pathname);
-                            }}
-                            className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors"
-                          >
+                      {companyItems.map((item, index) => item === "Contact Us" ? <button key={index} onClick={() => {
+                  toggleMenu();
+                  navigateToContact(navigate, location.pathname);
+                }} className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors">
                             {item}
-                          </button>
-                         ) : item === "Careers" ? (
-                           <Link
-                             key={index}
-                             to="/careers"
-                             className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                             onClick={toggleMenu}
-                           >
+                          </button> : item === "Careers" ? <Link key={index} to="/careers" className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                              {item}
-                           </Link>
-                         ) : (
-                           <a 
-                             key={index} 
-                             href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} 
-                             className="block text-sm text-muted-foreground hover:text-primary transition-colors" 
-                             onClick={toggleMenu}
-                           >
+                           </Link> : <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                              {item}
-                           </a>
-                         )
-                      )}
+                           </a>)}
                     </div>
                   </div>
                 </>}
