@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
-import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
+import { TrendingUp, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 
 // Import images
 import nanowarehouseView from "@/assets/nanowarehouse-view.png";

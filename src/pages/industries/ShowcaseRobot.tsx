@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
-import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
+import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive, Monitor, RotateCw, Palette, Smartphone, TouchpadOff } from "lucide-react";
 const ShowcaseRobot = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,7 +17,7 @@ const ShowcaseRobot = () => {
     icon: Monitor
   }, {
     name: "Touch Screen Self Service Interactivity",
-    icon: Touch
+    icon: TouchpadOff
   }, {
     name: "Automated Rotation of Display Across Collections",
     icon: RotateCw
