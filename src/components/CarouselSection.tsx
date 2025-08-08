@@ -127,9 +127,6 @@ const CarouselSection = () => {
                       <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
                         {feature.title}
                       </h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words">
-                        {feature.description}
-                      </p>
                     </CardContent>
                   </Card>
                 </div>
@@ -145,9 +142,6 @@ const CarouselSection = () => {
                       <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
                         {feature.title}
                       </h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words">
-                        {feature.description}
-                      </p>
                     </CardContent>
                   </Card>
                 </div>
