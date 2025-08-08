@@ -5,6 +5,10 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Play, Package, Truck, FileText, ScanLine, Settings, Bot, Cpu, MapPin, Cloud } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
+import { useNavigate, useLocation } from "react-router-dom";
+import { navigateToContact } from "@/lib/navigation";
+import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 
 // Import images
 import nanowarehouseView from "@/assets/nanowarehouse-view.png";
@@ -236,6 +240,7 @@ const NanoWarehouse = () => {
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>;
 };

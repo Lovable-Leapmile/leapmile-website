@@ -5,10 +5,15 @@ import { Mail, Phone, MapPin, Linkedin, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import litepurpleLogo from "@/assets/litepurple-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { navigateToContact } from "@/lib/navigation";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   const footerLinks = {
     company: [{
       name: "About Us",
@@ -114,11 +119,22 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2">
                   {footerLinks.company.map((link, index) => <li key={index}>
-                      {link.href.startsWith('/') ? <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                      {link.name === "Contact" ? (
+                        <button 
+                          onClick={() => navigateToContact(navigate, location.pathname)}
+                          className="text-muted hover:text-primary transition-colors text-sm"
+                        >
                           {link.name}
-                        </Link> : <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                        </button>
+                      ) : link.href.startsWith('/') ? (
+                        <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
                           {link.name}
-                        </a>}
+                        </Link>
+                      ) : (
+                        <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                          {link.name}
+                        </a>
+                      )}
                     </li>)}
                 </ul>
               </div>

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, Heart, Shield, Coffee, MapPin, Scale } from "lucide-react";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 const Careers = () => {
   const benefits = [{
     icon: Award,
@@ -153,6 +154,7 @@ const Careers = () => {
           </div>
         </div>
       </section>
+      <ContactSection />
       <Footer />
     </div>;
 };

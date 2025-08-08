@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 
 const PricingAndRefunds = () => {
   return (
@@ -104,6 +105,7 @@ const PricingAndRefunds = () => {
         </div>
       </div>
 
+      <ContactSection />
       <Footer />
     </div>
   );

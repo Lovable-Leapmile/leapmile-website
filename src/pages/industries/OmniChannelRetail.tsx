@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 import { useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
 import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
@@ -191,6 +192,7 @@ const OmniChannelRetail = () => {
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>;
 };
