@@ -88,11 +88,42 @@ const QikpodSolutions = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-6">Match Our Solution to Your Use Case</h2>
+          <p className="text-lg text-qikpod-black max-w-4xl mx-auto">
+            Our solutions are flexible to meet a varied set of use cases, including self-serve smart lockers that empower your business.
+          </p>
         </div>
 
-        {/* Solutions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-          {solutions.map((solution, index) => <SolutionCard key={index} title={solution.title} image={solution.image} caption={solution.caption} buttonText={solution.buttonText} pageName={solution.pageName} />)}
+        {/* Solutions Grid - 3 on top, 2 centered below */}
+        <div className="space-y-8">
+          {/* Top row - 3 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {solutions.slice(0, 3).map((solution, index) => (
+              <SolutionCard 
+                key={index} 
+                title={solution.title} 
+                image={solution.image} 
+                caption={solution.caption} 
+                buttonText={solution.buttonText} 
+                pageName={solution.pageName} 
+              />
+            ))}
+          </div>
+          
+          {/* Bottom row - 2 cards centered */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+              {solutions.slice(3, 5).map((solution, index) => (
+                <SolutionCard 
+                  key={index + 3} 
+                  title={solution.title} 
+                  image={solution.image} 
+                  caption={solution.caption} 
+                  buttonText={solution.buttonText} 
+                  pageName={solution.pageName} 
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>;
