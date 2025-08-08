@@ -46,6 +46,7 @@ const ContactSection = () => {
       setValue("demoTime", "");
     }
   }, [watchedService, setValue]);
+  
   const onSubmit = async (data: ContactFormData) => {
     try {
       let emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
@@ -89,6 +90,7 @@ const ContactSection = () => {
       });
     }
   };
+  
   const contactInfo = [{
     icon: Mail,
     title: "Email Us",
@@ -110,7 +112,9 @@ const ContactSection = () => {
     details: "Mon - Fri: 9AM - 6PM",
     subtitle: "Weekend support available"
   }];
-  return <section id="contact" className="py-20 bg-accent/30">
+  
+  return (
+    <section id="contact" className="py-20 bg-accent/30">
       <div className="page-wrapper">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -250,6 +254,7 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default ContactSection;
