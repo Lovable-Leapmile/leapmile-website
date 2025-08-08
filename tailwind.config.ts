@@ -30,6 +30,10 @@ export default {
 					glow: 'hsl(var(--primary-glow))'
 				},
 				'tech-blue': 'hsl(var(--tech-blue))',
+				'qikpod-yellow': 'hsl(var(--qikpod-yellow))',
+				'qikpod-yellow-light': 'hsl(var(--qikpod-yellow-light))',
+				'qikpod-black': 'hsl(var(--qikpod-black))',
+				'qikpod-white': 'hsl(var(--qikpod-white))',
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'

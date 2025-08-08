@@ -14,29 +14,29 @@ const QikpodHero = () => {
           {/* Left Content */}
           <div className="space-y-8">
             {/* Main Header Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-qikpod-black leading-tight">
               Experience Fast and Convenient{" "}
-              <span className="text-primary">Self-Service Parcel Management</span>
+              <span className="text-qikpod-yellow">Self-Service Parcel Management</span>
             </h1>
             
             {/* Secondary Title with Icon */}
             <div className="flex items-start gap-4">
               
-              <p className="text-xl md:text-2xl text-muted-foreground">
+              <p className="text-xl md:text-2xl text-qikpod-black">
                 Modular, low-cost parcel locker system that is simple and quick to deploy anywhere, 
                 Scale securely with our hardware-agnostic platform.
               </p>
             </div>
             
             {/* Button */}
-            <Button size="lg" className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button size="lg" className="text-lg px-8 py-6 bg-qikpod-yellow hover:bg-qikpod-yellow/90 text-qikpod-black">
               Explore Solutions
             </Button>
           </div>
           
           {/* Right Image */}
           <div className="flex justify-center lg:justify-end">
-            <img src={qikpodMain} alt="Qikpod System" className="w-full max-w-lg lg:max-w-xl object-contain" />
+            <img src={qikpodMain} alt="Qikpod System" className="w-full max-w-md lg:max-w-lg object-contain" />
           </div>
         </div>
       </div>
