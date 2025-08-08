@@ -125,10 +125,10 @@ const CarouselSection = () => {
                         <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
                           <feature.icon className="h-5 w-5 text-primary" />
                         </div>
-                        <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
+                        <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight hyphens-auto">
                           {feature.title}
                         </h3>
-                        <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words flex-1">
+                        <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words flex-1 hyphens-auto overflow-hidden">
                           {feature.description}
                         </p>
                       </div>
@@ -145,10 +145,10 @@ const CarouselSection = () => {
                         <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
                           <feature.icon className="h-5 w-5 text-primary" />
                         </div>
-                        <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
+                        <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight hyphens-auto">
                           {feature.title}
                         </h3>
-                        <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words flex-1">
+                        <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words flex-1 hyphens-auto overflow-hidden">
                           {feature.description}
                         </p>
                       </div>
