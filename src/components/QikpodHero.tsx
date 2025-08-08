@@ -2,7 +2,18 @@ import { Button } from "@/components/ui/button";
 import qikpodBg from "@/assets/qikpod-bg.png";
 import qikpodIcon from "@/assets/qikpod-icon.png";
 import qikpodMain from "@/assets/qikpod-main.png";
+
 const QikpodHero = () => {
+  const handleExploreSolutions = () => {
+    const solutionsSection = document.querySelector('[data-section="solutions"]');
+    if (solutionsSection) {
+      solutionsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return <section style={{
     backgroundImage: `url(${qikpodBg})`
   }} className="relative min-h-screen flex items-center justify-center bg-cover bg-right bg-no-repeat">
@@ -29,7 +40,11 @@ const QikpodHero = () => {
             </div>
             
             {/* Button */}
-            <Button size="lg" className="text-lg px-8 py-6 bg-qikpod-yellow hover:bg-qikpod-yellow/90 text-qikpod-black">
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-6 bg-qikpod-yellow hover:bg-qikpod-yellow/90 text-qikpod-black"
+              onClick={handleExploreSolutions}
+            >
               Explore Solutions
             </Button>
           </div>

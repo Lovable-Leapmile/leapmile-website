@@ -26,33 +26,34 @@ const QikpodClientCarousel = () => {
     if (!scrollContainer) return;
 
     let scrollPosition = 0;
-    const scrollSpeed = 0.5; // Slow speed
-    const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    const scrollSpeed = 0.5;
+    let animationId: number;
 
     const scroll = () => {
       scrollPosition += scrollSpeed;
       
-      if (scrollPosition >= maxScrollLeft) {
+      // Reset position when we've scrolled the full width of one set
+      const singleSetWidth = scrollContainer.scrollWidth / 2;
+      if (scrollPosition >= singleSetWidth) {
         scrollPosition = 0;
       }
       
       scrollContainer.scrollLeft = scrollPosition;
+      animationId = requestAnimationFrame(scroll);
     };
 
-    const intervalId = setInterval(scroll, 16); // ~60fps
+    animationId = requestAnimationFrame(scroll);
 
-    return () => clearInterval(intervalId);
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
   }, []);
 
   return (
     <section className="py-16 bg-qikpod-white">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-6">
-            Our Clients
-          </h2>
-        </div>
-
         <div 
           ref={scrollRef}
           className="overflow-hidden whitespace-nowrap"

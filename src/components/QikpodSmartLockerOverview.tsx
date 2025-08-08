@@ -36,7 +36,7 @@ const QikpodSmartLockerOverview = () => {
             <img 
               src={q68Gif} 
               alt="Smart Locker Technology" 
-              className="w-full max-w-md object-contain rounded-lg"
+              className="w-full max-w-md h-96 object-contain rounded-lg"
             />
           </div>
 

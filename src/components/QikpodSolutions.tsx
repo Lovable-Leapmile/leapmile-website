@@ -83,7 +83,7 @@ const QikpodSolutions = () => {
     buttonText: "Know More",
     pageName: "Late Night Deliveries"
   }];
-  return <section className="py-16 bg-qikpod-white">
+  return <section className="py-16 bg-qikpod-white" data-section="solutions">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">

@@ -1,8 +1,11 @@
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import Autoplay from "embla-carousel-autoplay";
 import { Bot, Zap, Shield, Target, Settings, Eye, TrendingUp, Clock, Package, Maximize2, HandMetal, ShoppingCart, DollarSign, Cpu, Database } from "lucide-react";
+
 const CarouselSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  
   const features = [{
     icon: Bot,
     title: "Advanced Robotics",
@@ -64,41 +67,101 @@ const CarouselSection = () => {
     title: "Data Analytics",
     description: "Real-time analytics and performance monitoring"
   }];
-  return <section className="bg-background py-[20px]">
-      <div className="container mx-auto px-4">
-        {/* Image */}
-        <div className="text-center mb-12">
-          
-        </div>
 
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5;
+    let animationId: number;
+
+    const scroll = () => {
+      if (isPaused) {
+        animationId = requestAnimationFrame(scroll);
+        return;
+      }
+
+      scrollPosition += scrollSpeed;
+      
+      // Reset position when we've scrolled the full width of one set
+      const singleSetWidth = scrollContainer.scrollWidth / 2;
+      if (scrollPosition >= singleSetWidth) {
+        scrollPosition = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPosition;
+      animationId = requestAnimationFrame(scroll);
+    };
+
+    animationId = requestAnimationFrame(scroll);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, [isPaused]);
+
+  return (
+    <section className="bg-background py-[20px]">
+      <div className="container mx-auto px-4">
         {/* Auto-Scrolling Carousel */}
-        <div className="w-full">
-          <Carousel opts={{
-          align: "start",
-          loop: true
-        }} className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {features.map((feature, index) => <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
-                  <Card className="h-full hover:border-primary/50 transition-colors duration-200">
-                    <CardContent className="p-4 text-center">
-                      <div className="flex flex-col items-center space-y-3">
-                        <div className="p-2 bg-primary/10 rounded-lg">
+        <div className="w-full overflow-hidden relative h-56">
+          <div 
+            ref={scrollRef}
+            className="overflow-hidden whitespace-nowrap relative w-full h-full"
+            style={{ scrollBehavior: 'auto' }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div className="inline-flex gap-4 items-stretch h-full">
+              {/* First set of features */}
+              {features.map((feature, index) => (
+                <div key={index} className="flex-shrink-0 w-64 h-full">
+                  <Card className="h-full hover:border-primary/50 transition-colors duration-200 max-w-64">
+                    <CardContent className="p-4 text-center h-full flex flex-col">
+                      <div className="flex flex-col items-center space-y-3 flex-1 justify-start">
+                        <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
                           <feature.icon className="h-5 w-5 text-primary" />
                         </div>
-                        <h3 className="font-semibold text-sm text-foreground">
+                        <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
                           {feature.title}
                         </h3>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
+                        <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words flex-1">
                           {feature.description}
                         </p>
                       </div>
                     </CardContent>
                   </Card>
-                </CarouselItem>)}
-            </CarouselContent>
-          </Carousel>
+                </div>
+              ))}
+              {/* Duplicate set for infinite loop */}
+              {features.map((feature, index) => (
+                <div key={`duplicate-${index}`} className="flex-shrink-0 w-64 h-full">
+                  <Card className="h-full hover:border-primary/50 transition-colors duration-200 max-w-64">
+                    <CardContent className="p-4 text-center h-full flex flex-col">
+                      <div className="flex flex-col items-center space-y-3 flex-1 justify-start">
+                        <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                          <feature.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <h3 className="font-semibold text-sm text-foreground text-center w-full break-words leading-tight">
+                          {feature.title}
+                        </h3>
+                        <p className="text-xs text-muted-foreground leading-relaxed text-center w-full break-words flex-1">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default CarouselSection;

@@ -30,7 +30,7 @@ const QikpodLockerFlow = () => {
             <img 
               src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Qikpod/Gif/q82.gif" 
               alt="QikPod Locker Flow" 
-              className="w-full max-w-lg object-contain rounded-lg"
+              className="w-full max-w-lg h-96 object-contain rounded-lg"
             />
           </div>
 
