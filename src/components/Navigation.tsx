@@ -96,7 +96,7 @@ const Navigation = () => {
     path: "/technology/nano-warehouse"
   }, {
     name: "Smart Locker-Qikpod",
-    path: "#technology-smart-locker-qikpod"
+    path: "/qikpod"
   }, {
     name: "Virtual Tour",
     path: "/virtual-tour"
