@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Maximize2, X } from "lucide-react";
 import Footer from "@/components/Footer";
-import ContactSection from "@/components/ContactSection";
+
 
 interface SystemContent {
   id: string;
@@ -295,7 +295,7 @@ const VirtualTour = () => {
           </div>
         </DialogContent>
       </Dialog>
-      <ContactSection />
+      
       <Footer />
     </div>
   );

@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-import ContactSection from "@/components/ContactSection";
 
 const TermsAndPrivacy = () => {
   return (
@@ -124,7 +123,7 @@ const TermsAndPrivacy = () => {
         </div>
       </div>
 
-      <ContactSection />
+      
       <Footer />
     </div>
   );
