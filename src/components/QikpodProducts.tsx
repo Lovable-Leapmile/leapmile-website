@@ -47,10 +47,10 @@ const QikpodProducts = () => {
           {/* Right Column - Two Images */}
           <div className="space-y-8">
             <div className="flex justify-center">
-              <img src={q47} alt="Qikpod Solution" className="w-80 max-w-md object-contain" />
+              <img src={q47} alt="Qikpod Solution" className="w-30 max-w-md object-contain" />
             </div>
             <div className="flex justify-center">
-              <img src={q48} alt="Qikpod Technology" className="w-80 max-w-md object-contain" />
+              <img src={q48} alt="Qikpod Technology" className="w-21 object-contain" />
             </div>
           </div>
         </div>
