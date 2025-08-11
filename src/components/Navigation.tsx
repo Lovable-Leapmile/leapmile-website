@@ -95,7 +95,7 @@ const Navigation = () => {
     name: "Nano Warehouse",
     path: "/technology/nano-warehouse"
   }, {
-    name: "Smart Locker-Qikpod",
+    name: "Smart Locker-QikPod",
     path: "/qikpod"
   }, {
     name: "Virtual Tour",
@@ -132,11 +132,11 @@ const Navigation = () => {
     }
   }, [location.pathname, location.hash]);
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-12">
+      <div className="container mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            {isQikpodMode ? <img src={qikpodLogo} alt="Qikpod Logo" className="h-auto w-28" /> : <>
+            {isQikpodMode ? <img src={qikpodLogo} alt="QikPod Logo" className="h-auto w-28" /> : <>
                 <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
                 <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
               </>}
@@ -215,37 +215,30 @@ const Navigation = () => {
                 <img src={leapmileIcon} alt="Leapmile" className="h-5 w-5" />
               </button>
               <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-white shadow-md scale-110' : 'hover:bg-muted/80'}`}>
-                <img src={qikpodIcon} alt="Qikpod" className="h-5 w-5" />
+                <img src={qikpodIcon} alt="QikPod" className="h-5 w-5" />
               </button>
             </div>
           </div>
 
           {/* Mobile Menu Button - Only show on Leapmile or when toggle is needed */}
           <div className="md:hidden">
-            {!isQikpodMode ? <Button variant="ghost" size="icon" onClick={toggleMenu}>
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button> : <div className="flex items-center bg-muted/50 rounded-full p-1 border border-border">
-                <button onClick={() => handleToggleSwitch(false)} className={`p-2 rounded-full transition-all duration-300 ${!isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
-                  <img src={leapmileIcon} alt="Leapmile" className="h-4 w-4" />
-                </button>
-                <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
-                  <img src={qikpodIcon} alt="Qikpod" className="h-4 w-4" />
-                </button>
-              </div>}
+            <Button variant="ghost" size="icon" onClick={toggleMenu}>
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              {/* Mobile Toggle Switch */}
+              {/* Mobile Toggle Switch (always available in drawer) */}
               <div className="flex items-center justify-center py-2">
                 <div className="flex items-center bg-muted/50 rounded-full p-1 border border-border">
-                  <button onClick={() => handleToggleSwitch(false)} className={`p-2 rounded-full transition-all duration-300 ${!isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                  <button onClick={() => handleToggleSwitch(false)} className={`p-2 rounded-full transition-all duration-300 ${!isQikpodMode ? 'bg-white shadow-md scale-110' : 'hover:bg-muted/80'}`}>
                     <img src={leapmileIcon} alt="Leapmile" className="h-5 w-5" />
                   </button>
-                  <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-primary shadow-md scale-110' : 'hover:bg-muted/80'}`}>
-                    <img src={qikpodIcon} alt="Qikpod" className="h-5 w-5" />
+                  <button onClick={() => handleToggleSwitch(true)} className={`p-2 rounded-full transition-all duration-300 ${isQikpodMode ? 'bg-white shadow-md scale-110' : 'hover:bg-muted/80'}`}>
+                    <img src={qikpodIcon} alt="QikPod" className="h-5 w-5" />
                   </button>
                 </div>
               </div>

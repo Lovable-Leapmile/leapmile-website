@@ -49,11 +49,11 @@ const App = () => (
             <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
             <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="/solutions/retail-click-collect" element={<RetailClickCollect />} />
-            <Route path="/solutions/last-mile-delivery" element={<LastMileDelivery />} />
-            <Route path="/solutions/digital-mailroom" element={<DigitalMailroom />} />
-            <Route path="/solutions/university-parcel-hub" element={<UniversityParcelHub />} />
-            <Route path="/solutions/late-night-deliveries" element={<LateNightDeliveries />} />
+            <Route path="/qikpod/solutions/retail-click-collect" element={<RetailClickCollect />} />
+            <Route path="/qikpod/solutions/last-mile-delivery" element={<LastMileDelivery />} />
+            <Route path="/qikpod/solutions/digital-mailroom" element={<DigitalMailroom />} />
+            <Route path="/qikpod/solutions/university-parcel-hub" element={<UniversityParcelHub />} />
+            <Route path="/qikpod/solutions/late-night-deliveries" element={<LateNightDeliveries />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

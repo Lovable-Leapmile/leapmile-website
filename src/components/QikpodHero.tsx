@@ -20,7 +20,7 @@ const QikpodHero = () => {
       {/* Background overlay for better text readability */}
       <div className="absolute inset-0 bg-background/20"></div>
       
-      <div className="relative z-10 container mx-auto px-6 lg:px-12">
+      <div className="relative z-10 container mx-auto px-6 lg:px-12 pt-28 md:pt-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">

@@ -15,11 +15,11 @@ const LateNightDeliveries = () => {
   };
 
   const solutions = [
-    { name: "Retail Click & Collect", path: "/solutions/retail-click-collect", active: false },
-    { name: "Last Mile Delivery", path: "/solutions/last-mile-delivery", active: false },
-    { name: "Digital Mailroom", path: "/solutions/digital-mailroom", active: false },
-    { name: "University Parcel Hub", path: "/solutions/university-parcel-hub", active: false },
-    { name: "Late Night Deliveries", path: "/solutions/late-night-deliveries", active: true },
+    { name: "Retail Click & Collect", path: "/qikpod/solutions/retail-click-collect", active: false },
+    { name: "Last Mile Delivery", path: "/qikpod/solutions/last-mile-delivery", active: false },
+    { name: "Digital Mailroom", path: "/qikpod/solutions/digital-mailroom", active: false },
+    { name: "University Parcel Hub", path: "/qikpod/solutions/university-parcel-hub", active: false },
+    { name: "Late Night Deliveries", path: "/qikpod/solutions/late-night-deliveries", active: true },
   ];
 
   const timelineSteps = [
@@ -47,33 +47,36 @@ const LateNightDeliveries = () => {
 
   const benefits = [
     {
-      icon: <Users className="h-12 w-12 text-primary" />,
+      icon: <Users className="h-12 w-12 text-qikpod-yellow" />,
       title: "For Customers",
       description: "Flexible delivery times, enhanced urban logistics experience"
     },
     {
-      icon: <Leaf className="h-12 w-12 text-primary" />,
+      icon: <Leaf className="h-12 w-12 text-qikpod-yellow" />,
       title: "Environment",
       description: "Reduced traffic congestion and carbon footprint in urban areas"
     },
     {
-      icon: <BarChart3 className="h-12 w-12 text-primary" />,
+      icon: <BarChart3 className="h-12 w-12 text-qikpod-yellow" />,
       title: "Usage & Billing Reports",
       description: "Comprehensive analytics for optimized off-peak operations"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-qikpod-white">
       {/* Hero Section */}
       <section 
-        className="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        className="relative h-[60vh] bg-cover bg-center bg-no-repeat flex items-center justify-center"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/qikpod-bg.png')"
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1495430288918-03be19c7c485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw5fHxuaWdodHxlbnwwfHx8fDE3MjA2OTIzMjN8MA&ixlib=rb-4.0.3&q=80&w=1080')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
         }}
       >
-        <div className="container mx-auto px-6 lg:px-12 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
+        <div className="container mx-auto px-6 lg:px-12 text-center text-white pt-20">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-qikpod-yellow">
             Enhancing Efficiency and Reducing Traffic Congestion in Urban Logistics
           </h1>
           <h3 className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
@@ -81,7 +84,7 @@ const LateNightDeliveries = () => {
           </h3>
           <Button 
             onClick={handleContactClick}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+            className="bg-qikpod-yellow hover:bg-qikpod-yellow/90 text-qikpod-black px-8 py-3 text-lg font-semibold"
           >
             Reach Out
           </Button>
@@ -89,16 +92,16 @@ const LateNightDeliveries = () => {
       </section>
 
       {/* Parcel Problem Solution */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-qikpod-white">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-4">
               How We Solve The Parcel Problem
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-qikpod-black/80 mb-8">
               Countless packages, One Solution
             </p>
-            <h3 className="text-xl font-semibold text-foreground">
+            <h3 className="text-xl font-semibold text-qikpod-black">
               Improve the experience of off-peak delivery with flexible timing and urban benefits.
             </h3>
           </div>
@@ -110,24 +113,24 @@ const LateNightDeliveries = () => {
             <div className="order-1 lg:order-2">
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-foreground">Industry-first smart parcel management platform designed for off-peak operations</span>
+                  <div className="w-2 h-2 bg-qikpod-yellow rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span className="text-qikpod-black">Industry-first smart parcel management platform designed for off-peak operations</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-foreground">24/7 operation capability with embedded tracking software</span>
+                  <div className="w-2 h-2 bg-qikpod-yellow rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span className="text-qikpod-black">24/7 operation capability with embedded tracking software</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-foreground">Unified platform provides visibility and security for late-night operations</span>
+                  <div className="w-2 h-2 bg-qikpod-yellow rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span className="text-qikpod-black">Unified platform provides visibility and security for late-night operations</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-foreground">Reduces urban traffic congestion by enabling off-peak delivery windows</span>
+                  <div className="w-2 h-2 bg-qikpod-yellow rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span className="text-qikpod-black">Reduces urban traffic congestion by enabling off-peak delivery windows</span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-foreground">Optimized for urban areas with flexible delivery time management</span>
+                  <div className="w-2 h-2 bg-qikpod-yellow rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span className="text-qikpod-black">Optimized for urban areas with flexible delivery time management</span>
                 </li>
               </ul>
             </div>
@@ -136,13 +139,13 @@ const LateNightDeliveries = () => {
       </section>
 
       {/* How it works Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-qikpod-yellow-light">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-4">
               How it works..
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-qikpod-black/80 max-w-2xl mx-auto mb-8">
               Provide a secure, 24/7 pickup experience with QikPod Parcel Management Solutions.
             </p>
           </div>
@@ -151,20 +154,20 @@ const LateNightDeliveries = () => {
             {timelineSteps.map((step, index) => (
               <div key={index} className="text-center">
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-qikpod-yellow">
                     {step.icon}
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-4">
+                  <div className="w-8 h-8 bg-primary text-qikpod-yellow-foreground rounded-full flex items-center justify-center text-sm font-bold mx-auto mb-4">
                     {index + 1}
                   </div>
                   {index < timelineSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-4 left-1/2 w-full h-px bg-primary/30 transform translate-x-4"></div>
+                    <div className="hidden lg:block absolute top-4 left-1/2 w-full h-px bg-qikpod-yellow/30 transform translate-x-4"></div>
                   )}
                 </div>
-                <h3 className="font-semibold text-lg text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
+                <h3 className="font-semibold text-lg text-qikpod-black mb-2">{step.title}</h3>
+                <p className="text-qikpod-black/80 text-sm">{step.description}</p>
               </div>
             ))}
           </div>
@@ -172,7 +175,7 @@ const LateNightDeliveries = () => {
           <div className="text-center">
             <Button 
               onClick={handleContactClick}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+              className="bg-primary hover:bg-primary/90 text-qikpod-yellow-foreground px-8 py-3 text-lg"
             >
               Request Locker
             </Button>
@@ -181,18 +184,18 @@ const LateNightDeliveries = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-qikpod-white">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Benefits</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-4">Benefits</h2>
+            <p className="text-lg text-qikpod-black/80">
               Robots can help you gain customers, save costs, and serve them efficiently.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow bg-qikpod-white border-qikpod-yellow/20">
                 <CardHeader>
                   <div className="flex justify-center mb-4">
                     {benefit.icon}
@@ -200,7 +203,7 @@ const LateNightDeliveries = () => {
                   <CardTitle className="text-xl font-bold">{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{benefit.description}</p>
+                  <p className="text-qikpod-black/80">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -209,7 +212,7 @@ const LateNightDeliveries = () => {
       </section>
 
       {/* Bottom Navigation */}
-      <section className="py-8 bg-muted">
+      <section className="py-8 bg-qikpod-yellow-light">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-wrap justify-center gap-4">
             {solutions.map((solution, index) => (
@@ -217,7 +220,7 @@ const LateNightDeliveries = () => {
                 key={index}
                 variant={solution.active ? "default" : "outline"}
                 onClick={() => solution.path && navigate(solution.path)}
-                className="px-6 py-2"
+                className={`px-6 py-2 ${solution.active ? 'bg-qikpod-yellow text-qikpod-black hover:bg-qikpod-yellow/90' : 'border-qikpod-yellow text-qikpod-black hover:bg-qikpod-yellow/10'}`}
               >
                 {solution.name}
               </Button>

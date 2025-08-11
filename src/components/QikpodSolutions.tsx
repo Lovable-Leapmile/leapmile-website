@@ -61,35 +61,35 @@ const QikpodSolutions = () => {
     caption: "Offer click & collect at stores to enhance customer satisfaction and save costs.",
     buttonText: "Know More",
     pageName: "Retail Click & Collect",
-    routePath: "/solutions/retail-click-collect"
+    routePath: "/qikpod/solutions/retail-click-collect"
   }, {
     title: "Last Mile Delivery",
     image: q58,
     caption: "Build faster, more secure, and high-efficiency delivery processes.",
     buttonText: "Know More",
     pageName: "Last Mile Delivery",
-    routePath: "/solutions/last-mile-delivery"
+    routePath: "/qikpod/solutions/last-mile-delivery"
   }, {
     title: "Digital Mailroom",
     image: q65,
     caption: "Ensure employees & residents enjoy hassle-free, contactless pick-up.",
     buttonText: "Know More",
     pageName: "Digital Mailroom",
-    routePath: "/solutions/digital-mailroom"
+    routePath: "/qikpod/solutions/digital-mailroom"
   }, {
     title: "University Parcel Hub",
     image: q60,
     caption: "Set up automated self-serve parcel hubs for students, staff & faculty.",
     buttonText: "Know More",
     pageName: "University Parcel Hub",
-    routePath: "/solutions/university-parcel-hub"
+    routePath: "/qikpod/solutions/university-parcel-hub"
   }, {
     title: "Late Night Deliveries",
     image: q36,
     caption: "Allowing third-party logistics providers to operate during off-peak hours.",
     buttonText: "Know More",
     pageName: "Late Night Deliveries",
-    routePath: "/solutions/late-night-deliveries"
+    routePath: "/qikpod/solutions/late-night-deliveries"
   }];
   return <section className="py-16 bg-qikpod-white" data-section="solutions">
       <div className="container mx-auto px-6 lg:px-12">

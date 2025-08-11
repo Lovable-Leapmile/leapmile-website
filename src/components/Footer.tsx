@@ -45,7 +45,7 @@ const Footer = () => {
       name: "Nano Warehouse",
       href: "/technology/nano-warehouse"
     }, {
-      name: "Smart Locker - Qikpod",
+      name: "Smart Locker - QikPod",
       href: "/qikpod"
     }, {
       name: "Virtual Tour",

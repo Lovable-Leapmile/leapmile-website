@@ -188,7 +188,7 @@ const ContactSection = () => {
                       <select {...register("service")} className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
                         <option value="">Select a service</option>
                         <option value="nano-warehouse">Nano Warehouse</option>
-                        <option value="qikpod-smart-locker">Qikpod Smart locker</option>
+                        <option value="qikpod-smart-locker">QikPod Smart locker</option>
                         <option value="consultation">Consultation</option>
                         <option value="schedule-demo">Schedule Demo</option>
                       </select>
