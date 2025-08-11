@@ -136,10 +136,16 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            {isQikpodMode ? <img src={qikpodLogo} alt="QikPod Logo" className="h-auto w-28" /> : <>
+            {isQikpodMode ? (
+              <Link to="/qikpod" className="cursor-pointer">
+                <img src={qikpodLogo} alt="QikPod Logo" className="h-auto w-28" />
+              </Link>
+            ) : (
+              <Link to="/" className="cursor-pointer">
                 <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
                 <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
-              </>}
+              </Link>
+            )}
           </div>
 
           {/* Desktop Navigation - Only show on Leapmile page */}
