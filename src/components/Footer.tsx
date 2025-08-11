@@ -83,7 +83,7 @@ const Footer = () => {
       setIsSubscribing(false);
     }
   };
-  return <footer className="bg-foreground text-background py-16">
+  return <footer className="bg-foreground text-background pt-16 pb-8">
       <div className="page-wrapper">
         <div className="max-w-6xl mx-auto">
           {/* Main Footer Content */}
@@ -122,16 +122,16 @@ const Footer = () => {
                       {link.name === "Contact" ? (
                         <button 
                           onClick={() => navigateToContact(navigate, location.pathname)}
-                          className="text-muted hover:text-primary transition-colors text-sm"
+                          className="text-muted hover:text-primary-glow transition-colors text-sm"
                         >
                           {link.name}
                         </button>
                       ) : link.href.startsWith('/') ? (
-                        <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                        <Link to={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
                         </Link>
                       ) : (
-                        <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                        <a href={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
                         </a>
                       )}
@@ -144,7 +144,7 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Industries</h4>
                 <ul className="space-y-2">
                   {footerLinks.industries.map((link, index) => <li key={index}>
-                      <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                      <Link to={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                         {link.name}
                       </Link>
                     </li>)}
@@ -156,9 +156,9 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Technology</h4>
                 <ul className="space-y-2">
                   {footerLinks.technology.map((link, index) => <li key={index}>
-                      {link.href.startsWith('/') ? <Link to={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                      {link.href.startsWith('/') ? <Link to={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
-                        </Link> : <a href={link.href} className="text-muted hover:text-primary transition-colors text-sm">
+                        </Link> : <a href={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
                         </a>}
                     </li>)}
@@ -192,17 +192,17 @@ const Footer = () => {
             
             {/* Social Links */}
             <div className="flex space-x-4 mb-4 md:mb-0">
-              <Button variant="ghost" size="icon" className="text-muted hover:text-primary" onClick={() => window.open('https://www.linkedin.com/company/leapmile/posts/?feedView=all', '_blank')}>
+              <Button variant="ghost" size="icon" className="text-muted hover:text-primary-glow" onClick={() => window.open('https://www.linkedin.com/company/leapmile/posts/?feedView=all', '_blank')}>
                 <Linkedin className="h-4 w-4" />
               </Button>
             </div>
 
             {/* Legal Links */}
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm">
-              <Link to="/terms-and-privacy" className="text-muted hover:text-primary transition-colors">
+              <Link to="/terms-and-privacy" className="text-muted hover:text-primary-glow transition-colors">
                 Terms and Condition & Privacy Policy / Cookies Policy
               </Link>
-              <Link to="/pricing-and-refunds" className="text-muted hover:text-primary transition-colors">
+              <Link to="/pricing-and-refunds" className="text-muted hover:text-primary-glow transition-colors">
                 Pricing / Refunds / Cancellations Policy
               </Link>
             </div>
