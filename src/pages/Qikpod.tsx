@@ -8,7 +8,8 @@ import QikpodTechnology from "@/components/QikpodTechnology";
 import QikpodHostLocations from "@/components/QikpodHostLocations";
 import QikpodWhyChoose from "@/components/QikpodWhyChoose";
 import QikpodClientCarousel from "@/components/QikpodClientCarousel";
-import Footer from "@/components/Footer";
+import QikpodContactSection from "@/components/QikpodContactSection";
+import QikpodFooter from "@/components/QikpodFooter";
 
 const Qikpod = () => {
   return (
@@ -23,7 +24,8 @@ const Qikpod = () => {
       <QikpodHostLocations />
       <QikpodWhyChoose />
       <QikpodClientCarousel />
-      <Footer />
+      <QikpodContactSection />
+      <QikpodFooter />
     </div>
   );
 };

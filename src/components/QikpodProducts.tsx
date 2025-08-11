@@ -1,9 +1,20 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate, useLocation } from "react-router-dom";
+import { navigateToQikpodContact } from "@/lib/navigation";
 import q35 from "@/assets/q35.png";
 import q47 from "@/assets/q47.png";
 import q48 from "@/assets/q48.png";
+
 const QikpodProducts = () => {
-  return <section className="py-16 bg-qikpod-grey-light bg-zinc-100">
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLearnMore = () => {
+    navigateToQikpodContact(navigate, location.pathname);
+  };
+
+  return (
+    <section className="py-16 bg-qikpod-grey-light bg-zinc-100">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-12">
@@ -38,7 +49,10 @@ const QikpodProducts = () => {
             
             {/* Button */}
             <div className="flex justify-center">
-              <Button className="bg-qikpod-yellow hover:bg-qikpod-yellow/90 text-qikpod-black px-8 py-3">
+              <Button 
+                onClick={handleLearnMore}
+                className="bg-qikpod-yellow hover:bg-qikpod-yellow/90 text-qikpod-black px-8 py-3"
+              >
                 Learn More
               </Button>
             </div>
@@ -55,6 +69,8 @@ const QikpodProducts = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default QikpodProducts;

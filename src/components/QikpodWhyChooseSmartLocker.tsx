@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate, useLocation } from "react-router-dom";
+import { navigateToQikpodContact } from "@/lib/navigation";
 import { Clock, Package, Settings, HeadphonesIcon } from "lucide-react";
 
 const QikpodWhyChooseSmartLocker = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const benefits = [
     {
       icon: Clock,
@@ -27,8 +32,7 @@ const QikpodWhyChooseSmartLocker = () => {
   ];
 
   const handleRequestLocker = () => {
-    // Navigate to home page and scroll to contact section
-    window.location.href = "/#contact";
+    navigateToQikpodContact(navigate, location.pathname);
   };
 
   return (

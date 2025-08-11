@@ -1,17 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate, useLocation } from "react-router-dom";
-import { navigateToContact } from "@/lib/navigation";
+import { navigateToQikpodContact } from "@/lib/navigation";
 import { Calendar, Package, Bell, User, Users, Building2, Truck } from "lucide-react";
 import q35 from "@/assets/q35.png";
 import Footer from "@/components/Footer";
+import QikpodFooter from "@/components/QikpodFooter";
 
 const LastMileDelivery = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleContactClick = () => {
-    navigateToContact(navigate, location.pathname);
+    navigateToQikpodContact(navigate, location.pathname);
   };
 
   const solutions = [
@@ -229,7 +230,7 @@ const LastMileDelivery = () => {
         </div>
       </section>
       
-      <Footer />
+      <QikpodFooter />
     </div>
   );
 };
