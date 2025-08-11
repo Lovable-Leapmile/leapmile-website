@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import q57 from "@/assets/q57.png";
 import q58 from "@/assets/q58.png";
 import q65 from "@/assets/q65.png";
@@ -12,18 +13,20 @@ interface SolutionCardProps {
   caption: string;
   buttonText: string;
   pageName: string;
+  routePath: string;
 }
 const SolutionCard = ({
   title,
   image,
   caption,
   buttonText,
-  pageName
+  pageName,
+  routePath
 }: SolutionCardProps) => {
+  const navigate = useNavigate();
+  
   const handleNavigation = () => {
-    // For now, we'll just log the navigation. 
-    // These routes would need to be added to the router
-    console.log(`Navigate to: ${pageName}`);
+    navigate(routePath);
   };
   return <Card className="h-full flex flex-col text-center bg-qikpod-white border-gray-200 hover:shadow-lg transition-shadow">
       <CardHeader className="pb-4">
@@ -57,31 +60,36 @@ const QikpodSolutions = () => {
     image: q57,
     caption: "Offer click & collect at stores to enhance customer satisfaction and save costs.",
     buttonText: "Know More",
-    pageName: "Retail Click & Collect"
+    pageName: "Retail Click & Collect",
+    routePath: "/solutions/retail-click-collect"
   }, {
     title: "Last Mile Delivery",
     image: q58,
     caption: "Build faster, more secure, and high-efficiency delivery processes.",
     buttonText: "Know More",
-    pageName: "Last Mile Delivery"
+    pageName: "Last Mile Delivery",
+    routePath: "/solutions/last-mile-delivery"
   }, {
     title: "Digital Mailroom",
     image: q65,
     caption: "Ensure employees & residents enjoy hassle-free, contactless pick-up.",
     buttonText: "Know More",
-    pageName: "Digital Mailroom"
+    pageName: "Digital Mailroom",
+    routePath: "/solutions/digital-mailroom"
   }, {
     title: "University Parcel Hub",
     image: q60,
     caption: "Set up automated self-serve parcel hubs for students, staff & faculty.",
     buttonText: "Know More",
-    pageName: "University Parcel Hub"
+    pageName: "University Parcel Hub",
+    routePath: "/solutions/university-parcel-hub"
   }, {
     title: "Late Night Deliveries",
     image: q36,
     caption: "Allowing third-party logistics providers to operate during off-peak hours.",
     buttonText: "Know More",
-    pageName: "Late Night Deliveries"
+    pageName: "Late Night Deliveries",
+    routePath: "/solutions/late-night-deliveries"
   }];
   return <section className="py-16 bg-qikpod-white" data-section="solutions">
       <div className="container mx-auto px-6 lg:px-12">
@@ -104,7 +112,8 @@ const QikpodSolutions = () => {
                 image={solution.image} 
                 caption={solution.caption} 
                 buttonText={solution.buttonText} 
-                pageName={solution.pageName} 
+                pageName={solution.pageName}
+                routePath={solution.routePath}
               />
             ))}
           </div>
@@ -119,7 +128,8 @@ const QikpodSolutions = () => {
                   image={solution.image} 
                   caption={solution.caption} 
                   buttonText={solution.buttonText} 
-                  pageName={solution.pageName} 
+                  pageName={solution.pageName}
+                  routePath={solution.routePath}
                 />
               ))}
             </div>

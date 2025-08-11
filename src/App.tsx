@@ -19,6 +19,11 @@ import VirtualTour from "./pages/VirtualTour";
 import TermsAndPrivacy from "./pages/TermsAndPrivacy";
 import PricingAndRefunds from "./pages/PricingAndRefunds";
 import Careers from "./pages/Careers";
+import RetailClickCollect from "./pages/solutions/RetailClickCollect";
+import LastMileDelivery from "./pages/solutions/LastMileDelivery";
+import DigitalMailroom from "./pages/solutions/DigitalMailroom";
+import UniversityParcelHub from "./pages/solutions/UniversityParcelHub";
+import LateNightDeliveries from "./pages/solutions/LateNightDeliveries";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +49,11 @@ const App = () => (
             <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
             <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/solutions/retail-click-collect" element={<RetailClickCollect />} />
+            <Route path="/solutions/last-mile-delivery" element={<LastMileDelivery />} />
+            <Route path="/solutions/digital-mailroom" element={<DigitalMailroom />} />
+            <Route path="/solutions/university-parcel-hub" element={<UniversityParcelHub />} />
+            <Route path="/solutions/late-night-deliveries" element={<LateNightDeliveries />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
