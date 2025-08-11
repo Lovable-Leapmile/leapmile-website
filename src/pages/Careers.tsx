@@ -80,13 +80,13 @@ const Careers = () => {
       <section className="py-16 px-0">
         <div className="container mx-auto max-w-4xl">
           <div className="text-lg leading-relaxed text-[#351c75] mb-12">
-            <p className="mb-6">
+            <p className="mb-6 text-center">
               Our goal is to make the last mile of eCommerce logistics simpler, safer, and speedier. The Leapmile product teams are building next-generation smart logistics robotic devices, cloud services, and mobile apps. We value expertise, initiative, problem-solving skills, high integrity, teamwork, a strong work ethic, self-motivation, and good time management skills across our team. Our work is challenging and ambitious, which makes for a fun and rich learning experience. Join us to build innovative products for the last mile of global eCommerce. We are backed by top-tier investors and global strategic partners.
             </p>
-            <p className="mb-6">
+            <p className="mb-6 text-center">
               In addition to a market-competitive compensation package, you will be entitled to paid sick and casual time off, a provident fund (PF), gratuity, medical hospitalization insurance (for you, your spouse, & 2 children), daily company lunch, balanced predictable work hours, and a well-connected office location.
             </p>
-            <p>
+            <p className="text-center">
               If you are passionate about product engineering and development, cloud software, robotics, mechatronics, IoT, embedded systems, and Python, and are willing to work in a startup environment, then you might be a good match, and we encourage you to apply.
             </p>
           </div>
