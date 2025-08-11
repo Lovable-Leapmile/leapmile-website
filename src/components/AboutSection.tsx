@@ -45,12 +45,12 @@ const AboutSection = () => {
               {/* Key Numbers */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="border-l-4 border-primary pl-4">
-                  <div className="text-2xl font-bold text-primary">5+ Years</div>
+                  <div className="text-2xl font-bold text-primary">7+ Years</div>
                   <div className="text-muted-foreground">Industry Experience</div>
                 </div>
                 <div className="border-l-4 border-primary pl-4">
-                  <div className="text-2xl font-bold text-primary">25+ Patents</div>
-                  <div className="text-muted-foreground">Filed & Pending</div>
+                  <div className="text-2xl font-bold text-primary">2x Faster</div>
+                  <div className="text-muted-foreground">Warehouse Operations</div>
                 </div>
               </div>
             </div>
@@ -58,11 +58,7 @@ const AboutSection = () => {
             {/* Right Content - GIF */}
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="https://leapmile-website.blr1.digitaloceanspaces.com/Homepage/Gif/homebackground.gif" 
-                  alt="Leapmile warehouse automation in action"
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/Homepage/Gif/homebackground.gif" alt="Leapmile warehouse automation in action" className="w-full h-full object-cover" />
               </div>
               
               {/* Floating Cards */}
