@@ -53,7 +53,7 @@ const ServicesSection = () => {
           </div>
 
           {/* Industries Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 justify-between ">
             {industries.map((industry, index) => <Card key={index} className="relative overflow-hidden transition-all duration-300 group cursor-pointer" onClick={() => navigate(industry.link)}>
                 <CardHeader className="pb-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
