@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 interface UseScrollRevealOptions {
   threshold?: number;
   rootMargin?: string;
+  aboveTheFold?: boolean;
 }
 
 export const useScrollReveal = (options: UseScrollRevealOptions = {}) => {
@@ -14,13 +15,21 @@ export const useScrollReveal = (options: UseScrollRevealOptions = {}) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasBeenVisible) {
-          setIsVisible(true);
-          setHasBeenVisible(true);
+          // For above-the-fold elements, add a slight delay
+          if (options.aboveTheFold) {
+            setTimeout(() => {
+              setIsVisible(true);
+              setHasBeenVisible(true);
+            }, 300); // 300ms delay for above-the-fold elements
+          } else {
+            setIsVisible(true);
+            setHasBeenVisible(true);
+          }
         }
       },
       {
         threshold: options.threshold || 0.1,
-        rootMargin: options.rootMargin || "0px",
+        rootMargin: options.rootMargin || "0px 0px -50px 0px", // Trigger slightly before element fully enters viewport
       }
     );
 
@@ -33,7 +42,7 @@ export const useScrollReveal = (options: UseScrollRevealOptions = {}) => {
         observer.unobserve(ref.current);
       }
     };
-  }, [hasBeenVisible, options.threshold, options.rootMargin]);
+  }, [hasBeenVisible, options.threshold, options.rootMargin, options.aboveTheFold]);
 
   return { ref, isVisible };
 };

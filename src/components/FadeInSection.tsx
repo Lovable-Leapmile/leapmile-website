@@ -1,23 +1,31 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-interface ScrollRevealProps {
+interface FadeInSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   distance?: number; // Distance to translate (default: 30px)
   duration?: number; // Animation duration in ms (default: 800ms)
   aboveTheFold?: boolean; // Whether element is above the fold
+  threshold?: number; // Intersection threshold (default: 0.1)
+  rootMargin?: string; // Root margin for intersection observer
 }
 
-const ScrollReveal = ({ 
+const FadeInSection = ({ 
   children, 
   className = "", 
   delay = 0, 
   distance = 30,
   duration = 800,
-  aboveTheFold = false 
-}: ScrollRevealProps) => {
-  const { ref, isVisible } = useScrollReveal({ aboveTheFold });
+  aboveTheFold = false,
+  threshold = 0.1,
+  rootMargin = "0px 0px -50px 0px"
+}: FadeInSectionProps) => {
+  const { ref, isVisible } = useScrollReveal({ 
+    aboveTheFold, 
+    threshold, 
+    rootMargin 
+  });
 
   return (
     <div
@@ -29,6 +37,8 @@ const ScrollReveal = ({
         willChange: 'opacity, transform',
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : `translateY(${distance}px)`,
+        // Ensure no layout shift by keeping space allocated
+        minHeight: aboveTheFold ? 'auto' : '1px',
       }}
     >
       {children}
@@ -36,4 +46,4 @@ const ScrollReveal = ({
   );
 };
 
-export default ScrollReveal;
+export default FadeInSection;

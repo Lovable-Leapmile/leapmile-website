@@ -75,7 +75,7 @@ const VirtualTour = () => {
   useEffect(() => {
     const loadSvg = async () => {
       try {
-        const response = await fetch('https://ams-bucket.blr1.digitaloceanspaces.com/virtual_tour.svg');
+        const response = await fetch('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/virtual_tour.svg');
         const svgText = await response.text();
         setSvgContent(svgText);
       } catch (error) {

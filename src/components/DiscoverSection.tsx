@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Package, Maximize2, HandMetal } from "lucide-react";
-import ScrollReveal from "./ScrollReveal";
+import FadeInSection from "./FadeInSection";
 
 const DiscoverSection = () => {
   const metrics = [
@@ -31,7 +31,7 @@ const DiscoverSection = () => {
       <div className="page-wrapper">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
-          <ScrollReveal>
+          <FadeInSection distance={40} duration={800}>
             <div className="space-y-6">
               <p className="text-sm font-medium text-primary uppercase tracking-wide">
                 Discover robotic warehousing done the Leapmile way!
@@ -45,10 +45,10 @@ const DiscoverSection = () => {
                 The Leapmile Robotics platform revolutionizes warehouse fulfillment facility operations by automating traditionally manual, time-consuming tasks. This advanced system uses top-tier robotics technology for efficient storage and management of items within any warehouse facility. It excels in automating tasks like secure inventory storage, accurate retrieval, quick picking, regular auditing, and efficient dispatch.
               </p>
             </div>
-          </ScrollReveal>
+          </FadeInSection>
 
           {/* Right Column - Metrics Grid */}
-          <ScrollReveal delay={200}>
+          <FadeInSection delay={200} distance={30} duration={900}>
             <div className="grid grid-cols-2 gap-4">
               {metrics.map((metric, index) => (
                 <Card key={index} className="text-center hover:shadow-tech transition-all duration-300">
@@ -70,7 +70,7 @@ const DiscoverSection = () => {
                 </Card>
               ))}
             </div>
-          </ScrollReveal>
+          </FadeInSection>
         </div>
       </div>
     </section>

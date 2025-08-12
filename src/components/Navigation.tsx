@@ -131,6 +131,27 @@ const Navigation = () => {
       }
     }
   }, [location.pathname, location.hash]);
+
+  // Close all subheaders when location changes
+  useEffect(() => {
+    setIndustriesOpen(false);
+    setTechnologyOpen(false);
+    setCompanyOpen(false);
+    
+    // Clear any pending timeouts
+    if (industriesTimeoutRef.current) {
+      clearTimeout(industriesTimeoutRef.current);
+      industriesTimeoutRef.current = null;
+    }
+    if (technologyTimeoutRef.current) {
+      clearTimeout(technologyTimeoutRef.current);
+      technologyTimeoutRef.current = null;
+    }
+    if (companyTimeoutRef.current) {
+      clearTimeout(companyTimeoutRef.current);
+      companyTimeoutRef.current = null;
+    }
+  }, [location.pathname]);
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16">
