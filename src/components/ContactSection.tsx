@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Calendar, CheckCircle } from "lucide-react";
 import DateTimePicker from "./DateTimePicker";
+
 interface ContactFormData {
   name: string;
   email: string;
@@ -18,6 +19,7 @@ interface ContactFormData {
   demoDate?: string;
   demoTime?: string;
 }
+
 const ContactSection = () => {
   const {
     register,
@@ -30,9 +32,11 @@ const ContactSection = () => {
     watch,
     setValue
   } = useForm<ContactFormData>();
+  
   const {
     toast
   } = useToast();
+  
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string>("");
   const watchedService = watch("service");
@@ -46,13 +50,18 @@ const ContactSection = () => {
       setValue("demoTime", "");
     }
   }, [watchedService, setValue]);
-  
+
   const onSubmit = async (data: ContactFormData) => {
     try {
+      console.log('Homepage Contact Form - Starting submission:', data);
+      
       let emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
       if (data.service === "schedule-demo" && selectedDate && selectedTime) {
         emailMessage += `, Demo Date: ${selectedDate.toDateString()}, Demo Time: ${selectedTime}`;
       }
+      
+      console.log('Homepage Contact Form - Email message prepared:', emailMessage);
+      
       const params = new URLSearchParams({
         msg_type: 'regular',
         email_to_address: 'support@leapmile.com',
@@ -60,6 +69,10 @@ const ContactSection = () => {
         email_subject: 'Product Request',
         email_message: emailMessage
       });
+      
+      console.log('Homepage Contact Form - API params:', params.toString());
+      console.log('Homepage Contact Form - Making API call to:', 'https://newproduction.qikpod.com:8985/notifications/email/send/?');
+      
       const response = await fetch(`https://newproduction.qikpod.com:8985/notifications/email/send/?${params}`, {
         method: 'POST',
         headers: {
@@ -67,7 +80,14 @@ const ContactSection = () => {
           'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
         }
       });
+      
+      console.log('Homepage Contact Form - API response status:', response.status);
+      console.log('Homepage Contact Form - API response ok:', response.ok);
+      
       if (response.ok) {
+        const responseText = await response.text();
+        console.log('Homepage Contact Form - API response text:', responseText);
+        
         toast({
           title: "Mail Sent Successfully!",
           description: "We'll get back to you soon.",
@@ -79,9 +99,12 @@ const ContactSection = () => {
         setSelectedDate(undefined);
         setSelectedTime("");
       } else {
-        throw new Error('Failed to send email');
+        const errorText = await response.text();
+        console.error('Homepage Contact Form - API error response:', errorText);
+        throw new Error(`Failed to send email: ${response.status} - ${errorText}`);
       }
     } catch (error) {
+      console.error('Homepage Contact Form - Error occurred:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",

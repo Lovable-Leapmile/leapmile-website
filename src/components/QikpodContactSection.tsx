@@ -53,10 +53,15 @@ const QikpodContactSection = () => {
   
   const onSubmit = async (data: ContactFormData) => {
     try {
+      console.log('Qikpod Contact Form - Starting submission:', data);
+      
       let emailMessage = `Name: ${data.name}, Email: ${data.email}, Phone: ${data.phone}, Company: ${data.company}, Select Service: ${data.service}, Message: ${data.message}`;
       if (data.service === "schedule-demo" && selectedDate && selectedTime) {
         emailMessage += `, Demo Date: ${selectedDate.toDateString()}, Demo Time: ${selectedTime}`;
       }
+      
+      console.log('Qikpod Contact Form - Email message prepared:', emailMessage);
+      
       const params = new URLSearchParams({
         msg_type: 'regular',
         email_to_address: 'support@leapmile.com',
@@ -64,6 +69,10 @@ const QikpodContactSection = () => {
         email_subject: 'Product Request',
         email_message: emailMessage
       });
+      
+      console.log('Qikpod Contact Form - API params:', params.toString());
+      console.log('Qikpod Contact Form - Making API call to:', 'https://newproduction.qikpod.com:8985/notifications/email/send/?');
+      
       const response = await fetch(`https://newproduction.qikpod.com:8985/notifications/email/send/?${params}`, {
         method: 'POST',
         headers: {
@@ -71,7 +80,14 @@ const QikpodContactSection = () => {
           'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NjQzNzUxODN9.3nKvoS0uuSwwZXPnv0-MyXKucUnpMBlCJuI97FR84z4'
         }
       });
+      
+      console.log('Qikpod Contact Form - API response status:', response.status);
+      console.log('Qikpod Contact Form - API response ok:', response.ok);
+      
       if (response.ok) {
+        const responseText = await response.text();
+        console.log('Qikpod Contact Form - API response text:', responseText);
+        
         toast({
           title: "Mail Sent Successfully!",
           description: "We'll get back to you soon.",
@@ -83,9 +99,12 @@ const QikpodContactSection = () => {
         setSelectedDate(undefined);
         setSelectedTime("");
       } else {
-        throw new Error('Failed to send email');
+        const errorText = await response.text();
+        console.error('Qikpod Contact Form - API error response:', errorText);
+        throw new Error(`Failed to send email: ${response.status} - ${errorText}`);
       }
     } catch (error) {
+      console.error('Qikpod Contact Form - Error occurred:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
@@ -204,6 +223,7 @@ const QikpodContactSection = () => {
                           type="email"
                           className="bg-white border-yellow-300 text-black focus:border-yellow-500 focus:ring-yellow-500"
                           placeholder="Enter your email"
+                          required
                         />
                         {errors.email && (
                           <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -241,6 +261,7 @@ const QikpodContactSection = () => {
                       <select
                         {...register("service", { required: "Please select a service" })}
                         className="w-full px-3 py-2 border border-yellow-300 rounded-md bg-white text-black focus:border-yellow-500 focus:ring-yellow-500"
+                        required
                       >
                         <option value="">Select a service</option>
                         {services.map((service) => (
@@ -261,31 +282,15 @@ const QikpodContactSection = () => {
                             Preferred Date
                           </label>
                           <DateTimePicker
-                            selected={selectedDate}
+                            selectedDate={selectedDate}
+                            selectedTime={selectedTime}
                             onDateChange={setSelectedDate}
-                            placeholder="Select date"
+                            onTimeChange={setSelectedTime}
+                            onClear={() => {
+                              setSelectedDate(undefined);
+                              setSelectedTime("");
+                            }}
                           />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-black mb-2">
-                            Preferred Time
-                          </label>
-                          <select
-                            value={selectedTime}
-                            onChange={(e) => setSelectedTime(e.target.value)}
-                            className="w-full px-3 py-2 border border-yellow-300 rounded-md bg-white text-black focus:border-yellow-500 focus:ring-yellow-500"
-                          >
-                            <option value="">Select time</option>
-                            <option value="9:00 AM">9:00 AM</option>
-                            <option value="10:00 AM">10:00 AM</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="12:00 PM">12:00 PM</option>
-                            <option value="1:00 PM">1:00 PM</option>
-                            <option value="2:00 PM">2:00 PM</option>
-                            <option value="3:00 PM">3:00 PM</option>
-                            <option value="4:00 PM">4:00 PM</option>
-                            <option value="5:00 PM">5:00 PM</option>
-                          </select>
                         </div>
                       </div>
                     )}
@@ -299,6 +304,7 @@ const QikpodContactSection = () => {
                         rows={4}
                         className="bg-white border-yellow-300 text-black focus:border-yellow-500 focus:ring-yellow-500"
                         placeholder="Tell us about your requirements..."
+                        required
                       />
                       {errors.message && (
                         <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
