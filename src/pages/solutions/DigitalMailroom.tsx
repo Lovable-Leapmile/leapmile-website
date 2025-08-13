@@ -187,7 +187,7 @@ const DigitalMailroom = () => {
       <section 
         className="py-16 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_qikpod.jpg')`,
+          backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_qikpod.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

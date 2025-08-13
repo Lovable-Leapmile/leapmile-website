@@ -12,7 +12,7 @@ const useFavicon = () => {
       
       if (isQikPodPage) {
         // Set QikPod favicon
-        const qikpodFavicon = 'https://ams-bucket.blr1.digitaloceanspaces.com/favicon_new_q.png';
+        const qikpodFavicon = 'https://leapmile-website.blr1.cdn.digitaloceanspaces.com/favicon_new_q.png';
         
         // Update or create favicon link
         let link = document.querySelector("link[rel*='icon']") as HTMLLinkElement;

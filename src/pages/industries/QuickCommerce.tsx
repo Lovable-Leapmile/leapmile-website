@@ -109,7 +109,7 @@ const QuickCommerce = () => {
       <section 
         className="py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+          backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

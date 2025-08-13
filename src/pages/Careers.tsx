@@ -96,7 +96,7 @@ const Careers = () => {
             <div 
               className="mb-16 py-16 bg-cover bg-center bg-no-repeat rounded-lg"
               style={{
-                backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+                backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
