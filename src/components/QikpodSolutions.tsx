@@ -92,7 +92,7 @@ const QikpodSolutions = () => {
     routePath: "/qikpod/solutions/late-night-deliveries"
   }];
   return <section className="py-16 bg-qikpod-white" data-section="solutions">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-6">Match Our Solution to Your Use Case</h2>

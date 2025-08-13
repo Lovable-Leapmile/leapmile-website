@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
 import Navigation from "./components/Navigation";
+import useFavicon from "./hooks/useFavicon";
 import Index from "./pages/Index";
 import Qikpod from "./pages/Qikpod";
 import NotFound from "./pages/NotFound";
@@ -27,37 +28,47 @@ import LateNightDeliveries from "./pages/solutions/LateNightDeliveries";
 
 const queryClient = new QueryClient();
 
+const AppContent = () => {
+  useFavicon(); // Hook to handle favicon changes
+
+  return (
+    <>
+      <ScrollToTop />
+      <Navigation />
+      <PageTransition>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/qikpod" element={<Qikpod />} />
+          <Route path="/industries/quick-commerce" element={<QuickCommerce />} />
+          <Route path="/industries/e-commerce" element={<ECommerce />} />
+          <Route path="/industries/omni-channel-retail" element={<OmniChannelRetail />} />
+          <Route path="/industries/industrial-&-mro" element={<IndustrialMRO />} />
+          <Route path="/industries/showcase-robot" element={<ShowcaseRobot />} />
+          <Route path="/technology/nano-warehouse" element={<NanoWarehouse />} />
+          <Route path="/virtual-tour" element={<VirtualTour />} />
+          <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
+          <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/qikpod/solutions/retail-click-collect" element={<RetailClickCollect />} />
+          <Route path="/qikpod/solutions/last-mile-delivery" element={<LastMileDelivery />} />
+          <Route path="/qikpod/solutions/digital-mailroom" element={<DigitalMailroom />} />
+          <Route path="/qikpod/solutions/university-parcel-hub" element={<UniversityParcelHub />} />
+          <Route path="/qikpod/solutions/late-night-deliveries" element={<LateNightDeliveries />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </PageTransition>
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Navigation />
-        <PageTransition>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/qikpod" element={<Qikpod />} />
-            <Route path="/industries/quick-commerce" element={<QuickCommerce />} />
-            <Route path="/industries/e-commerce" element={<ECommerce />} />
-            <Route path="/industries/omni-channel-retail" element={<OmniChannelRetail />} />
-            <Route path="/industries/industrial-&-mro" element={<IndustrialMRO />} />
-            <Route path="/industries/showcase-robot" element={<ShowcaseRobot />} />
-            <Route path="/technology/nano-warehouse" element={<NanoWarehouse />} />
-            <Route path="/virtual-tour" element={<VirtualTour />} />
-            <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
-            <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/qikpod/solutions/retail-click-collect" element={<RetailClickCollect />} />
-            <Route path="/qikpod/solutions/last-mile-delivery" element={<LastMileDelivery />} />
-            <Route path="/qikpod/solutions/digital-mailroom" element={<DigitalMailroom />} />
-            <Route path="/qikpod/solutions/university-parcel-hub" element={<UniversityParcelHub />} />
-            <Route path="/qikpod/solutions/late-night-deliveries" element={<LateNightDeliveries />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </PageTransition>
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

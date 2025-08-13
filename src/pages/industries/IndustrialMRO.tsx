@@ -106,7 +106,14 @@ const IndustrialMRO = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-accent/30">
+      <section 
+        className="py-20 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
         <div className="page-wrapper">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">

@@ -37,8 +37,8 @@ All colors MUST be HSL.
     --shadow-card-hover: 0 20px 50px hsl(254 60% 29% / 0.25);
     
     /* QikPod specific colors */
-    --qikpod-yellow: 45 100% 50%;
-    --qikpod-yellow-light: 45 100% 95%;
+    --qikpod-yellow: 50 97% 50%;
+    --qikpod-yellow-light: 50 97% 95%;
     --qikpod-black: 0 0% 0%;
     --qikpod-white: 0 0% 100%;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

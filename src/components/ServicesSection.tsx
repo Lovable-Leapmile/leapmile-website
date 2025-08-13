@@ -90,10 +90,25 @@ const ServicesSection = () => {
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">Let's discuss how our robots can help you achieve unprecedented efficiency and growth.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-tech-gradient hover:shadow-tech">
+              <Button 
+                size="lg" 
+                className="bg-tech-gradient hover:shadow-tech"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Schedule Consultation
               </Button>
-              <Button variant="outline" size="lg">View docs</Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => window.open('https://docs.leapmile.com/', '_blank')}
+              >
+                View docs
+              </Button>
             </div>
           </div>
         </div>

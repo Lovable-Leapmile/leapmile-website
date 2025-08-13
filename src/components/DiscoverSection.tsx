@@ -27,7 +27,14 @@ const DiscoverSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section 
+      className="py-16 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
       <div className="page-wrapper">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}

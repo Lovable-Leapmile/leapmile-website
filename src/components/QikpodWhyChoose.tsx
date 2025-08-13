@@ -27,7 +27,7 @@ const QikpodWhyChoose = () => {
 
   return (
     <section className="py-16 bg-zinc-100">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-8">

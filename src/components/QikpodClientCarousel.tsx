@@ -53,7 +53,7 @@ const QikpodClientCarousel = () => {
 
   return (
     <section className="py-16 bg-qikpod-white">
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-6 md:px-12">
         <div 
           ref={scrollRef}
           className="overflow-hidden whitespace-nowrap"

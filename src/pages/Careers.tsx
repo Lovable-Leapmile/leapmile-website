@@ -78,78 +78,87 @@ const Careers = () => {
 
       {/* Body Content */}
       <section className="py-16 px-0">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-lg leading-relaxed text-[#351c75] mb-12">
-            <p className="mb-6 text-center">
-              Our goal is to make the last mile of eCommerce logistics simpler, safer, and speedier. The Leapmile product teams are building next-generation smart logistics robotic devices, cloud services, and mobile apps. We value expertise, initiative, problem-solving skills, high integrity, teamwork, a strong work ethic, self-motivation, and good time management skills across our team. Our work is challenging and ambitious, which makes for a fun and rich learning experience. Join us to build innovative products for the last mile of global eCommerce. We are backed by top-tier investors and global strategic partners.
-            </p>
-            <p className="mb-6 text-center">
-              In addition to a market-competitive compensation package, you will be entitled to paid sick and casual time off, a provident fund (PF), gratuity, medical hospitalization insurance (for you, your spouse, & 2 children), daily company lunch, balanced predictable work hours, and a well-connected office location.
-            </p>
-            <p className="text-center">
-              If you are passionate about product engineering and development, cloud software, robotics, mechatronics, IoT, embedded systems, and Python, and are willing to work in a startup environment, then you might be a good match, and we encourage you to apply.
-            </p>
-          </div>
+        <div className="page-wrapper">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-lg leading-relaxed text-[#351c75] mb-12">
+              <p className="mb-6 text-center">
+                Our goal is to make the last mile of eCommerce logistics simpler, safer, and speedier. The Leapmile product teams are building next-generation smart logistics robotic devices, cloud services, and mobile apps. We value expertise, initiative, problem-solving skills, high integrity, teamwork, a strong work ethic, self-motivation, and good time management skills across our team. Our work is challenging and ambitious, which makes for a fun and rich learning experience. Join us to build innovative products for the last mile of global eCommerce. We are backed by top-tier investors and global strategic partners.
+              </p>
+              <p className="mb-6 text-center">
+                In addition to a market-competitive compensation package, you will be entitled to paid sick and casual time off, a provident fund (PF), gratuity, medical hospitalization insurance (for you, your spouse, & 2 children), daily company lunch, balanced predictable work hours, and a well-connected office location.
+              </p>
+              <p className="text-center">
+                If you are passionate about product engineering and development, cloud software, robotics, mechatronics, IoT, embedded systems, and Python, and are willing to work in a startup environment, then you might be a good match, and we encourage you to apply.
+              </p>
+            </div>
 
-          {/* Key Benefits Section */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Key Benefits</h3>
-            <div className="space-y-6">
-              {/* First card centered */}
-              <div className="flex justify-center">
-                <Card className="border-none shadow-lg w-64">
-                  <CardContent className="p-4 text-center">
-                    <div className="mb-3 flex justify-center">
-                      <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
-                        <Award className="h-6 w-6 text-white" />
-                      </div>
-                    </div>
-                    <h4 className="text-base font-semibold mb-2 text-foreground">{benefits[0].title}</h4>
-                    <p className="text-xs text-muted-foreground">{benefits[0].description}</p>
-                  </CardContent>
-                </Card>
-              </div>
-              
-              {/* Remaining 6 cards in 2 rows of 3 */}
-              <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
-                {benefits.slice(1).map((benefit, index) => <Card key={index + 1} className="border-none shadow-lg">
+            {/* Key Benefits Section */}
+            <div 
+              className="mb-16 py-16 bg-cover bg-center bg-no-repeat rounded-lg"
+              style={{
+                backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Key Benefits</h3>
+              <div className="space-y-6">
+                {/* First card centered */}
+                <div className="flex justify-center">
+                  <Card className="border-none shadow-lg w-64">
                     <CardContent className="p-4 text-center">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
-                          <benefit.icon className="h-6 w-6 text-white" />
+                          <Award className="h-6 w-6 text-white" />
                         </div>
                       </div>
-                      <h4 className="text-base font-semibold mb-2 text-foreground">{benefit.title}</h4>
-                      <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                      <h4 className="text-base font-semibold mb-2 text-foreground">{benefits[0].title}</h4>
+                      <p className="text-xs text-muted-foreground">{benefits[0].description}</p>
                     </CardContent>
+                  </Card>
+                </div>
+                
+                {/* Remaining 6 cards in 2 rows of 3 */}
+                <div className="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
+                  {benefits.slice(1).map((benefit, index) => <Card key={index + 1} className="border-none shadow-lg">
+                      <CardContent className="p-4 text-center">
+                        <div className="mb-3 flex justify-center">
+                          <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
+                            <benefit.icon className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        <h4 className="text-base font-semibold mb-2 text-foreground">{benefit.title}</h4>
+                        <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                      </CardContent>
+                    </Card>)}
+                </div>
+              </div>
+            </div>
+
+            {/* Job Roles Section */}
+            <div className="mb-16">
+              
+              <div className="space-y-8">
+                {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden border border-border">
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-1/4 p-8 flex items-center justify-center">
+                        <img src={role.image} alt={role.title} className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-lg" />
+                      </div>
+                      <div className="md:w-3/4 p-8">
+                        <h4 className="text-2xl font-bold mb-6 text-foreground">{role.title}</h4>
+                        <p className="text-muted-foreground leading-relaxed text-lg">{role.description}</p>
+                      </div>
+                    </div>
                   </Card>)}
               </div>
             </div>
-          </div>
 
-          {/* Job Roles Section */}
-          <div className="mb-16">
-            
-            <div className="space-y-8">
-              {jobRoles.map((role, index) => <Card key={index} className="overflow-hidden border border-border">
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/4 p-8 flex items-center justify-center">
-                      <img src={role.image} alt={role.title} className="w-32 h-32 md:w-40 md:h-40 object-contain rounded-lg" />
-                    </div>
-                    <div className="md:w-3/4 p-8">
-                      <h4 className="text-2xl font-bold mb-6 text-foreground">{role.title}</h4>
-                      <p className="text-muted-foreground leading-relaxed text-lg">{role.description}</p>
-                    </div>
-                  </div>
-                </Card>)}
+            {/* Apply Now Button */}
+            <div className="text-center">
+              <Button size="lg" onClick={handleApplyNow} className="px-8 py-4 text-lg">
+                Apply Now
+              </Button>
             </div>
-          </div>
-
-          {/* Apply Now Button */}
-          <div className="text-center">
-            <Button size="lg" onClick={handleApplyNow} className="px-8 py-4 text-lg">
-              Apply Now
-            </Button>
           </div>
         </div>
       </section>

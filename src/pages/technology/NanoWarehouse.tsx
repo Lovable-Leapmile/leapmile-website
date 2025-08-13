@@ -153,7 +153,14 @@ const NanoWarehouse = () => {
       </section>
 
       {/* Platform Section */}
-      <section className="py-16 bg-accent/5">
+      <section 
+        className="py-16 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://ams-bucket.blr1.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
         <div className="page-wrapper">
           <SectionHeader title="Platform" icon={Settings}>
             <div className="max-w-4xl mx-auto space-y-6">
