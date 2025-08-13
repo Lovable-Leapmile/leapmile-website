@@ -5,7 +5,6 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Play, Package, Truck, FileText, ScanLine, Settings, Bot, Cpu, MapPin, Cloud } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
-
 import { useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
 import { TrendingUp, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
@@ -129,7 +128,7 @@ const NanoWarehouse = () => {
   return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="py-20 bg-white">
-        <div className="page-wrapper">
+        <div className="container mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               NanoWarehouse Technology
@@ -153,15 +152,12 @@ const NanoWarehouse = () => {
       </section>
 
       {/* Platform Section */}
-      <section 
-        className="py-16 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="page-wrapper">
+      <section className="py-16 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
+        <div className="container mx-auto px-6 md:px-12">
           <SectionHeader title="Platform" icon={Settings}>
             <div className="max-w-4xl mx-auto space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -178,7 +174,7 @@ const NanoWarehouse = () => {
       </section>
 
       {/* Component Sections */}
-      <section className="py-16">
+      <section className="container mx-auto px-6 md:px-12">
         <div className="page-wrapper space-y-16">
           
           {/* Storage Solutions */}
