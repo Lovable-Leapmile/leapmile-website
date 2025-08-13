@@ -1,8 +1,6 @@
 import ScrollReveal from "./ScrollReveal";
-
 const WhyLeapmileSection = () => {
-  return (
-    <section className="bg-background py-[14px]">
+  return <section className="bg-background py-[35px]">
       <div className="page-wrapper">
         <ScrollReveal>
           <div className="text-center max-w-4xl mx-auto space-y-6">
@@ -20,7 +18,6 @@ const WhyLeapmileSection = () => {
           </div>
         </ScrollReveal>
       </div>
-    </section>
-  );
+    </section>;
 };
 export default WhyLeapmileSection;
