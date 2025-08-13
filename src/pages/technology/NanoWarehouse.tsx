@@ -174,7 +174,7 @@ const NanoWarehouse = () => {
       </section>
 
       {/* Component Sections */}
-      <section className="container mx-auto px-6 md:px-12">
+      <section className="container mx-auto px-6 md:px-12 py-[28px]">
         <div className="page-wrapper space-y-16">
           
           {/* Storage Solutions */}
