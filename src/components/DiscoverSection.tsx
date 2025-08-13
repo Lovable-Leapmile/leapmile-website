@@ -1,41 +1,30 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Package, Maximize2, HandMetal } from "lucide-react";
 import FadeInSection from "./FadeInSection";
-
 const DiscoverSection = () => {
-  const metrics = [
-    {
-      icon: Clock,
-      title: "Deployment Time",
-      value: "1–2 Weeks"
-    },
-    {
-      icon: Package,
-      title: "Storage Capacity", 
-      value: "6000 SKUs"
-    },
-    {
-      icon: Maximize2,
-      title: "Physical Footprint",
-      value: "3000 Sq. Ft"
-    },
-    {
-      icon: HandMetal,
-      title: "High Throughput",
-      value: "1250 Orders / Day"
-    }
-  ];
-
-  return (
-    <section 
-      className="py-16 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
-      <div className="page-wrapper">
+  const metrics = [{
+    icon: Clock,
+    title: "Deployment Time",
+    value: "1–2 Weeks"
+  }, {
+    icon: Package,
+    title: "Storage Capacity",
+    value: "6000 SKUs"
+  }, {
+    icon: Maximize2,
+    title: "Physical Footprint",
+    value: "3000 Sq. Ft"
+  }, {
+    icon: HandMetal,
+    title: "High Throughput",
+    value: "1250 Orders / Day"
+  }];
+  return <section className="py-16 bg-cover bg-center bg-no-repeat" style={{
+    backgroundImage: `url('https://leapmile-website.blr1.cdn.digitaloceanspaces.com/bg_pattern_leapmile.jpg')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  }}>
+      <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <FadeInSection distance={40} duration={800}>
@@ -57,8 +46,7 @@ const DiscoverSection = () => {
           {/* Right Column - Metrics Grid */}
           <FadeInSection delay={200} distance={30} duration={900}>
             <div className="grid grid-cols-2 gap-4">
-              {metrics.map((metric, index) => (
-                <Card key={index} className="text-center hover:shadow-tech transition-all duration-300">
+              {metrics.map((metric, index) => <Card key={index} className="text-center hover:shadow-tech transition-all duration-300">
                   <CardContent className="p-4">
                     <div className="flex flex-col items-center space-y-3">
                       <div className="p-2 bg-primary/10 rounded-lg">
@@ -74,14 +62,11 @@ const DiscoverSection = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </FadeInSection>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DiscoverSection;
