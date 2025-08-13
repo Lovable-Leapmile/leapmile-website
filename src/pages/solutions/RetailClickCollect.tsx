@@ -75,7 +75,7 @@ const RetailClickCollect = () => {
           backgroundRepeat: "no-repeat"
         }}
       >
-        <div className="container mx-auto px-6 md:px-12 text-center text-white pt-20">
+        <div className="page-wrapper text-center text-white pt-20">
           <h1 className="text-3xl md:text-5xl font-bold mb-6 text-qikpod-yellow">
             Flash Sales and Bopis made easy and Immediate
           </h1>
@@ -93,7 +93,7 @@ const RetailClickCollect = () => {
 
       {/* Launch Products Section */}
       <section className="py-16 bg-qikpod-white">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="page-wrapper">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-4">
               Launch New Products Like Never Before
@@ -144,7 +144,7 @@ const RetailClickCollect = () => {
 
       {/* How it works Section */}
       <section className="py-16 bg-qikpod-yellow-light">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="page-wrapper">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-4">
               How it works..
@@ -196,7 +196,7 @@ const RetailClickCollect = () => {
           backgroundPosition: 'center'
         }}
       >
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="page-wrapper">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-qikpod-black mb-4">Benefits</h2>
             <p className="text-lg text-qikpod-black/80">
@@ -224,7 +224,7 @@ const RetailClickCollect = () => {
 
       {/* Bottom Navigation */}
       <section className="py-8 bg-qikpod-yellow-light">
-        <div className="container mx-auto px-6 md:px-12">
+        <div className="page-wrapper">
           <div className="flex flex-wrap justify-center gap-4">
             {solutions.map((solution, index) => (
               <Button
