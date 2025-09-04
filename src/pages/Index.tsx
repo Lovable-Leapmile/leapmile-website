@@ -8,6 +8,7 @@ import ServicesSection from "@/components/ServicesSection";
 import TechnologySection from "@/components/TechnologySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <TechnologySection />
       <ContactSection />
       <Footer />
+      <CookieConsent pageName="home" />
     </div>
   );
 };

@@ -10,6 +10,7 @@ import QikpodWhyChoose from "@/components/QikpodWhyChoose";
 import QikpodClientCarousel from "@/components/QikpodClientCarousel";
 import QikpodContactSection from "@/components/QikpodContactSection";
 import QikpodFooter from "@/components/QikpodFooter";
+import CookieConsent from "@/components/CookieConsent";
 
 const Qikpod = () => {
   return (
@@ -26,6 +27,7 @@ const Qikpod = () => {
       <QikpodClientCarousel />
       <QikpodContactSection />
       <QikpodFooter />
+      <CookieConsent pageName="qikpod" />
     </div>
   );
 };
