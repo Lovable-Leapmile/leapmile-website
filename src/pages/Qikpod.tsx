@@ -27,7 +27,7 @@ const Qikpod = () => {
       <QikpodClientCarousel />
       <QikpodContactSection />
       <QikpodFooter />
-      <CookieConsent pageName="qikpod" />
+      <CookieConsent pageName="qikpod" theme="qikpod" />
     </div>
   );
 };
