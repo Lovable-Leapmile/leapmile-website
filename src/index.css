@@ -119,6 +119,19 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
   }
+
+  /* Force light mode - prevent system dark mode detection */
+  html.dark,
+  html[data-theme="dark"],
+  .dark {
+    /* Override any dark mode styles to prevent system dark mode detection */
+    color-scheme: light !important;
+  }
+  
+  /* Ensure the website always uses light theme colors */
+  html {
+    color-scheme: light;
+  }
 }
 
 @layer components {
