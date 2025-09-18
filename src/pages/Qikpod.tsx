@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import QikpodHero from "@/components/QikpodHero";
 import QikpodProducts from "@/components/QikpodProducts";
 import QikpodLockerFlow from "@/components/QikpodLockerFlow";
@@ -13,6 +15,22 @@ import QikpodFooter from "@/components/QikpodFooter";
 import CookieConsent from "@/components/CookieConsent";
 
 const Qikpod = () => {
+  const location = useLocation();
+  
+  // Handle scroll to contact section after navigation
+  useEffect(() => {
+    if (location.pathname === "/qikpod" && location.hash === "#contact") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        setTimeout(() => {
+          contactSection.scrollIntoView({
+            behavior: "smooth"
+          });
+        }, 100);
+      }
+    }
+  }, [location.pathname, location.hash]);
+
   return (
     <div className="min-h-screen bg-background">
       <QikpodHero />

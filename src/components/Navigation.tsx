@@ -118,13 +118,24 @@ const Navigation = () => {
     }
   };
 
-  // Handle scroll to about section after navigation
+  // Handle scroll to sections after navigation
   useEffect(() => {
     if (location.pathname === "/" && location.hash === "#about") {
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
         setTimeout(() => {
           aboutSection.scrollIntoView({
+            behavior: "smooth"
+          });
+        }, 100);
+      }
+    }
+    
+    if (location.pathname === "/" && location.hash === "#contact") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        setTimeout(() => {
+          contactSection.scrollIntoView({
             behavior: "smooth"
           });
         }, 100);

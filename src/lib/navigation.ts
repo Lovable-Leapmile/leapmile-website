@@ -19,11 +19,12 @@ export const navigateToContact = (navigate: NavigateFunction, currentPath: strin
   };
 
   if (currentPath === '/') {
-    // Already on homepage, just scroll
+    // Already on homepage, update URL with hash and scroll
+    navigate('/#contact', { replace: true });
     scrollToContact();
   } else {
-    // Navigate to homepage first, then scroll
-    navigate('/');
+    // Navigate to homepage with hash, then scroll
+    navigate('/#contact');
     scrollToContact();
   }
 };
@@ -47,11 +48,12 @@ export const navigateToQikpodContact = (navigate: NavigateFunction, currentPath:
   };
 
   if (currentPath === '/qikpod') {
-    // Already on Qikpod page, just scroll
+    // Already on Qikpod page, update URL with hash and scroll
+    navigate('/qikpod#contact', { replace: true });
     scrollToContact();
   } else {
-    // Navigate to Qikpod page first, then scroll
-    navigate('/qikpod');
+    // Navigate to Qikpod page with hash, then scroll
+    navigate('/qikpod#contact');
     scrollToContact();
   }
 };
