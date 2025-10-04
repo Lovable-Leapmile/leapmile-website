@@ -186,4 +186,36 @@ All colors MUST be HSL.
       background-position: 0% 50%;
     }
   }
+
+  /* Premium button with animated gradient background */
+  .btn-premium-bg {
+    background: linear-gradient(
+      135deg,
+      #351c75,
+      #8e7cc3,
+      #351c75,
+      #8e7cc3
+    );
+    background-size: 300% 300%;
+    animation: gradient-bg-slide 4s ease infinite;
+    box-shadow: 0 8px 24px rgba(53, 28, 117, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-premium-bg:hover {
+    box-shadow: 0 12px 32px rgba(53, 28, 117, 0.4);
+    transform: translateY(-2px);
+  }
+
+  @keyframes gradient-bg-slide {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
