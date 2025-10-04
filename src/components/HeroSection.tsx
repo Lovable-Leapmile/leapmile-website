@@ -47,15 +47,11 @@ const HeroSection = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="btn-premium text-lg px-8 py-4 h-auto group rounded-xl" 
-                  onClick={handleExploreIndustries}
-                >
-                  <span className="text-white font-bold">Explore Industries</span>
-                  <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
+                <Button size="lg" className="bg-tech-gradient hover:shadow-tech text-lg px-8 py-4 h-auto group" onClick={handleExploreIndustries}>
+                  Explore Industries
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent rounded-xl" onClick={handleVirtualTour}>
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent" onClick={handleVirtualTour}>
                   <Play className="mr-2 h-5 w-5" />
                   Virtual Tour
                 </Button>
