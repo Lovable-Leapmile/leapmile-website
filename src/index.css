@@ -172,7 +172,6 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient-shift 8s ease infinite;
-    filter: drop-shadow(0 0 20px hsl(254, 60%, 29%, 0.3));
   }
 
   @keyframes gradient-shift {
