@@ -52,8 +52,8 @@ const HeroSection = () => {
                   className="btn-premium text-lg px-8 py-4 h-auto group rounded-xl" 
                   onClick={handleExploreIndustries}
                 >
-                  <span className="btn-premium-text">Explore Industries</span>
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" style={{ color: 'hsl(254, 60%, 29%)' }} />
+                  <span className="text-white font-bold">Explore Industries</span>
+                  <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto group hover:bg-accent rounded-xl" onClick={handleVirtualTour}>
                   <Play className="mr-2 h-5 w-5" />
