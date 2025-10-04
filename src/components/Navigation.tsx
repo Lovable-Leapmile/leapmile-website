@@ -260,7 +260,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button - Only show on Leapmile or when toggle is needed */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleMenu}>
+            <Button variant="ghost" size="icon" onClick={toggleMenu} className="hover:bg-transparent active:bg-transparent">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
