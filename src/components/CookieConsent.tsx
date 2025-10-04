@@ -40,7 +40,7 @@ const CookieConsent = ({ pageName, theme = 'default' }: CookieConsentProps) => {
       }`}>
         <div className="flex items-start gap-3">
           <Cookie className={`h-5 w-5 flex-shrink-0 mt-0.5 ${
-            isQikpod ? 'text-orange-500' : 'text-primary'
+            isQikpod ? 'text-yellow-500' : 'text-primary'
           }`} />
           <div className="flex-1 space-y-3">
             <div className="space-y-2">
@@ -61,7 +61,7 @@ const CookieConsent = ({ pageName, theme = 'default' }: CookieConsentProps) => {
                 size="sm"
                 className={`text-xs ${
                   isQikpod 
-                    ? 'bg-orange-600 hover:bg-orange-700 text-white' 
+                    ? 'bg-yellow-600 hover:bg-yellow-700 text-black' 
                     : ''
                 }`}
               >
@@ -73,7 +73,7 @@ const CookieConsent = ({ pageName, theme = 'default' }: CookieConsentProps) => {
                 size="sm"
                 className={`text-xs ${
                   isQikpod 
-                    ? 'border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white' 
+                    ? 'border-slate-600 text-black-300 hover:bg-slate-800 hover:text-black' 
                     : ''
                 }`}
               >
@@ -87,7 +87,7 @@ const CookieConsent = ({ pageName, theme = 'default' }: CookieConsentProps) => {
             size="sm"
             className={`h-6 w-6 p-0 flex-shrink-0 ${
               isQikpod 
-                ? 'text-slate-400 hover:text-white hover:bg-slate-800' 
+                ? 'text-slate-400 hover:text-black hover:bg-slate-800' 
                 : ''
             }`}
           >
