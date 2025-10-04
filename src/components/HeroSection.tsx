@@ -34,10 +34,9 @@ const HeroSection = () => {
               </div>
 
               {/* Main Heading */}
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Modern
-                <span className="block bg-tech-gradient bg-clip-text text-transparent">
-                  Commerce Demands
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl mb-6 leading-tight">
+                <span className="block gradient-text-animated">
+                  Modern Commerce Demands
                 </span>
               </h1>
 
