@@ -61,7 +61,7 @@ const CookieConsent = ({ pageName, theme = 'default' }: CookieConsentProps) => {
                 size="sm"
                 className={`text-xs ${
                   isQikpod 
-                    ? 'bg-yellow-600 hover:bg-yellow-700 text-black' 
+                    ? 'bg-[#fcd408] hover:bg-[#fcd408]/90 text-black' 
                     : ''
                 }`}
               >
