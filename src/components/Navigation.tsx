@@ -26,6 +26,7 @@ const Navigation = () => {
   const industriesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const technologyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const companyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Enhanced hover handlers with delays
   const handleIndustriesEnter = () => {
@@ -163,7 +164,21 @@ const Navigation = () => {
       companyTimeoutRef.current = null;
     }
   }, [location.pathname]);
-  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border" ref={mobileMenuRef}>
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
