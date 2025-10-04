@@ -40,7 +40,7 @@ const CookieConsent = ({ pageName, theme = 'default' }: CookieConsentProps) => {
       }`}>
         <div className="flex items-start gap-3">
           <Cookie className={`h-5 w-5 flex-shrink-0 mt-0.5 ${
-            isQikpod ? 'text-yellow-500' : 'text-primary'
+            isQikpod ? 'text-[#fcd408]' : 'text-primary'
           }`} />
           <div className="flex-1 space-y-3">
             <div className="space-y-2">
