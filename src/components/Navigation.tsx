@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Zap, ShoppingCart, Store, Wrench, Bot, Warehouse, Lock, Video, Info, Briefcase, Mail } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
 import logoLight from "@/assets/logo-light.png";
@@ -78,31 +78,43 @@ const Navigation = () => {
   };
   const industriesItems = [{
     name: "Quick Commerce",
-    path: "/industries/quick-commerce"
+    path: "/industries/quick-commerce",
+    icon: Zap
   }, {
     name: "E-Commerce",
-    path: "/industries/e-commerce"
+    path: "/industries/e-commerce",
+    icon: ShoppingCart
   }, {
     name: "Omni Channel Retail",
-    path: "/industries/omni-channel-retail"
+    path: "/industries/omni-channel-retail",
+    icon: Store
   }, {
     name: "Industrial & MRO",
-    path: "/industries/industrial-&-mro"
+    path: "/industries/industrial-&-mro",
+    icon: Wrench
   }, {
     name: "Showcase Robot",
-    path: "/industries/showcase-robot"
+    path: "/industries/showcase-robot",
+    icon: Bot
   }];
   const technologyItems = [{
     name: "Nano Warehouse",
-    path: "/technology/nano-warehouse"
+    path: "/technology/nano-warehouse",
+    icon: Warehouse
   }, {
     name: "Smart Locker-QikPod",
-    path: "/qikpod"
+    path: "/qikpod",
+    icon: Lock
   }, {
     name: "Virtual Tour",
-    path: "/virtual-tour"
+    path: "/virtual-tour",
+    icon: Video
   }];
-  const companyItems = ["About Us", "Careers", "Contact Us"];
+  const companyItems = [
+    { name: "About Us", icon: Info },
+    { name: "Careers", icon: Briefcase },
+    { name: "Contact Us", icon: Mail }
+  ];
 
   // Helper for About Us scroll
   const handleAboutUsClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -208,9 +220,10 @@ const Navigation = () => {
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {industriesOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleIndustriesEnter} onMouseLeave={handleIndustriesLeave}>
-                    <div className="bg-background border border-border rounded-md shadow-lg">
+                  <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {industriesItems.map((item, index) => <Link key={index} to={item.path} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                        {industriesItems.map((item, index) => <Link key={index} to={item.path} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                            <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
                             {item.name}
                           </Link>)}
                       </div>
@@ -225,11 +238,13 @@ const Navigation = () => {
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {technologyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleTechnologyEnter} onMouseLeave={handleTechnologyLeave}>
-                    <div className="bg-background border border-border rounded-md shadow-lg">
+                  <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                        {technologyItems.map((item, index) => item.path.startsWith('/') ? <Link key={index} to={item.path} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                        {technologyItems.map((item, index) => item.path.startsWith('/') ? <Link key={index} to={item.path} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                              <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
                               {item.name}
-                            </Link> : <a key={index} href={item.path} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                            </Link> : <a key={index} href={item.path} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                              <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
                               {item.name}
                             </a>)}
                       </div>
@@ -244,16 +259,20 @@ const Navigation = () => {
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 {companyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleCompanyEnter} onMouseLeave={handleCompanyLeave}>
-                    <div className="bg-background border border-border rounded-md shadow-lg">
+                  <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                         {companyItems.map((item, index) => item === "Contact Us" ? <button key={index} onClick={() => navigateToContact(navigate, location.pathname)} className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                               {item}
-                             </button> : item === "About Us" ? <a key={index} href="#about" onClick={handleAboutUsClick} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                               {item}
-                             </a> : item === "Careers" ? <Link key={index} to="/careers" className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                                {item}
-                              </Link> : <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                                {item}
+                         {companyItems.map((item, index) => item.name === "Contact Us" ? <button key={index} onClick={() => navigateToContact(navigate, location.pathname)} className="group flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                               <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
+                               {item.name}
+                             </button> : item.name === "About Us" ? <a key={index} href="#about" onClick={handleAboutUsClick} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                               <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
+                               {item.name}
+                             </a> : item.name === "Careers" ? <Link key={index} to="/careers" className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                                <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
+                                {item.name}
+                              </Link> : <a key={index} href={`#${item.name.toLowerCase().replace(/\s+/g, '-')}`} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                                <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
+                                {item.name}
                               </a>)}
                       </div>
                     </div>
@@ -334,15 +353,15 @@ const Navigation = () => {
                   <div className="space-y-2">
                     <span className="text-foreground font-medium">Company</span>
                     <div className="pl-4 space-y-2">
-                      {companyItems.map((item, index) => item === "Contact Us" ? <button key={index} onClick={() => {
+                      {companyItems.map((item, index) => item.name === "Contact Us" ? <button key={index} onClick={() => {
                   toggleMenu();
                   navigateToContact(navigate, location.pathname);
                 }} className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors">
-                            {item}
-                          </button> : item === "Careers" ? <Link key={index} to="/careers" className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
-                             {item}
-                           </Link> : <a key={index} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
-                             {item}
+                            {item.name}
+                          </button> : item.name === "Careers" ? <Link key={index} to="/careers" className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
+                             {item.name}
+                           </Link> : <a key={index} href={`#${item.name.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
+                             {item.name}
                            </a>)}
                     </div>
                   </div>
