@@ -97,6 +97,14 @@ const VirtualTour = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const currentSystem = systemsContent[activeSystem];
 
+  // Preload all GIFs for instant display
+  useEffect(() => {
+    Object.values(systemsContent).forEach(system => {
+      const img = new Image();
+      img.src = system.gifUrl;
+    });
+  }, []);
+
   // Load SVG content
   useEffect(() => {
     const loadSvg = async () => {
