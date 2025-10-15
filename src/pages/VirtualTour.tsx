@@ -283,7 +283,7 @@ const VirtualTour = () => {
                   </button>
                 </div>
                 <div style={{
-                background: 'linear-gradient(135deg, #351c75 0%, #5f3fae 100%)',
+                background: '#f4f2ff',
                 borderBottomLeftRadius: '0.75rem',
                 borderBottomRightRadius: '0.75rem'
               }} className="flex-1 flex flex-col justify-center bg-[#f4f2ff]">
