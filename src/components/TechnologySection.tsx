@@ -66,28 +66,7 @@ const TechnologySection = () => {
           </div>
 
           {/* Tech Specs */}
-          <div className="bg-card border rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-              Technical Specifications
-            </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">&lt;1ms</div>
-                <div className="text-muted-foreground">Response Time</div>
-                <div className="text-sm text-muted-foreground mt-1">Ultra-low latency processing</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">99.99%</div>
-                <div className="text-muted-foreground">Uptime</div>
-                <div className="text-sm text-muted-foreground mt-1">Enterprise-grade reliability</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2">10TB/s</div>
-                <div className="text-muted-foreground">Data Processing</div>
-                <div className="text-sm text-muted-foreground mt-1">Massive parallel processing</div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>;
