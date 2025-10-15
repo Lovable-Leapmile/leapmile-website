@@ -195,7 +195,7 @@ const WarehouseAnimation = () => {
       <canvas
         ref={canvasRef}
         className="w-full h-full"
-        style={{ opacity: 0.07 }}
+        style={{ opacity: 0.25 }}
       />
     </div>
   );
