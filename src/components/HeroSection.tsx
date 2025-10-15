@@ -3,6 +3,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import HeroFadeIn from "./HeroFadeIn";
 import WarehouseAnimation from "./WarehouseAnimation";
+import TypingAnimation from "./TypingAnimation";
 const HeroSection = () => {
   const navigate = useNavigate();
   const handleExploreIndustries = () => {
@@ -31,7 +32,12 @@ const HeroSection = () => {
               {/* Stylish Text Line */}
               <div className="mb-6">
                 <p className="text-lg md:text-xl text-muted-foreground font-thin tracking-wide">
-                  Speed · Flexibility · Efficiency · Reliability · Affordable
+                  <TypingAnimation 
+                    text="Speed · Flexibility · Efficiency · Reliability · Affordable"
+                    separator=" · "
+                    typingSpeed={80}
+                    wordDelay={200}
+                  />
                 </p>
               </div>
 
