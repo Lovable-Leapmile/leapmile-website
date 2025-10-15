@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import HeroFadeIn from "./HeroFadeIn";
-import RoboticsParticles from "./RoboticsParticles";
+import WarehouseAnimation from "./WarehouseAnimation";
 const HeroSection = () => {
   const navigate = useNavigate();
   const handleExploreIndustries = () => {
@@ -21,7 +21,7 @@ const HeroSection = () => {
   };
   return <section id="home" className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-20 pb-8">
       <div className="absolute inset-0 bg-background/100"></div>
-      <RoboticsParticles />
+      <WarehouseAnimation />
       
       <div className="container mx-auto px-6 md:px-12" style={{ position: 'relative', zIndex: 2 }}>
         <HeroFadeIn staggerDelay={200}>
