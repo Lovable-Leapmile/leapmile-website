@@ -273,25 +273,27 @@ const VirtualTour = () => {
               maxHeight: '520px',
               boxShadow: '0 4px 24px 0 rgba(53,28,117,0.08)'
             }}>
-                <div className="relative flex-shrink-0 flex items-center justify-center p-[15px]" style={{
+                <div className="relative flex-shrink-0 p-[15px]" style={{
                 background: 'none'
               }}>
-                  {/* Render all GIFs but only show the active one */}
-                  {Object.entries(systemsContent).map(([systemId, system]) => (
-                    <img 
-                      key={systemId}
-                      src={system.gifUrl} 
-                      alt={`${system.title} Animation`} 
-                      className="w-full h-auto rounded-lg object-contain absolute top-[15px] left-[15px] right-[15px] transition-opacity duration-150" 
-                      style={{
-                        marginTop: 0,
-                        boxShadow: 'none',
-                        opacity: activeSystem === systemId ? 1 : 0,
-                        pointerEvents: activeSystem === systemId ? 'auto' : 'none'
-                      }}
-                      loading="eager"
-                    />
-                  ))}
+                  <div className="relative w-full">
+                    {/* Render all GIFs but only show the active one */}
+                    {Object.entries(systemsContent).map(([systemId, system], index) => (
+                      <img 
+                        key={systemId}
+                        src={system.gifUrl} 
+                        alt={`${system.title} Animation`} 
+                        className={`w-full h-auto rounded-lg object-contain transition-opacity duration-150 ${index === 0 ? 'relative' : 'absolute top-0 left-0'}`}
+                        style={{
+                          marginTop: 0,
+                          boxShadow: 'none',
+                          opacity: activeSystem === systemId ? 1 : 0,
+                          pointerEvents: activeSystem === systemId ? 'auto' : 'none'
+                        }}
+                        loading="eager"
+                      />
+                    ))}
+                  </div>
                   {/* Fullscreen Icon */}
                   <button onClick={handleFullscreenClick} className="absolute bottom-[15px] left-[15px] bg-black/70 hover:bg-black/90 text-white p-2 rounded-lg transition-colors duration-200 z-10" aria-label="View fullscreen video">
                     <Maximize2 size={20} />
