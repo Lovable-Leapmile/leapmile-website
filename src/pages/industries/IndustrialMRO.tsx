@@ -5,10 +5,14 @@ import Footer from "@/components/Footer";
 
 import { useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
+import { useRef } from "react";
+import { useScrollZoom } from "@/hooks/useScrollZoom";
 import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive } from "lucide-react";
 const IndustrialMRO = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const imageRef = useRef<HTMLDivElement>(null);
+  const scale = useScrollZoom({ elementRef: imageRef, minScale: 0.85, maxScale: 1.15 });
   const benefits = [{
     name: "Increase Throughput",
     icon: TrendingUp
@@ -95,9 +99,14 @@ const IndustrialMRO = () => {
               </div>
 
               {/* Right Image */}
-              <div className="relative">
+              <div className="relative" ref={imageRef}>
                 <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/idustri.png" alt="Industrial & MRO warehouse automation" className="w-full h-full object-contain" />
+                  <img 
+                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/idustri.png" 
+                    alt="Industrial & MRO warehouse automation" 
+                    className="w-full h-full object-contain transition-transform duration-300 ease-out"
+                    style={{ transform: `scale(${scale})` }}
+                  />
                 </div>
               </div>
             </div>

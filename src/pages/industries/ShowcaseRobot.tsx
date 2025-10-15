@@ -5,10 +5,14 @@ import Footer from "@/components/Footer";
 
 import { useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
+import { useRef } from "react";
+import { useScrollZoom } from "@/hooks/useScrollZoom";
 import { TrendingUp, Settings, Eye, ShieldCheck, Wrench, Heart, Clock, FileBarChart, TrendingDown, Archive, Monitor, RotateCw, Palette, Smartphone, TouchpadOff } from "lucide-react";
 const ShowcaseRobot = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const imageRef = useRef<HTMLDivElement>(null);
+  const scale = useScrollZoom({ elementRef: imageRef, minScale: 0.85, maxScale: 1.15 });
   const features = [{
     name: "Floating Glass Observation Bubbles",
     icon: Eye
@@ -74,9 +78,14 @@ const ShowcaseRobot = () => {
               </div>
 
               {/* Right Image */}
-              <div className="relative">
+              <div className="relative" ref={imageRef}>
                 <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/industrishow.png" alt="Showcase Robot display system" className="w-full h-full object-contain" />
+                  <img 
+                    src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Industries/Images/industrishow.png" 
+                    alt="Showcase Robot display system" 
+                    className="w-full h-full object-contain transition-transform duration-300 ease-out"
+                    style={{ transform: `scale(${scale})` }}
+                  />
                 </div>
               </div>
             </div>
