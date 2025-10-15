@@ -7,13 +7,11 @@ import { toast } from "sonner";
 import litepurpleLogo from "@/assets/litepurple-logo.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
-
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  
   const footerLinks = {
     company: [{
       name: "About Us",
@@ -98,15 +96,15 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center text-sm">
-                  <Mail className="h-4 w-4 mr-2 text-primary" />
+                  <Mail className="h-4 w-4 mr-2 text-white" />
                   <span>support@leapmile.com</span>
                 </div>
                 <div className="flex items-center text-sm">
-                  <Phone className="h-4 w-4 mr-2 text-primary" />
+                  <Phone className="h-4 w-4 mr-2 text-white" />
                   <span>(+91) 80470-95986</span>
                 </div>
                 <div className="flex items-center text-sm">
-                  <MapPin className="h-4 w-4 mr-2 text-primary" />
+                  <MapPin className="h-4 w-4 mr-2 text-white" />
                   <span>Bangalore, KA</span>
                 </div>
               </div>
@@ -119,22 +117,13 @@ const Footer = () => {
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2">
                   {footerLinks.company.map((link, index) => <li key={index}>
-                      {link.name === "Contact" ? (
-                        <button 
-                          onClick={() => navigateToContact(navigate, location.pathname)}
-                          className="text-muted hover:text-primary-glow transition-colors text-sm"
-                        >
+                      {link.name === "Contact" ? <button onClick={() => navigateToContact(navigate, location.pathname)} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
-                        </button>
-                      ) : link.href.startsWith('/') ? (
-                        <Link to={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
+                        </button> : link.href.startsWith('/') ? <Link to={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
-                        </Link>
-                      ) : (
-                        <a href={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
+                        </Link> : <a href={link.href} className="text-muted hover:text-primary-glow transition-colors text-sm">
                           {link.name}
-                        </a>
-                      )}
+                        </a>}
                     </li>)}
                 </ul>
               </div>
