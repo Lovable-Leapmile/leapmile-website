@@ -195,7 +195,11 @@ const WarehouseAnimation = () => {
       <canvas
         ref={canvasRef}
         className="w-full h-full"
-        style={{ opacity: 0.25 }}
+        style={{ 
+          opacity: 1,
+          maskImage: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.25))',
+          WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.25))'
+        }}
       />
     </div>
   );
