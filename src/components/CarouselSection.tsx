@@ -5,6 +5,9 @@ import { Bot, Zap, Shield, Target, Settings, Eye, TrendingUp, Clock, Package, Ma
 const CarouselSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
   
   const features = [{
     icon: Bot,
@@ -103,6 +106,34 @@ const CarouselSection = () => {
     };
   }, [isPaused]);
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    setIsPaused(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Multiply for faster scroll
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setIsPaused(false);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+    }
+    setIsPaused(false);
+  };
+
   return (
     <section className="bg-background py-[20px]">
       <div className="container mx-auto px-4">
@@ -110,10 +141,12 @@ const CarouselSection = () => {
         <div className="w-full overflow-hidden relative h-36">
           <div
             ref={scrollRef}
-            className="overflow-hidden whitespace-nowrap relative w-full h-full"
-            style={{ scrollBehavior: 'auto' }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            className="overflow-hidden whitespace-nowrap relative w-full h-full cursor-grab active:cursor-grabbing"
+            style={{ scrollBehavior: 'auto', userSelect: 'none' }}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
           >
             <div className="inline-flex gap-4 items-stretch h-full">
               {/* First set of features */}
