@@ -27,13 +27,19 @@ const RoboticsParticles = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Create particles
+    // Create particles with more on right side
     const particleCount = 60;
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
+      // Weight particles towards the right side (60% chance to be on right half)
+      const isRightSide = Math.random() > 0.3;
+      const xPosition = isRightSide 
+        ? canvas.width * 0.5 + Math.random() * canvas.width * 0.5  // Right half
+        : Math.random() * canvas.width * 0.5;  // Left half
+      
       particles.push({
-        x: Math.random() * canvas.width,
+        x: xPosition,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5, // Slower horizontal movement
         vy: (Math.random() - 0.5) * 0.5, // Slower vertical movement
