@@ -28,7 +28,7 @@ const RoboticsParticles = () => {
     window.addEventListener("resize", resizeCanvas);
 
     // Create particles
-    const particleCount = 30;
+    const particleCount = 60;
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -37,8 +37,8 @@ const RoboticsParticles = () => {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5, // Slower horizontal movement
         vy: (Math.random() - 0.5) * 0.5, // Slower vertical movement
-        size: Math.random() * 8 + 4, // Size between 4-12px
-        opacity: Math.random() * 0.15 + 0.05, // Very low opacity 0.05-0.2
+        size: Math.random() * 12 + 2, // Size between 2-14px for more variation
+        opacity: Math.random() * 0.08 + 0.02, // Very subtle opacity 0.02-0.1
       });
     }
 
