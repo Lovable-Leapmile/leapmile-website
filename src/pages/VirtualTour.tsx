@@ -270,15 +270,15 @@ const VirtualTour = () => {
               maxHeight: '520px',
               boxShadow: '0 4px 24px 0 rgba(53,28,117,0.08)'
             }}>
-                <div className="relative flex-shrink-0 flex items-center justify-center pt-6 pb-2 px-6" style={{
+                <div className="relative flex-shrink-0 flex items-center justify-center p-[15px]" style={{
                 background: 'none'
               }}>
-                  <img src={currentSystem.gifUrl} alt={`${currentSystem.title} Animation`} className="w-[420px] max-w-full h-auto rounded-lg object-contain" style={{
+                  <img src={currentSystem.gifUrl} alt={`${currentSystem.title} Animation`} className="w-full h-auto rounded-lg object-contain" style={{
                   marginTop: 0,
                   boxShadow: 'none'
                 }} />
                   {/* Fullscreen Icon */}
-                  <button onClick={handleFullscreenClick} className="absolute bottom-3 left-3 bg-black/70 hover:bg-black/90 text-white p-2 rounded-lg transition-colors duration-200 z-10" aria-label="View fullscreen video">
+                  <button onClick={handleFullscreenClick} className="absolute bottom-[15px] left-[15px] bg-black/70 hover:bg-black/90 text-white p-2 rounded-lg transition-colors duration-200 z-10" aria-label="View fullscreen video">
                     <Maximize2 size={20} />
                   </button>
                 </div>
