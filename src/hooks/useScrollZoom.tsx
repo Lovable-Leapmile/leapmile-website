@@ -22,17 +22,21 @@ export const useScrollZoom = ({
       const windowHeight = window.innerHeight;
       
       // Calculate element's position relative to viewport
-      // When element is at bottom of viewport (first visible): rect.top = windowHeight
-      // When element is at top of viewport: rect.top = 0
+      // When element first appears: rect.top = windowHeight (scale = 1, normal)
+      // As we scroll down and element moves up: rect.top decreases (scale increases)
+      // When element is at top: rect.top = 0 or negative (scale = maxScale)
+      
       const elementTop = rect.top;
       
       // Normalize to 0-1 range
-      // 0 = element at top (zoom in - maxScale)
-      // 1 = element at bottom (zoom out - minScale)
+      // 1 = element at bottom/below viewport (normal size = 1)
+      // 0 = element at top (zoomed in = maxScale)
       const progress = Math.max(0, Math.min(1, elementTop / windowHeight));
       
-      // Map to scale range: inverted so lower progress = more zoom
-      const newScale = maxScale - (maxScale - minScale) * progress;
+      // Map to scale range: start at 1 (normal), increase to maxScale as we scroll down
+      // When progress = 1 (element at bottom): scale = 1
+      // When progress = 0 (element at top): scale = maxScale
+      const newScale = 1 + (maxScale - 1) * (1 - progress);
       
       setScale(newScale);
     };
