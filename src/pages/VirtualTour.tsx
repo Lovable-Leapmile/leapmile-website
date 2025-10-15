@@ -102,6 +102,9 @@ const VirtualTour = () => {
     Object.values(systemsContent).forEach(system => {
       const img = new Image();
       img.src = system.gifUrl;
+      img.loading = 'eager';
+      // Force load
+      img.decode().catch(() => {});
     });
   }, []);
 
@@ -273,10 +276,22 @@ const VirtualTour = () => {
                 <div className="relative flex-shrink-0 flex items-center justify-center p-[15px]" style={{
                 background: 'none'
               }}>
-                  <img src={currentSystem.gifUrl} alt={`${currentSystem.title} Animation`} className="w-full h-auto rounded-lg object-contain" style={{
-                  marginTop: 0,
-                  boxShadow: 'none'
-                }} />
+                  {/* Render all GIFs but only show the active one */}
+                  {Object.entries(systemsContent).map(([systemId, system]) => (
+                    <img 
+                      key={systemId}
+                      src={system.gifUrl} 
+                      alt={`${system.title} Animation`} 
+                      className="w-full h-auto rounded-lg object-contain absolute top-[15px] left-[15px] right-[15px] transition-opacity duration-150" 
+                      style={{
+                        marginTop: 0,
+                        boxShadow: 'none',
+                        opacity: activeSystem === systemId ? 1 : 0,
+                        pointerEvents: activeSystem === systemId ? 'auto' : 'none'
+                      }}
+                      loading="eager"
+                    />
+                  ))}
                   {/* Fullscreen Icon */}
                   <button onClick={handleFullscreenClick} className="absolute bottom-[15px] left-[15px] bg-black/70 hover:bg-black/90 text-white p-2 rounded-lg transition-colors duration-200 z-10" aria-label="View fullscreen video">
                     <Maximize2 size={20} />
