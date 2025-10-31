@@ -50,7 +50,7 @@ const HeroSection = () => {
 
               {/* Company Definition - Official Description */}
               <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed">
-                The Leapmile Robotics platform revolutionizes warehouse fulfillment facility operations by automating traditionally manual, time-consuming tasks. This advanced system uses top-tier robotics technology for efficient storage and management of items within any warehouse facility. It excels in automating tasks like secure inventory storage, accurate retrieval, quick picking, regular auditing, and efficient dispatch.
+                Revolutionizing warehouse fulfillment through advanced robotics automation. Our platform excels in secure inventory storage, accurate retrieval, quick picking, regular auditing, and efficient dispatch—transforming manual operations into intelligent, automated workflows.
               </p>
 
               {/* CTA Buttons */}
