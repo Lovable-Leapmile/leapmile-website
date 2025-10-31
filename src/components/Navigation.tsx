@@ -119,13 +119,15 @@ const Navigation = () => {
   // Helper for Home click - refresh if already on homepage
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
-    if (location.pathname === "/") {
-      window.scrollTo(0, 0);
-      window.location.reload();
-    } else {
-      navigate("/");
-      window.scrollTo(0, 0);
-    }
+    // Clear hash and navigate to homepage
+    navigate("/", { replace: true });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Force refresh to reset any state
+    setTimeout(() => {
+      if (location.hash) {
+        window.location.href = "/";
+      }
+    }, 100);
   };
 
   // Helper for About Us scroll
