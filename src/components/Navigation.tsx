@@ -116,6 +116,18 @@ const Navigation = () => {
     { name: "Contact Us", icon: Mail }
   ];
 
+  // Helper for Home click - refresh if already on homepage
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      window.scrollTo(0, 0);
+      window.location.reload();
+    } else {
+      navigate("/");
+      window.scrollTo(0, 0);
+    }
+  };
+
   // Helper for About Us scroll
   const handleAboutUsClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -209,7 +221,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation - Only show on Leapmile page */}
           {!isQikpodMode && <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/" onClick={handleHomeClick} className="text-foreground hover:text-primary transition-colors">
                 Home
               </Link>
               
@@ -317,7 +329,10 @@ const Navigation = () => {
               
               {/* Mobile Navigation Links - Only show on Leapmile page */}
               {!isQikpodMode && <>
-                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
+                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={(e) => {
+                    toggleMenu();
+                    handleHomeClick(e);
+                  }}>
                     Home
                   </Link>
                   
