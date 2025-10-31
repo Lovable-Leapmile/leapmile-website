@@ -46,9 +46,6 @@ const HeroSection = () => {
                 <span className="block gradient-text-animated">
                   Nano Warehouse Automation
                 </span>
-                <span className="block text-foreground mt-2 text-3xl lg:text-4xl xl:text-5xl">
-                  Revolutionizing Fulfillment Operations
-                </span>
               </h1>
 
               {/* Company Definition - Official Description */}
