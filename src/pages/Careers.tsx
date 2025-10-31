@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Award, Heart, Shield, Coffee, MapPin, Scale } from "lucide-react";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 const Careers = () => {
   const benefits = [{
     icon: Award,
@@ -56,7 +57,23 @@ const Careers = () => {
   const handleApplyNow = () => {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSd2d3ybFQFGy-KYIaX5ux3Miij_czWeSMB6-F1XBjO30jDP1g/viewform', '_blank');
   };
+
+  const careersSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Careers at Leapmile Robotics",
+    "description": "Join the Leapmile Robotics team. We're hiring robotics engineers, Python engineers, design engineers, and field service engineers to build innovative warehouse automation solutions.",
+    "url": "https://leapmileweb.lovable.app/careers"
+  };
+
   return <div className="min-h-screen bg-background">
+      <SEO
+        title="Careers at Leapmile Robotics | Join Our Robotics & Automation Team"
+        description="Join Leapmile Robotics to build next-generation warehouse automation solutions. We're hiring robotics engineers, Python engineers, design engineers, and more. Competitive benefits and innovative work environment."
+        keywords="robotics jobs, automation engineer careers, Python engineer jobs, mechanical design jobs, field service engineer, warehouse automation careers, Leapmile Robotics careers"
+        canonical="/careers"
+        schemaData={careersSchema}
+      />
       {/* Header Section with Background Image */}
       <section className="relative h-96 bg-cover bg-center bg-no-repeat" style={{
       backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`

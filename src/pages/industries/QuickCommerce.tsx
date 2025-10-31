@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 import { useTheme } from "@/hooks/useTheme";
 import { useEffect, useRef } from "react";
@@ -61,7 +62,23 @@ const QuickCommerce = () => {
     header: "Picking & Dispatch",
     caption: "The staff manually picks up the items based on the quantities specified in the order."
   }];
+
+  const quickCommerceSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Quick Commerce Warehouse Automation Solutions",
+    "description": "Transform quick commerce operations with Leapmile Robotics' automated warehouse solutions. Increase throughput, eliminate errors, and enhance customer experience with robotic picking systems.",
+    "url": "https://leapmileweb.lovable.app/industries/quick-commerce"
+  };
+
   return <div className="min-h-screen bg-background">
+      <SEO
+        title="Quick Commerce Automation | Leapmile Robotics Warehouse Solutions"
+        description="Revolutionize quick commerce with Leapmile Robotics' automated warehouse systems. Increase throughput, reduce errors, and handle seasonal peaks with robotic picking and storage solutions for grocery and on-demand delivery."
+        keywords="quick commerce automation, grocery warehouse automation, on-demand delivery robots, automated picking systems, quick commerce warehouse, robotic fulfillment, grocery robotics"
+        canonical="/industries/quick-commerce"
+        schemaData={quickCommerceSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="page-wrapper">

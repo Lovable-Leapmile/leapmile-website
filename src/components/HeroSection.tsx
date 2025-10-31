@@ -44,13 +44,16 @@ const HeroSection = () => {
               {/* Main Heading */}
               <h1 className="text-4xl lg:text-5xl xl:text-6xl mb-6 leading-tight">
                 <span className="block gradient-text-animated">
-                  Modern Commerce Demands
+                  Nano Warehouse Automation
+                </span>
+                <span className="block text-foreground mt-2 text-3xl lg:text-4xl xl:text-5xl">
+                  Revolutionizing Fulfillment Operations
                 </span>
               </h1>
 
-              {/* Subtitle */}
+              {/* Company Definition - Official Description */}
               <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed">
-                Robotic systems enhance storage efficiency and expedite the process of item picking. This drives substantial cost savings and ensures error-free operations in item storage, order picking, packing, and dispatch across a diverse range of use cases, industries, and warehouse sizes.
+                The Leapmile Robotics platform revolutionizes warehouse fulfillment facility operations by automating traditionally manual, time-consuming tasks. This advanced system uses top-tier robotics technology for efficient storage and management of items within any warehouse facility. It excels in automating tasks like secure inventory storage, accurate retrieval, quick picking, regular auditing, and efficient dispatch.
               </p>
 
               {/* CTA Buttons */}

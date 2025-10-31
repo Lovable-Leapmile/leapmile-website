@@ -26,8 +26,8 @@ const AboutSection = () => {
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">About Leapmile Robotics</Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Innovative warehousing and last-mile products to 
-              <span className="block text-primary">accelerate digital commerce</span>
+              Intelligent Fulfillment Systems for 
+              <span className="block text-primary">Modern Warehouse Operations</span>
             </h2>
           </div>
 
