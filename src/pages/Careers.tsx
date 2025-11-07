@@ -119,36 +119,18 @@ const Careers = () => {
               }}
             >
               <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Key Benefits</h3>
-              <div className="space-y-6">
-                {/* First card centered */}
-                <div className="flex justify-center">
-                  <Card className="border-none shadow-lg w-64">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {benefits.map((benefit, index) => <Card key={index} className="border-none shadow-lg">
                     <CardContent className="p-4 text-center">
                       <div className="mb-3 flex justify-center">
                         <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
-                          <Award className="h-6 w-6 text-white" />
+                          <benefit.icon className="h-6 w-6 text-white" />
                         </div>
                       </div>
-                      <h4 className="text-base font-semibold mb-2 text-foreground">{benefits[0].title}</h4>
-                      <p className="text-xs text-muted-foreground">{benefits[0].description}</p>
+                      <h4 className="text-base font-semibold mb-2 text-foreground">{benefit.title}</h4>
+                      <p className="text-xs text-muted-foreground">{benefit.description}</p>
                     </CardContent>
-                  </Card>
-                </div>
-                
-                {/* Remaining 6 cards in 2 rows of 3 */}
-                <div className="grid grid-cols-3 gap-6 max-w-5xl mx-auto">
-                  {benefits.slice(1).map((benefit, index) => <Card key={index + 1} className="border-none shadow-lg">
-                      <CardContent className="p-4 text-center">
-                        <div className="mb-3 flex justify-center">
-                          <div className="p-3 rounded-full bg-gradient-to-br from-[#351c75] to-[#8e7cc43] inline-flex bg-[#351c75]">
-                            <benefit.icon className="h-6 w-6 text-white" />
-                          </div>
-                        </div>
-                        <h4 className="text-base font-semibold mb-2 text-foreground">{benefit.title}</h4>
-                        <p className="text-xs text-muted-foreground">{benefit.description}</p>
-                      </CardContent>
-                    </Card>)}
-                </div>
+                  </Card>)}
               </div>
             </div>
 

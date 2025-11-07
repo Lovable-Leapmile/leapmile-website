@@ -66,13 +66,13 @@ const PartCard = ({
     <Card className="overflow-hidden group cursor-pointer">
       <CardContent className="p-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center relative">
-          {/* Image section - slides right on hover */}
-          <div className="relative transition-all duration-500 ease-out group-hover:translate-x-4 group-hover:scale-105">
-            <img src={image} alt={title} className="w-4/5 h-auto rounded-lg object-cover transition-transform duration-500 group-hover:rotate-1" />
+          {/* Image section - subtle zoom on hover */}
+          <div className="relative overflow-hidden">
+            <img src={image} alt={title} className="w-4/5 h-auto rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
           </div>
           
-          {/* Content section - slides left on hover */}
-          <div className="space-y-4 transition-all duration-500 ease-out group-hover:-translate-x-4 group-hover:scale-95">
+          {/* Content section - subtle zoom-out on hover */}
+          <div className="space-y-4 transition-transform duration-500 ease-out origin-center group-hover:scale-95">
             <h3 className="text-xl font-semibold text-foreground">{title}</h3>
             {subheader && <h4 className="text-lg font-medium text-primary">{subheader}</h4>}
             <p className="text-muted-foreground leading-relaxed">{description}</p>

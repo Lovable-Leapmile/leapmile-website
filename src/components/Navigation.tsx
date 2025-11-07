@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Zap, ShoppingCart, Store, Wrench, Bot, Warehouse, Lock, Video, Info, Briefcase, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, Zap, ShoppingCart, Store, Wrench, Bot, Warehouse, Lock, Video, Info, Briefcase, Mail, Calendar } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
 import logoLight from "@/assets/logo-light.png";
@@ -112,6 +112,7 @@ const Navigation = () => {
   }];
   const companyItems = [
     { name: "About Us", icon: Info },
+    { name: "Events", icon: Calendar },
     { name: "Careers", icon: Briefcase },
     { name: "Contact Us", icon: Mail }
   ];
@@ -275,13 +276,16 @@ const Navigation = () => {
                 {companyOpen && <div className="absolute top-full left-0 pt-2 w-56 z-50" onMouseEnter={handleCompanyEnter} onMouseLeave={handleCompanyLeave}>
                   <div className="bg-background border border-border rounded-md shadow-lg">
                       <div className="py-2">
-                         {companyItems.map((item, index) => item.name === "Contact Us" ? <button key={index} onClick={() => navigateToContact(navigate, location.pathname)} className="group flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                        {companyItems.map((item, index) => item.name === "Contact Us" ? <button key={index} onClick={() => navigateToContact(navigate, location.pathname)} className="group flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
                                {item.name}
                              </button> : item.name === "About Us" ? <a key={index} href="#about" onClick={handleAboutUsClick} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
                                {item.name}
-                             </a> : item.name === "Careers" ? <Link key={index} to="/careers" className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                             </a> : item.name === "Events" ? <Link key={index} to="/events" className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                               <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
+                               {item.name}
+                             </Link> : item.name === "Careers" ? <Link key={index} to="/careers" className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
                                 <item.icon className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-accent-foreground" />
                                 {item.name}
                               </Link> : <a key={index} href={`#${item.name.toLowerCase().replace(/\s+/g, '-')}`} className="group flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
@@ -375,7 +379,12 @@ const Navigation = () => {
                   navigateToContact(navigate, location.pathname);
                 }} className="block w-full text-left text-sm text-muted-foreground hover:text-primary transition-colors">
                             {item.name}
-                          </button> : item.name === "Careers" ? <Link key={index} to="/careers" className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
+                          </button> : item.name === "Events" ? <Link key={index} to="/events" className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => {
+                  toggleMenu();
+                  window.scrollTo(0, 0);
+                }}>
+                             {item.name}
+                           </Link> : item.name === "Careers" ? <Link key={index} to="/careers" className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                              {item.name}
                            </Link> : <a key={index} href={`#${item.name.toLowerCase().replace(/\s+/g, '-')}`} className="block text-sm text-muted-foreground hover:text-primary transition-colors" onClick={toggleMenu}>
                              {item.name}
