@@ -12,7 +12,6 @@ type EventItem = {
   tags?: string[];
   caption?: string;
 };
-
 const Events = () => {
   const events: EventItem[] = [
     {
@@ -20,7 +19,7 @@ const Events = () => {
       title: "IMS-2025",
       location: "Bengaluru",
       description:
-        "Leapmile Robotics showcased its cutting-edge warehouse automation and robotics systems at IMS 2025, Bengaluru — connecting innovation, technology, and industry leaders under one roof.",
+        "Leapmile Robotics showcased its cutting-edge warehouse automation and robotics systems at IMS 2025, Bengalore — connecting innovation, technology, and industry leaders under one roof.",
       videoUrl:
         "https://leapmile-website.blr1.digitaloceanspaces.com/Leapmile_IMS_EVENT.mp4",
       tags: [
