@@ -21,6 +21,7 @@ import VirtualTour from "./pages/VirtualTour";
 import TermsAndPrivacy from "./pages/TermsAndPrivacy";
 import PricingAndRefunds from "./pages/PricingAndRefunds";
 import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
 import RetailClickCollect from "./pages/solutions/RetailClickCollect";
 import LastMileDelivery from "./pages/solutions/LastMileDelivery";
 import DigitalMailroom from "./pages/solutions/DigitalMailroom";
@@ -50,6 +51,7 @@ const AppContent = () => {
           <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
           <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/qikpod/solutions/retail-click-collect" element={<RetailClickCollect />} />
           <Route path="/qikpod/solutions/last-mile-delivery" element={<LastMileDelivery />} />
           <Route path="/qikpod/solutions/digital-mailroom" element={<DigitalMailroom />} />
