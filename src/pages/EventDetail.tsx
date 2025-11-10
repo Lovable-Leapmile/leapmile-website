@@ -215,12 +215,19 @@ const EventDetail = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="w-full h-[400px] border border-border rounded-lg overflow-hidden bg-muted/20">
-                  <iframe
-                    src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf#view=FitH&toolbar=0"
+                <div className="w-full h-[500px] border border-border rounded-lg overflow-hidden bg-muted/20">
+                  <object
+                    data="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                    type="application/pdf"
                     className="w-full h-full"
                     title="Leapmile Brochure"
-                  />
+                  >
+                    <embed
+                      src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                      type="application/pdf"
+                      className="w-full h-full"
+                    />
+                  </object>
                 </div>
                 <Button asChild className="w-full md:w-auto">
                   <a
@@ -241,49 +248,49 @@ const EventDetail = () => {
       {/* Event Gallery Section */}
       {eventId === "IMS2025" && (
         <section className="container mx-auto px-6 md:px-12 py-10">
-          <Card>
-            <CardHeader>
-              <CardTitle>Event Gallery</CardTitle>
-              <CardDescription>
+          <div className="space-y-6">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Event Gallery</h2>
+              <p className="text-muted-foreground">
                 Experience the highlights from our booth at IMS 2025 Bengaluru — showcasing live demonstrations, 
                 engaging conversations, and innovative warehouse automation solutions
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {[
-                  "DSC07752.JPG",
-                  "DSC07864.JPG",
-                  "DSC07925.JPG",
-                  "DSC08039.JPG",
-                  "DSC08109.JPG",
-                  "DSC08137.JPG",
-                  "DSC08153.JPG",
-                  "DSC08174.JPG",
-                  "DSC08321.JPG",
-                  "DSC08323.JPG",
-                  "DSC08545.JPG",
-                  "DSC08698.JPG",
-                  "stall1.jpeg",
-                  "stall2.jpeg",
-                  "stall3.jpeg",
-                  "stall4.jpeg",
-                ].map((image, index) => (
-                  <div
-                    key={index}
-                    className="aspect-square rounded-lg overflow-hidden border border-border hover:border-primary transition-colors cursor-pointer group"
-                  >
-                    <img
-                      src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
-                      alt={`IMS 2025 Event - Booth Image ${index + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              {[
+                { image: "DSC07752.JPG", span: "col-span-2 row-span-2" },
+                { image: "DSC07864.JPG", span: "col-span-1 row-span-1" },
+                { image: "DSC07925.JPG", span: "col-span-1 row-span-1" },
+                { image: "DSC08039.JPG", span: "col-span-1 row-span-2" },
+                { image: "DSC08109.JPG", span: "col-span-1 row-span-1" },
+                { image: "DSC08137.JPG", span: "col-span-2 row-span-1" },
+                { image: "DSC08153.JPG", span: "col-span-1 row-span-1" },
+                { image: "DSC08174.JPG", span: "col-span-1 row-span-2" },
+                { image: "DSC08321.JPG", span: "col-span-1 row-span-1" },
+                { image: "DSC08323.JPG", span: "col-span-2 row-span-2" },
+                { image: "DSC08545.JPG", span: "col-span-1 row-span-1" },
+                { image: "DSC08698.JPG", span: "col-span-1 row-span-1" },
+                { image: "stall1.jpeg", span: "col-span-1 row-span-1" },
+                { image: "stall2.jpeg", span: "col-span-1 row-span-2" },
+                { image: "stall3.jpeg", span: "col-span-2 row-span-1" },
+                { image: "stall4.jpeg", span: "col-span-1 row-span-1" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`${item.span} rounded-lg overflow-hidden group relative cursor-pointer`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <img
+                    src={`https://leapmile-website.blr1.digitaloceanspaces.com/${item.image}`}
+                    alt={`IMS 2025 Event - Booth Image ${index + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       )}
 
