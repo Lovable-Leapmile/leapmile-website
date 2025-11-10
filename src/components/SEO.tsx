@@ -14,7 +14,7 @@ const SEO = ({
   description = "Leapmile Robotics revolutionizes warehouse fulfillment operations through advanced robotics automation. Our platform efficiently handles storage, retrieval, picking, auditing, and dispatch — transforming traditional warehouse facilities into smart, autonomous environments.",
   keywords = "warehouse automation, nano warehouse, robotic storage, automated retrieval, smart logistics, warehouse fulfillment robots, robotic picking systems, Leapmile Robotics, intelligent warehouse, automated warehouse systems",
   canonical,
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogImage = "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/leapmile_thum.jpg",
   schemaData,
 }: SEOProps) => {
   const siteUrl = "https://leapmileweb.lovable.app";
