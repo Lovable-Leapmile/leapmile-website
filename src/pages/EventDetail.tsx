@@ -215,9 +215,9 @@ const EventDetail = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="w-full h-[600px] border border-border rounded-lg overflow-hidden">
+                <div className="w-full h-[400px] border border-border rounded-lg overflow-hidden bg-muted/20">
                   <iframe
-                    src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                    src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf#view=FitH&toolbar=0"
                     className="w-full h-full"
                     title="Leapmile Brochure"
                   />
@@ -225,9 +225,8 @@ const EventDetail = () => {
                 <Button asChild className="w-full md:w-auto">
                   <a
                     href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    download="Leapmile_Brochure.pdf"
+                    className="inline-flex items-center gap-2"
                   >
                     <Download className="h-4 w-4" />
                     Download Brochure
