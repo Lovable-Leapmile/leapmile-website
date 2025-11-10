@@ -4,7 +4,6 @@ import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Linkedin, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import litepurpleLogo from "@/assets/litepurple-logo.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
 const Footer = () => {
@@ -89,7 +88,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-2 mb-6">
-                <img src={litepurpleLogo} alt="LeapMile Logo" className="h-8 w-auto" />
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile.png" alt="LeapMile Logo" className="h-8 w-auto" />
               </div>
               <p className="text-muted mb-6 leading-relaxed">Discover robotic nano warehousing done the Leapmile way!</p>
               

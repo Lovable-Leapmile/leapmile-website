@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Zap, ShoppingCart, Store, Wrench, Bot, Warehouse, Lock, Video, Info, Briefcase, Mail, Calendar } from "lucide-react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { navigateToContact } from "@/lib/navigation";
-import logoLight from "@/assets/logo-light.png";
-import logoDark from "@/assets/logo-dark.png";
 import qikpodLogo from "@/assets/qikpod-logo.png";
 import leapmileIcon from "@/assets/leapmile-icon.png";
 import qikpodIcon from "@/assets/qikpod-icon.png";
@@ -216,8 +214,8 @@ const Navigation = () => {
               </Link>
             ) : (
               <Link to="/" className="cursor-pointer">
-                <img src={logoLight} alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
-                <img src={logoDark} alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile.png" alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_light.png" alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
               </Link>
             )}
           </div>
