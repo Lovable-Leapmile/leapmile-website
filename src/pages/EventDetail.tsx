@@ -19,7 +19,7 @@ const EventDetail = () => {
 
   const events: EventItem[] = [
     {
-      id: "IMS-2025",
+      id: "IMS2025",
       title: "IMS-2025",
       location: "Bengaluru",
       description:
