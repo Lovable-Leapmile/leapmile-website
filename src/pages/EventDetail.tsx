@@ -194,18 +194,6 @@ const EventDetail = () => {
                     Your browser does not support the video tag.
                   </video>
                 </div>
-                {eventId === "IMS2025" && (
-                  <Button asChild className="mt-4 w-full md:w-auto">
-                    <a
-                      href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
-                      download="Leapmile_Brochure.pdf"
-                      className="inline-flex items-center gap-2"
-                    >
-                      <Download className="h-4 w-4" />
-                      Download Brochure
-                    </a>
-                  </Button>
-                )}
               </div>
               <aside className="w-full md:w-1/5">
                 <div className="border border-border rounded-lg p-3 md:p-4">
@@ -305,6 +293,55 @@ const EventDetail = () => {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </figure>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Event Brochure Section */}
+      {eventId === "IMS2025" && (
+        <section className="container mx-auto px-6 md:px-12 py-10">
+          <div className="space-y-6">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Event Brochure</h2>
+              <p className="text-muted-foreground">
+                Download our comprehensive brochure to learn more about Leapmile Robotics' warehouse automation solutions 
+                and discover how we're transforming logistics and fulfillment operations
+              </p>
+            </div>
+            
+            {/* Brochure Images */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <figure className="rounded-lg overflow-hidden border border-border">
+                <img
+                  src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Brochuer F.jpg"
+                  alt="Leapmile Robotics Brochure - Front"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </figure>
+              <figure className="rounded-lg overflow-hidden border border-border">
+                <img
+                  src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Brochuer B.jpg"
+                  alt="Leapmile Robotics Brochure - Back"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+
+            {/* Download Button */}
+            <div className="flex justify-center">
+              <Button asChild size="lg" className="w-full md:w-auto">
+                <a
+                  href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                  download="Leapmile_Brochure.pdf"
+                  className="inline-flex items-center gap-2"
+                >
+                  <Download className="h-4 w-4" />
+                  Download Brochure
+                </a>
+              </Button>
             </div>
           </div>
         </section>
