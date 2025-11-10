@@ -145,6 +145,18 @@ const EventDetail = () => {
                     Your browser does not support the video tag.
                   </video>
                 </div>
+                {eventId === "IMS2025" && (
+                  <Button asChild className="mt-4 w-full md:w-auto">
+                    <a
+                      href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                      download="Leapmile_Brochure.pdf"
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download Brochure
+                    </a>
+                  </Button>
+                )}
               </div>
               <aside className="w-full md:w-1/5">
                 <div className="border border-border rounded-lg p-3 md:p-4">
@@ -182,11 +194,6 @@ const EventDetail = () => {
             </div>
           )}
 
-          {event.caption && (
-            <div className="text-sm text-muted-foreground flex items-center gap-2">
-              <Play className="h-4 w-4" /> {event.caption}
-            </div>
-          )}
 
           {event.tags && event.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-2">
@@ -203,36 +210,6 @@ const EventDetail = () => {
         </div>
       </section>
 
-      {/* PDF Brochure Section */}
-      {eventId === "IMS2025" && (
-        <section className="container mx-auto px-6 md:px-12 py-10">
-          <div className="flex flex-col md:flex-row gap-4 items-start">
-            <div className="flex-1">
-              <h3 className="text-xl font-semibold text-foreground mb-2">Event Brochure</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Preview our comprehensive brochure showcasing Leapmile Robotics solutions
-              </p>
-              <div className="w-full h-[400px] border border-border rounded-lg overflow-hidden bg-muted/10 shadow-sm">
-                <iframe
-                  src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
-                  className="w-full h-full"
-                  title="Leapmile Brochure Preview"
-                />
-              </div>
-              <Button asChild className="mt-4 w-full md:w-auto">
-                <a
-                  href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
-                  download="Leapmile_Brochure.pdf"
-                  className="inline-flex items-center gap-2"
-                >
-                  <Download className="h-4 w-4" />
-                  Download Full Brochure
-                </a>
-              </Button>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Event Gallery Section */}
       {eventId === "IMS2025" && (
@@ -246,39 +223,39 @@ const EventDetail = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {[
-                { image: "DSC07752.JPG", span: "col-span-2 row-span-2" },
-                { image: "DSC07864.JPG", span: "col-span-1 row-span-1" },
-                { image: "DSC07925.JPG", span: "col-span-1 row-span-1" },
-                { image: "DSC08039.JPG", span: "col-span-1 row-span-2" },
-                { image: "DSC08109.JPG", span: "col-span-1 row-span-1" },
-                { image: "DSC08137.JPG", span: "col-span-2 row-span-1" },
-                { image: "DSC08153.JPG", span: "col-span-1 row-span-1" },
-                { image: "DSC08174.JPG", span: "col-span-1 row-span-2" },
-                { image: "DSC08321.JPG", span: "col-span-1 row-span-1" },
-                { image: "DSC08323.JPG", span: "col-span-2 row-span-2" },
-                { image: "DSC08545.JPG", span: "col-span-1 row-span-1" },
-                { image: "DSC08698.JPG", span: "col-span-1 row-span-1" },
-                { image: "stall1.jpeg", span: "col-span-1 row-span-1" },
-                { image: "stall2.jpeg", span: "col-span-1 row-span-2" },
-                { image: "stall3.jpeg", span: "col-span-2 row-span-1" },
-                { image: "stall4.jpeg", span: "col-span-1 row-span-1" },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className={`${item.span} rounded-lg overflow-hidden group relative cursor-pointer`}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                  <img
-                    src={`https://leapmile-website.blr1.digitaloceanspaces.com/${item.image}`}
-                    alt={`IMS 2025 Event - Booth Image ${index + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+              <div className="columns-2 md:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
+                {[
+                  "DSC07752.JPG",
+                  "DSC08323.JPG",
+                  "DSC08039.JPG",
+                  "stall2.jpeg",
+                  "DSC08137.JPG",
+                  "DSC07864.JPG",
+                  "DSC07925.JPG",
+                  "DSC08174.JPG",
+                  "DSC08109.JPG",
+                  "DSC08321.JPG",
+                  "DSC08545.JPG",
+                  "DSC08698.JPG",
+                  "stall1.jpeg",
+                  "stall3.jpeg",
+                  "stall4.jpeg",
+                ].map((image, index) => (
+                  <figure
+                    key={index}
+                    className="mb-3 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
+                  >
+                    <img
+                      src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
+                      alt={`IMS 2025 Event Photo ${index + 1}`}
+                      className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </figure>
+                ))}
+              </div>
           </div>
         </section>
       )}
