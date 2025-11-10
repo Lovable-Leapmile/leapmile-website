@@ -221,8 +221,8 @@ const Navigation = () => {
             {isQikpodMode ? <Link to="/qikpod" className="cursor-pointer">
                 <img src={qikpodLogo} alt="QikPod Logo" className="h-auto w-28" />
               </Link> : <Link to="/" className="cursor-pointer">
-                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile.png" alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
-                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_light.png" alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile.png" alt="LeapMile Logo" className="h-6 w-auto dark:hidden" />
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_light.png" alt="LeapMile Logo" className="h-6 w-auto hidden dark:block" />
               </Link>}
           </div>
 
