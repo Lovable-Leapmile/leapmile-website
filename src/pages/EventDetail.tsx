@@ -206,42 +206,31 @@ const EventDetail = () => {
       {/* PDF Brochure Section */}
       {eventId === "IMS2025" && (
         <section className="container mx-auto px-6 md:px-12 py-10">
-          <Card>
-            <CardHeader>
-              <CardTitle>Event Brochure</CardTitle>
-              <CardDescription>
-                Download our comprehensive brochure to learn more about Leapmile Robotics solutions
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="w-full h-[500px] border border-border rounded-lg overflow-hidden bg-muted/20">
-                  <object
-                    data="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                    type="application/pdf"
-                    className="w-full h-full"
-                    title="Leapmile Brochure"
-                  >
-                    <embed
-                      src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                      type="application/pdf"
-                      className="w-full h-full"
-                    />
-                  </object>
-                </div>
-                <Button asChild className="w-full md:w-auto">
-                  <a
-                    href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
-                    download="Leapmile_Brochure.pdf"
-                    className="inline-flex items-center gap-2"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download Brochure
-                  </a>
-                </Button>
+          <div className="flex flex-col md:flex-row gap-4 items-start">
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-foreground mb-2">Event Brochure</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Preview our comprehensive brochure showcasing Leapmile Robotics solutions
+              </p>
+              <div className="w-full h-[400px] border border-border rounded-lg overflow-hidden bg-muted/10 shadow-sm">
+                <iframe
+                  src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                  className="w-full h-full"
+                  title="Leapmile Brochure Preview"
+                />
               </div>
-            </CardContent>
-          </Card>
+              <Button asChild className="mt-4 w-full md:w-auto">
+                <a
+                  href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                  download="Leapmile_Brochure.pdf"
+                  className="inline-flex items-center gap-2"
+                >
+                  <Download className="h-4 w-4" />
+                  Download Full Brochure
+                </a>
+              </Button>
+            </div>
+          </div>
         </section>
       )}
 
