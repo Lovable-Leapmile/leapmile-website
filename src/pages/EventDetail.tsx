@@ -258,17 +258,17 @@ const EventDetail = () => {
             </figure>
 
             {/* Gallery Grid */}
-            <div className="columns-2 md:columns-3 gap-2 [column-fill:_balance]">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
               {galleryImages.slice(1).map((image, index) => (
                 <figure
                   key={index}
-                  className="mb-2 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
+                  className="rounded-lg overflow-hidden group relative cursor-pointer aspect-[4/3]"
                   onClick={() => openLightbox(index + 1)}
                 >
                   <img
                     src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
                     alt={`IMS 2025 Event Photo ${index + 2}`}
-                    className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                     decoding="async"
                   />
