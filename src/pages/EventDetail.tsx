@@ -27,17 +27,9 @@ const EventDetail = () => {
       location: "Bengaluru",
       description:
         "Leapmile Robotics showcased its cutting-edge warehouse automation and robotics systems at IMS 2025, Bengalore — connecting innovation, technology, and industry leaders under one roof.",
-      videoUrl:
-        "https://leapmile-website.blr1.digitaloceanspaces.com/Leapmile_IMS_EVENT.mp4",
-      tags: [
-        "#IMS2025",
-        "#Bengaluru",
-        "#LeapmileRobotics",
-        "#Automation",
-        "#Innovation",
-      ],
-      caption:
-        "Leapmile Robotics at IMS 2025: Powering the Future of Warehousing",
+      videoUrl: "https://leapmile-website.blr1.digitaloceanspaces.com/Leapmile_IMS_EVENT.mp4",
+      tags: ["#IMS2025", "#Bengaluru", "#LeapmileRobotics", "#Automation", "#Innovation"],
+      caption: "Leapmile Robotics at IMS 2025: Powering the Future of Warehousing",
     },
   ];
 
@@ -121,10 +113,7 @@ const EventDetail = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-foreground mb-4">Event Not Found</h1>
-          <Link
-            to="/events"
-            className="text-primary hover:underline flex items-center gap-2 justify-center"
-          >
+          <Link to="/events" className="text-primary hover:underline flex items-center gap-2 justify-center">
             <ArrowLeft className="h-4 w-4" />
             Back to Events
           </Link>
@@ -162,10 +151,7 @@ const EventDetail = () => {
       <div className="pt-12" />
 
       <section className="container mx-auto px-6 md:px-12 py-10">
-        <Link
-          to="/events"
-          className="inline-flex items-center gap-2 text-primary hover:underline mb-6"
-        >
+        <Link to="/events" className="inline-flex items-center gap-2 text-primary hover:underline mb-6">
           <ArrowLeft className="h-4 w-4" />
           Back to Events
         </Link>
@@ -197,9 +183,7 @@ const EventDetail = () => {
               </div>
               <aside className="w-full md:w-1/5">
                 <div className="border border-border rounded-lg p-3 md:p-4">
-                  <div className="text-sm font-medium text-foreground mb-2">
-                    Robot Components
-                  </div>
+                  <div className="text-sm font-medium text-foreground mb-2">Robot Components</div>
                   <div className="grid grid-cols-2 gap-2 md:grid-cols-1">
                     {videoFlows.map((flow, index) => (
                       <button
@@ -231,7 +215,6 @@ const EventDetail = () => {
             </div>
           )}
 
-
           {event.tags && event.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-2">
               {event.tags.map((tag) => (
@@ -247,7 +230,6 @@ const EventDetail = () => {
         </div>
       </section>
 
-
       {/* Event Gallery Section */}
       {eventId === "IMS2025" && (
         <section className="container mx-auto px-6 md:px-12 py-10">
@@ -255,13 +237,13 @@ const EventDetail = () => {
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Event Gallery</h2>
               <p className="text-muted-foreground">
-                Experience the highlights from our booth at IMS 2025 Bengaluru — showcasing live demonstrations, 
+                Experience the highlights from our booth at IMS 2025 Bengaluru — showcasing live demonstrations,
                 engaging conversations, and innovative warehouse automation solutions
               </p>
             </div>
-            
+
             {/* Featured Hero Image */}
-            <figure 
+            <figure
               className="rounded-lg overflow-hidden group relative cursor-pointer mb-6"
               onClick={() => openLightbox(0)}
             >
@@ -305,11 +287,11 @@ const EventDetail = () => {
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Event Brochure</h2>
               <p className="text-muted-foreground">
-                Download our comprehensive brochure to learn more about Leapmile Robotics' warehouse automation solutions 
-                and discover how we're transforming logistics and fulfillment operations
+                Download our comprehensive brochure to learn more about Leapmile Robotics' warehouse automation
+                solutions and discover how we're transforming logistics and fulfillment operations
               </p>
             </div>
-            
+
             {/* Brochure Images */}
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <figure className="rounded-lg overflow-hidden border border-border">
@@ -322,7 +304,7 @@ const EventDetail = () => {
               </figure>
               <figure className="rounded-lg overflow-hidden border border-border">
                 <img
-                  src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Brochuer B.jpg"
+                  src="https://leapmile-website.blr1.cdn.digitaloceanspaces.com/Broucher B.jpg"
                   alt="Leapmile Robotics Brochure - Back"
                   className="w-full h-auto object-cover"
                   loading="lazy"
