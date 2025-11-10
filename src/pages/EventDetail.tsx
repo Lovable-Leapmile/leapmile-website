@@ -49,7 +49,6 @@ const EventDetail = () => {
 
   const galleryImages = [
     "DSC07752.JPG",
-    "DSC08323.JPG",
     "DSC08039.JPG",
     "stall2.jpeg",
     "DSC08137.JPG",
@@ -289,11 +288,11 @@ const EventDetail = () => {
             </figure>
 
             {/* Gallery Grid */}
-            <div className="columns-2 md:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
+            <div className="columns-2 md:columns-3 gap-2 [column-fill:_balance]">
               {galleryImages.slice(1).map((image, index) => (
                 <figure
                   key={index}
-                  className="mb-3 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
+                  className="mb-2 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
                   onClick={() => openLightbox(index + 1)}
                 >
                   <img
