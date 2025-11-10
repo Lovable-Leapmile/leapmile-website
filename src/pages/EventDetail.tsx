@@ -223,39 +223,51 @@ const EventDetail = () => {
               </p>
             </div>
             
-              <div className="columns-2 md:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
-                {[
-                  "DSC07752.JPG",
-                  "DSC08323.JPG",
-                  "DSC08039.JPG",
-                  "stall2.jpeg",
-                  "DSC08137.JPG",
-                  "DSC07864.JPG",
-                  "DSC07925.JPG",
-                  "DSC08174.JPG",
-                  "DSC08109.JPG",
-                  "DSC08321.JPG",
-                  "DSC08545.JPG",
-                  "DSC08698.JPG",
-                  "stall1.jpeg",
-                  "stall3.jpeg",
-                  "stall4.jpeg",
-                ].map((image, index) => (
-                  <figure
-                    key={index}
-                    className="mb-3 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
-                  >
-                    <img
-                      src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
-                      alt={`IMS 2025 Event Photo ${index + 1}`}
-                      className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </figure>
-                ))}
-              </div>
+            {/* Featured Hero Image */}
+            <figure className="rounded-lg overflow-hidden group relative cursor-pointer mb-6">
+              <img
+                src="https://leapmile-website.blr1.digitaloceanspaces.com/DSC07752.JPG"
+                alt="IMS 2025 Featured Event Photo"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </figure>
+
+            {/* Gallery Grid */}
+            <div className="columns-2 md:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
+              {[
+                "DSC08323.JPG",
+                "DSC08039.JPG",
+                "stall2.jpeg",
+                "DSC08137.JPG",
+                "DSC07864.JPG",
+                "DSC07925.JPG",
+                "DSC08174.JPG",
+                "DSC08109.JPG",
+                "DSC08321.JPG",
+                "DSC08545.JPG",
+                "DSC08698.JPG",
+                "stall1.jpeg",
+                "stall3.jpeg",
+                "stall4.jpeg",
+              ].map((image, index) => (
+                <figure
+                  key={index}
+                  className="mb-3 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
+                >
+                  <img
+                    src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
+                    alt={`IMS 2025 Event Photo ${index + 2}`}
+                    className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
       )}
