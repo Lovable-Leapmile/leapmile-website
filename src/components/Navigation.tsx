@@ -108,19 +108,31 @@ const Navigation = () => {
     path: "/virtual-tour",
     icon: Video
   }];
-  const companyItems = [
-    { name: "About Us", icon: Info },
-    { name: "Events", icon: Calendar },
-    { name: "Careers", icon: Briefcase },
-    { name: "Contact Us", icon: Mail }
-  ];
+  const companyItems = [{
+    name: "About Us",
+    icon: Info
+  }, {
+    name: "Events",
+    icon: Calendar
+  }, {
+    name: "Careers",
+    icon: Briefcase
+  }, {
+    name: "Contact Us",
+    icon: Mail
+  }];
 
   // Helper for Home click - refresh if already on homepage
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     // Clear hash and navigate to homepage
-    navigate("/", { replace: true });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate("/", {
+      replace: true
+    });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
     // Force refresh to reset any state
     setTimeout(() => {
       if (location.hash) {
@@ -156,7 +168,6 @@ const Navigation = () => {
         }, 100);
       }
     }
-    
     if (location.pathname === "/" && location.hash === "#contact") {
       const contactSection = document.getElementById("contact");
       if (contactSection) {
@@ -174,7 +185,7 @@ const Navigation = () => {
     setIndustriesOpen(false);
     setTechnologyOpen(false);
     setCompanyOpen(false);
-    
+
     // Clear any pending timeouts
     if (industriesTimeoutRef.current) {
       clearTimeout(industriesTimeoutRef.current);
@@ -197,7 +208,6 @@ const Navigation = () => {
         setIsMenuOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -208,16 +218,12 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            {isQikpodMode ? (
-              <Link to="/qikpod" className="cursor-pointer">
+            {isQikpodMode ? <Link to="/qikpod" className="cursor-pointer">
                 <img src={qikpodLogo} alt="QikPod Logo" className="h-auto w-28" />
-              </Link>
-            ) : (
-              <Link to="/" className="cursor-pointer">
-                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile.png" alt="LeapMile Logo" className="h-8 w-auto dark:hidden" />
+              </Link> : <Link to="/" className="cursor-pointer">
+                <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile.png" alt="LeapMile Logo" className="h-7.5 w-auto dark:hidden" />
                 <img src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_light.png" alt="LeapMile Logo" className="h-8 w-auto hidden dark:block" />
-              </Link>
-            )}
+              </Link>}
           </div>
 
           {/* Desktop Navigation - Only show on Leapmile page */}
@@ -333,10 +339,10 @@ const Navigation = () => {
               
               {/* Mobile Navigation Links - Only show on Leapmile page */}
               {!isQikpodMode && <>
-                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={(e) => {
-                    toggleMenu();
-                    handleHomeClick(e);
-                  }}>
+                  <Link to="/" className="text-foreground hover:text-primary transition-colors" onClick={e => {
+              toggleMenu();
+              handleHomeClick(e);
+            }}>
                     Home
                   </Link>
                   
