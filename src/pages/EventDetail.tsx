@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { MapPin, Play, Tag, ArrowLeft } from "lucide-react";
+import { MapPin, Play, Tag, ArrowLeft, Download } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 type EventItem = {
   id: string;
@@ -200,6 +202,91 @@ const EventDetail = () => {
           )}
         </div>
       </section>
+
+      {/* PDF Brochure Section */}
+      {eventId === "IMS2025" && (
+        <section className="container mx-auto px-6 md:px-12 py-10">
+          <Card>
+            <CardHeader>
+              <CardTitle>Event Brochure</CardTitle>
+              <CardDescription>
+                Download our comprehensive brochure to learn more about Leapmile Robotics solutions
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="w-full h-[600px] border border-border rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                    className="w-full h-full"
+                    title="Leapmile Brochure"
+                  />
+                </div>
+                <Button asChild className="w-full md:w-auto">
+                  <a
+                    href="https://leapmile-website.blr1.digitaloceanspaces.com/leapmile_brochure.pdf"
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download Brochure
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+      )}
+
+      {/* Event Gallery Section */}
+      {eventId === "IMS2025" && (
+        <section className="container mx-auto px-6 md:px-12 py-10">
+          <Card>
+            <CardHeader>
+              <CardTitle>Event Gallery</CardTitle>
+              <CardDescription>
+                Experience the highlights from our booth at IMS 2025 Bengaluru — showcasing live demonstrations, 
+                engaging conversations, and innovative warehouse automation solutions
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  "DSC07752.JPG",
+                  "DSC07864.JPG",
+                  "DSC07925.JPG",
+                  "DSC08039.JPG",
+                  "DSC08109.JPG",
+                  "DSC08137.JPG",
+                  "DSC08153.JPG",
+                  "DSC08174.JPG",
+                  "DSC08321.JPG",
+                  "DSC08323.JPG",
+                  "DSC08545.JPG",
+                  "DSC08698.JPG",
+                  "stall1.jpeg",
+                  "stall2.jpeg",
+                  "stall3.jpeg",
+                  "stall4.jpeg",
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="aspect-square rounded-lg overflow-hidden border border-border hover:border-primary transition-colors cursor-pointer group"
+                  >
+                    <img
+                      src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
+                      alt={`IMS 2025 Event - Booth Image ${index + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+      )}
 
       <Footer />
     </div>
