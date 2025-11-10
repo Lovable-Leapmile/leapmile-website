@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { MapPin, Play, Tag, ArrowLeft, Download } from "lucide-react";
+import { MapPin, Play, Tag, ArrowLeft, Download, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 type EventItem = {
   id: string;
@@ -43,6 +44,26 @@ const EventDetail = () => {
   const event = events.find((e) => e.id === eventId);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [activeFlowIndex, setActiveFlowIndex] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const galleryImages = [
+    "DSC07752.JPG",
+    "DSC08323.JPG",
+    "DSC08039.JPG",
+    "stall2.jpeg",
+    "DSC08137.JPG",
+    "DSC07864.JPG",
+    "DSC07925.JPG",
+    "DSC08174.JPG",
+    "DSC08109.JPG",
+    "DSC08321.JPG",
+    "DSC08545.JPG",
+    "DSC08698.JPG",
+    "stall1.jpeg",
+    "stall3.jpeg",
+    "stall4.jpeg",
+  ];
 
   const videoFlows: { title: string; seconds: number }[] = [
     { title: "Conveyor", seconds: 7 },
@@ -66,6 +87,35 @@ const EventDetail = () => {
       }
     }
   }, [eventId]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === "ArrowLeft") {
+        setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+      } else if (e.key === "ArrowRight") {
+        setCurrentImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+      } else if (e.key === "Escape") {
+        setLightboxOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen, galleryImages.length]);
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+  };
 
   if (!event) {
     return (
@@ -224,9 +274,12 @@ const EventDetail = () => {
             </div>
             
             {/* Featured Hero Image */}
-            <figure className="rounded-lg overflow-hidden group relative cursor-pointer mb-6">
+            <figure 
+              className="rounded-lg overflow-hidden group relative cursor-pointer mb-6"
+              onClick={() => openLightbox(0)}
+            >
               <img
-                src="https://leapmile-website.blr1.digitaloceanspaces.com/DSC07752.JPG"
+                src={`https://leapmile-website.blr1.digitaloceanspaces.com/${galleryImages[0]}`}
                 alt="IMS 2025 Featured Event Photo"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="eager"
@@ -237,25 +290,11 @@ const EventDetail = () => {
 
             {/* Gallery Grid */}
             <div className="columns-2 md:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
-              {[
-                "DSC08323.JPG",
-                "DSC08039.JPG",
-                "stall2.jpeg",
-                "DSC08137.JPG",
-                "DSC07864.JPG",
-                "DSC07925.JPG",
-                "DSC08174.JPG",
-                "DSC08109.JPG",
-                "DSC08321.JPG",
-                "DSC08545.JPG",
-                "DSC08698.JPG",
-                "stall1.jpeg",
-                "stall3.jpeg",
-                "stall4.jpeg",
-              ].map((image, index) => (
+              {galleryImages.slice(1).map((image, index) => (
                 <figure
                   key={index}
                   className="mb-3 break-inside-avoid rounded-lg overflow-hidden group relative cursor-pointer"
+                  onClick={() => openLightbox(index + 1)}
                 >
                   <img
                     src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
@@ -271,6 +310,50 @@ const EventDetail = () => {
           </div>
         </section>
       )}
+
+      {/* Lightbox Modal */}
+      <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/95 border-none">
+          <div className="relative w-full h-[95vh] flex items-center justify-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-4 right-4 z-50 text-white hover:bg-white/20"
+              onClick={() => setLightboxOpen(false)}
+            >
+              <X className="h-6 w-6" />
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 h-12 w-12"
+              onClick={goToPrevious}
+            >
+              <ChevronLeft className="h-8 w-8" />
+            </Button>
+
+            <img
+              src={`https://leapmile-website.blr1.digitaloceanspaces.com/${galleryImages[currentImageIndex]}`}
+              alt={`IMS 2025 Event Photo ${currentImageIndex + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 h-12 w-12"
+              onClick={goToNext}
+            >
+              <ChevronRight className="h-8 w-8" />
+            </Button>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+              {currentImageIndex + 1} / {galleryImages.length}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
