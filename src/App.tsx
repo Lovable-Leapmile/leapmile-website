@@ -23,6 +23,7 @@ import PricingAndRefunds from "./pages/PricingAndRefunds";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
+import EventDetail from "./pages/EventDetail";
 import RetailClickCollect from "./pages/solutions/RetailClickCollect";
 import LastMileDelivery from "./pages/solutions/LastMileDelivery";
 import DigitalMailroom from "./pages/solutions/DigitalMailroom";
@@ -50,6 +51,7 @@ const AppContent = () => {
           <Route path="/technology/nano-warehouse" element={<NanoWarehouse />} />
           <Route path="/virtual-tour" element={<VirtualTour />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/:eventId" element={<EventDetail />} />
           <Route path="/terms-and-privacy" element={<TermsAndPrivacy />} />
           <Route path="/pricing-and-refunds" element={<PricingAndRefunds />} />
           <Route path="/careers" element={<Careers />} />
