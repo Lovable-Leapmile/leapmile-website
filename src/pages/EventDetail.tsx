@@ -20,7 +20,7 @@ const EventDetail = () => {
   const events: EventItem[] = [
     {
       id: "IMS2025",
-      title: "IMS-2025",
+      title: "IMS 2025",
       location: "Bengaluru",
       description:
         "Leapmile Robotics showcased its cutting-edge warehouse automation and robotics systems at IMS 2025, Bengalore — connecting innovation, technology, and industry leaders under one roof.",
