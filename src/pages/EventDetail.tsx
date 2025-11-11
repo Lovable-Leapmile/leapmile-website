@@ -244,30 +244,34 @@ const EventDetail = () => {
 
             {/* Featured Hero Image */}
             <figure
-              className="rounded-lg overflow-hidden group relative cursor-pointer mb-6"
+              className="rounded-lg overflow-hidden group relative cursor-pointer mb-6 aspect-video bg-muted"
               onClick={() => openLightbox(0)}
             >
               <img
                 src={`https://leapmile-website.blr1.digitaloceanspaces.com/${galleryImages[0]}`}
                 alt="IMS 2025 Featured Event Photo"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover will-change-transform group-hover:scale-105 transition-transform duration-700"
                 loading="eager"
                 decoding="async"
+                width="1200"
+                height="675"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </figure>
 
             {/* Second Featured Image - Stall View */}
             <figure
-              className="rounded-lg overflow-hidden group relative cursor-pointer mb-6"
+              className="rounded-lg overflow-hidden group relative cursor-pointer mb-6 aspect-video bg-muted"
               onClick={() => openLightbox(13)}
             >
               <img
                 src="https://leapmile-website.blr1.digitaloceanspaces.com/stall4.jpeg"
                 alt="IMS 2025 Stall Overview"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                loading="eager"
+                className="w-full h-full object-cover will-change-transform group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </figure>
@@ -277,15 +281,17 @@ const EventDetail = () => {
               {galleryImages.slice(1, 13).map((image, index) => (
                 <figure
                   key={index}
-                  className="rounded-lg overflow-hidden group relative cursor-pointer aspect-[4/3]"
+                  className="rounded-lg overflow-hidden group relative cursor-pointer aspect-[4/3] bg-muted"
                   onClick={() => openLightbox(index + 1)}
                 >
                   <img
                     src={`https://leapmile-website.blr1.digitaloceanspaces.com/${image}`}
                     alt={`IMS 2025 Event Photo ${index + 2}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover will-change-transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                     decoding="async"
+                    width="400"
+                    height="300"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </figure>
