@@ -257,9 +257,24 @@ const EventDetail = () => {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </figure>
 
+            {/* Second Featured Image - Stall View */}
+            <figure
+              className="rounded-lg overflow-hidden group relative cursor-pointer mb-6"
+              onClick={() => openLightbox(13)}
+            >
+              <img
+                src="https://leapmile-website.blr1.digitaloceanspaces.com/stall4.jpeg"
+                alt="IMS 2025 Stall Overview"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </figure>
+
             {/* Gallery Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {galleryImages.slice(1).map((image, index) => (
+              {galleryImages.slice(1, 13).map((image, index) => (
                 <figure
                   key={index}
                   className="rounded-lg overflow-hidden group relative cursor-pointer aspect-[4/3]"
