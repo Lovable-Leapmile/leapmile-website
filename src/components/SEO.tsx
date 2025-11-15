@@ -17,7 +17,7 @@ const SEO = ({
   ogImage = "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/leapmile_thum.jpg",
   schemaData,
 }: SEOProps) => {
-  const siteUrl = "https://leapmileweb.lovable.app";
+  const siteUrl = "https://www.leapmile.com";
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
   return (

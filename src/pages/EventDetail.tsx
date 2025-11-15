@@ -134,7 +134,7 @@ const EventDetail = () => {
     organizer: {
       "@type": "Organization",
       name: "Leapmile Robotics",
-      url: "https://leapmileweb.lovable.app",
+      url: "https://www.leapmile.com",
     },
   };
 

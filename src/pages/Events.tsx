@@ -25,7 +25,7 @@ const Events = () => {
     isPartOf: {
       "@type": "WebSite",
       name: "Leapmile Robotics",
-      url: "https://leapmileweb.lovable.app"
+      url: "https://www.leapmile.com"
     }
   };
   return <div className="min-h-screen bg-background">

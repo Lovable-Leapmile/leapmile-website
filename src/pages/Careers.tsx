@@ -63,7 +63,7 @@ const Careers = () => {
     "@type": "WebPage",
     "name": "Careers at Leapmile Robotics",
     "description": "Join the Leapmile Robotics team. We're hiring robotics engineers, Python engineers, design engineers, and field service engineers to build innovative warehouse automation solutions.",
-    "url": "https://leapmileweb.lovable.app/careers"
+    "url": "https://www.leapmile.com/careers"
   };
 
   return <div className="min-h-screen bg-background">

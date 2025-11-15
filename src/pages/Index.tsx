@@ -36,9 +36,9 @@ const Index = () => {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://leapmileweb.lovable.app/#organization",
+        "@id": "https://www.leapmile.com/#organization",
         "name": "Leapmile Robotics",
-        "url": "https://leapmileweb.lovable.app",
+        "url": "https://www.leapmile.com",
         "logo": {
           "@type": "ImageObject",
           "url": "https://leapmile-website.blr1.cdn.digitaloceanspaces.com/favicon_new.png"
@@ -47,14 +47,14 @@ const Index = () => {
       },
       {
         "@type": "WebPage",
-        "@id": "https://leapmileweb.lovable.app/#webpage",
-        "url": "https://leapmileweb.lovable.app",
+        "@id": "https://www.leapmile.com/#webpage",
+        "url": "https://www.leapmile.com",
         "name": "Leapmile Robotics | Nano Warehouse Automation & Intelligent Fulfillment Solutions",
         "isPartOf": {
-          "@id": "https://leapmileweb.lovable.app/#organization"
+          "@id": "https://www.leapmile.com/#organization"
         },
         "about": {
-          "@id": "https://leapmileweb.lovable.app/#organization"
+          "@id": "https://www.leapmile.com/#organization"
         },
         "description": "Leapmile Robotics revolutionizes warehouse fulfillment operations through advanced robotics automation. Our platform efficiently handles storage, retrieval, picking, auditing, and dispatch.",
         "breadcrumb": {
@@ -64,25 +64,25 @@ const Index = () => {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://leapmileweb.lovable.app"
+              "item": "https://www.leapmile.com"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Industries",
-              "item": "https://leapmileweb.lovable.app/industries/quick-commerce"
+              "item": "https://www.leapmile.com/industries/quick-commerce"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": "Careers",
-              "item": "https://leapmileweb.lovable.app/careers"
+              "item": "https://www.leapmile.com/careers"
             },
             {
               "@type": "ListItem",
               "position": 4,
               "name": "Contact Us",
-              "item": "https://leapmileweb.lovable.app/#contact"
+              "item": "https://www.leapmile.com/#contact"
             }
           ]
         }

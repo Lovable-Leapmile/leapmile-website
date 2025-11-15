@@ -68,7 +68,7 @@ const QuickCommerce = () => {
     "@type": "WebPage",
     "name": "Quick Commerce Warehouse Automation Solutions",
     "description": "Transform quick commerce operations with Leapmile Robotics' automated warehouse solutions. Increase throughput, eliminate errors, and enhance customer experience with robotic picking systems.",
-    "url": "https://leapmileweb.lovable.app/industries/quick-commerce"
+    "url": "https://www.leapmile.com/industries/quick-commerce"
   };
 
   return <div className="min-h-screen bg-background">
